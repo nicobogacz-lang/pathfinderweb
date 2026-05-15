@@ -1101,7 +1101,7 @@ footer {
 
   <div class="contacto-divider reveal">o dejanos tu mensaje</div>
 
-  <form class="contacto-form reveal" action="https://formspree.io/f/meenyqjr" method="POST">
+  <form class="contacto-form reveal" id="contactForm">
     <div class="cf-row">
       <input class="cf-input" type="text" name="nombre" placeholder="Tu nombre" required>
       <input class="cf-input" type="text" name="colegio" placeholder="Nombre del colegio" required>
@@ -1109,7 +1109,6 @@ footer {
     <input class="cf-input" type="tel" name="telefono" placeholder="Tu WhatsApp o teléfono (opcional)">
     <textarea class="cf-textarea" name="mensaje" placeholder="Contanos un poco sobre tu colegio y qué necesitás..." required></textarea>
     <input type="hidden" name="_subject" value="Nuevo contacto desde PathFinder">
-    <input type="hidden" name="_next" value="https://pathfinder.net.ar/?success=true">
     <input type="hidden" name="_replyto" value="">
     <button type="submit" class="cf-submit">Enviar mensaje →</button>
   </form>
@@ -1149,13 +1148,39 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Formspree success message
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('success')) {
-  const form = document.querySelector('.contacto-form');
-  if (form) {
-    form.innerHTML = '<div style="text-align:center;padding:40px 0;font-family:Cormorant Garamond,serif;font-size:26px;color:#F5C040;">¡Mensaje recibido! Te respondemos a la brevedad. 🎯</div>';
-  }
+// Formspree AJAX submit
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = contactForm.querySelector('.cf-submit');
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    const data = new FormData(contactForm);
+    try {
+      const res = await fetch('https://formspree.io/f/meenyqjr', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        contactForm.innerHTML = `<div style="text-align:center;padding:48px 0;font-family:'Cormorant Garamond',serif;">
+          <div style="font-size:48px;margin-bottom:16px;">🎯</div>
+          <div style="font-size:32px;font-weight:700;color:#F5C040;margin-bottom:12px;">¡Mensaje recibido!</div>
+          <div style="font-size:18px;color:rgba(255,248,236,.6);">Te respondemos a la brevedad para coordinar la prueba gratuita.</div>
+        </div>`;
+      } else {
+        btn.textContent = 'Error al enviar. Intentá de nuevo.';
+        btn.style.background = '#e53e3e';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      btn.textContent = 'Error al enviar. Intentá de nuevo.';
+      btn.style.background = '#e53e3e';
+      btn.disabled = false;
+    }
+  });
 }
 </script>
 </body>

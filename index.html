@@ -1094,26 +1094,23 @@ footer {
     <a href="https://wa.me/5491169633434?text=Hola%20Nicolás%2C%20me%20interesa%20conocer%20más%20sobre%20PathFinder" target="_blank" class="contact-card whatsapp reveal reveal-delay-1">
       <div class="cc-icon">💬</div>
       <div class="cc-label">WhatsApp</div>
-      <div class="cc-value">11 6963 3434</div>
-      <div class="cc-action">Escribir ahora →</div>
+      <div class="cc-value">Escribinos por WhatsApp</div>
+      <div class="cc-action">Abrir conversación →</div>
     </a>
-    <div class="contact-card reveal reveal-delay-2" style="cursor:default;">
-      <div class="cc-icon">🧭</div>
-      <div class="cc-label">La plataforma</div>
-      <div class="cc-value" style="font-size:20px;">pathfinder.net.ar</div>
-      <div class="cc-action">Probá el juego</div>
-    </div>
   </div>
 
   <div class="contacto-divider reveal">o dejanos tu mensaje</div>
 
-  <form class="contacto-form reveal" onsubmit="handleSubmit(event)">
+  <form class="contacto-form reveal" action="https://formspree.io/f/nicobogacz@gmail.com" method="POST">
     <div class="cf-row">
-      <input class="cf-input" type="text" placeholder="Tu nombre" required>
-      <input class="cf-input" type="text" placeholder="Nombre del colegio" required>
+      <input class="cf-input" type="text" name="nombre" placeholder="Tu nombre" required>
+      <input class="cf-input" type="text" name="colegio" placeholder="Nombre del colegio" required>
     </div>
-    <input class="cf-input" type="tel" placeholder="Tu WhatsApp o teléfono">
-    <textarea class="cf-textarea" placeholder="Contanos un poco sobre tu colegio y qué necesitás..." required></textarea>
+    <input class="cf-input" type="tel" name="telefono" placeholder="Tu WhatsApp o teléfono (opcional)">
+    <textarea class="cf-textarea" name="mensaje" placeholder="Contanos un poco sobre tu colegio y qué necesitás..." required></textarea>
+    <input type="hidden" name="_subject" value="Nuevo contacto desde PathFinder">
+    <input type="hidden" name="_next" value="https://pathfinder.net.ar/?success=true">
+    <input type="hidden" name="_replyto" value="">
     <button type="submit" class="cf-submit">Enviar mensaje →</button>
   </form>
 </section>
@@ -1152,14 +1149,13 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Form submit
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.cf-submit');
-  btn.textContent = '¡Mensaje enviado! Te contactamos pronto ✓';
-  btn.style.background = '#25D366';
-  btn.disabled = true;
-  // In production, wire this to a form service (Formspree, EmailJS, etc.)
+// Formspree success message
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('success')) {
+  const form = document.querySelector('.contacto-form');
+  if (form) {
+    form.innerHTML = '<div style="text-align:center;padding:40px 0;font-family:Cormorant Garamond,serif;font-size:26px;color:#F5C040;">¡Mensaje recibido! Te respondemos a la brevedad. 🎯</div>';
+  }
 }
 </script>
 </body>

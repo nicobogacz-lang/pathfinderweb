@@ -430,34 +430,24 @@ section {
   border-right: 1px solid rgba(245,192,64,.08);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   transition: background .2s;
 }
 .modelo:last-child { border-right: none; }
 .modelo:hover { background: rgba(255,255,255,.03); }
 
-.modelo-pct {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 76px;
-  font-weight: 700;
-  line-height: 1;
+.modelo-ico {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
 }
-.modelo-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--cream);
-}
-.modelo-desc {
-  font-size: 14px;
-  color: rgba(255,248,236,.45);
-  line-height: 1.6;
-}
-.modelo-bar {
-  height: 3px;
-  border-radius: 99px;
-  margin-top: 8px;
-  opacity: .6;
-}
+.modelo-name { font-size: 20px; font-weight: 600; color: var(--cream); }
+.modelo-tag { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 500; }
+.modelo-desc { font-size: 14px; color: rgba(255,248,236,.45); line-height: 1.6; }
+.modelo-bar { display: none; }
 
 .ciencia-callout {
   background: rgba(124,58,237,.1);
@@ -969,28 +959,58 @@ footer {
 
   <div class="modelos-grid reveal">
     <div class="modelo">
-      <div class="modelo-pct" style="color:#7C3AED">45%</div>
+      <div class="modelo-ico" style="background:rgba(124,58,237,.15);color:#7C3AED">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="12" r="6" stroke="#7C3AED" stroke-width="2"/>
+          <circle cx="8" cy="26" r="4" stroke="#7C3AED" stroke-width="2"/>
+          <circle cx="28" cy="26" r="4" stroke="#7C3AED" stroke-width="2"/>
+          <line x1="13" y1="17" x2="10" y2="22" stroke="#7C3AED" stroke-width="1.5"/>
+          <line x1="23" y1="17" x2="26" y2="22" stroke="#7C3AED" stroke-width="1.5"/>
+        </svg>
+      </div>
       <div class="modelo-name">Holland RIASEC</div>
-      <div class="modelo-desc">Tipos de personalidad vocacional: Realista, Investigador, Artístico, Social, Emprendedor, Convencional.</div>
-      <div class="modelo-bar" style="background:#7C3AED;width:45%"></div>
+      <div class="modelo-tag" style="color:#7C3AED">Personalidad vocacional</div>
+      <div class="modelo-desc">Clasifica intereses en 6 tipos: Realista, Investigador, Artístico, Social, Emprendedor y Convencional.</div>
     </div>
     <div class="modelo">
-      <div class="modelo-pct" style="color:#0891B2">25%</div>
+      <div class="modelo-ico" style="background:rgba(8,145,178,.15);color:#0891B2">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4 L32 18 L18 32 L4 18 Z" stroke="#0891B2" stroke-width="2" fill="none"/>
+          <circle cx="18" cy="18" r="5" stroke="#0891B2" stroke-width="2"/>
+          <line x1="18" y1="4" x2="18" y2="13" stroke="#0891B2" stroke-width="1.5"/>
+          <line x1="18" y1="23" x2="18" y2="32" stroke="#0891B2" stroke-width="1.5"/>
+          <line x1="4" y1="18" x2="13" y2="18" stroke="#0891B2" stroke-width="1.5"/>
+          <line x1="23" y1="18" x2="32" y2="18" stroke="#0891B2" stroke-width="1.5"/>
+        </svg>
+      </div>
       <div class="modelo-name">DISC</div>
-      <div class="modelo-desc">Comportamiento bajo presión y en equipo. Mide Dominancia, Influencia, Estabilidad y Cumplimiento.</div>
-      <div class="modelo-bar" style="background:#0891B2;width:25%"></div>
+      <div class="modelo-tag" style="color:#0891B2">Comportamiento bajo presión</div>
+      <div class="modelo-desc">Mide Dominancia, Influencia, Estabilidad y Cumplimiento — cómo actúa el alumno en situaciones reales.</div>
     </div>
     <div class="modelo">
-      <div class="modelo-pct" style="color:#059669">20%</div>
+      <div class="modelo-ico" style="background:rgba(5,150,105,.15);color:#059669">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6 L18 30" stroke="#059669" stroke-width="2"/>
+          <path d="M18 6 C18 6 10 12 10 18 C10 24 18 30 18 30 C18 30 26 24 26 18 C26 12 18 6 18 6Z" stroke="#059669" stroke-width="2" fill="none"/>
+          <circle cx="18" cy="18" r="3" fill="#059669"/>
+        </svg>
+      </div>
       <div class="modelo-name">Motivadores</div>
-      <div class="modelo-desc">Valores e impulsores internos: qué mueve a cada persona más allá de sus habilidades.</div>
-      <div class="modelo-bar" style="background:#059669;width:20%"></div>
+      <div class="modelo-tag" style="color:#059669">Valores internos</div>
+      <div class="modelo-desc">Qué impulsa a cada persona más allá de sus habilidades — los valores que definen sus decisiones profundas.</div>
     </div>
     <div class="modelo">
-      <div class="modelo-pct" style="color:#E87820">10%</div>
+      <div class="modelo-ico" style="background:rgba(232,120,32,.15);color:#E87820">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="18" r="5" stroke="#E87820" stroke-width="2"/>
+          <rect x="20" y="13" width="10" height="10" stroke="#E87820" stroke-width="2" rx="2"/>
+          <path d="M15 18 L20 18" stroke="#E87820" stroke-width="1.5" stroke-dasharray="2 2"/>
+          <path d="M8" y1="8" x2="8" y2="28" stroke="#E87820" stroke-width="1"/>
+        </svg>
+      </div>
       <div class="modelo-name">PDC</div>
-      <div class="modelo-desc">Orientación natural hacia Personas, Datos o Cosas. Eje decisivo para el trabajo que genera satisfacción.</div>
-      <div class="modelo-bar" style="background:#E87820;width:10%"></div>
+      <div class="modelo-tag" style="color:#E87820">Orientación natural</div>
+      <div class="modelo-desc">La orientación innata hacia trabajar con Personas, Datos o Cosas — eje clave para la satisfacción laboral.</div>
     </div>
   </div>
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PathFinder — Orientación Vocacional para Colegios Argentinos</title>
-<meta name="description" content="Cada alumno tiene un camino. PathFinder lo ayuda a encontrarlo — midiendo comportamiento real, a través del juego. 177 carreras argentinas. Prueba gratuita para tu colegio.">
+<meta name="description" content="Cada alumno tiene un camino. PathFinder lo ayuda a encontrarlo — midiendo comportamiento real, a través del juego. +170 carreras argentinas. Prueba gratuita para tu colegio.">
 <meta name="keywords" content="orientación vocacional, colegios argentina, test vocacional, psicología educativa, carreras universitarias">
 <meta property="og:title" content="PathFinder — Orientación Vocacional">
 <meta property="og:description" content="Un juego que revela quién sos de verdad. La forma más precisa de descubrir la vocación de tus alumnos.">
@@ -787,6 +787,92 @@ footer {
   footer { flex-direction: column; text-align: center; padding: 32px 24px; }
   .hero-compass { opacity: .15; right: -100px; width: 340px; height: 340px; }
 }
+/* ── TESTIMONIOS ── */
+.carousel-wrap { max-width: 1100px; margin: 0 auto; }
+
+.carousel-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+  transition: opacity .4s ease;
+}
+
+.testi-card {
+  background: rgba(255,248,236,.04);
+  border: 1px solid rgba(245,192,64,.1);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  transition: border-color .25s, transform .25s;
+}
+.testi-card:hover { border-color: rgba(245,192,64,.25); transform: translateY(-4px); }
+
+.testi-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+
+.testi-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-style: italic;
+  color: rgba(255,248,236,.8);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.testi-author { display: flex; align-items: center; gap: 14px; }
+
+.testi-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.testi-name { font-size: 15px; font-weight: 600; color: var(--cream); }
+.testi-age { font-size: 12px; color: var(--muted); }
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-btn {
+  background: rgba(255,248,236,.06);
+  border: 1px solid rgba(245,192,64,.2);
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  color: var(--gold);
+  font-size: 18px;
+  cursor: pointer;
+  transition: all .2s;
+  font-family: inherit;
+}
+.carousel-btn:hover { background: rgba(245,192,64,.12); border-color: var(--gold); }
+
+.carousel-dots { display: flex; gap: 8px; }
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(245,192,64,.25);
+  cursor: pointer;
+  transition: all .3s;
+}
+.carousel-dot.active { background: var(--gold); width: 20px; border-radius: 99px; }
+
+@media (max-width: 768px) {
+  .carousel-track { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -820,7 +906,7 @@ footer {
         <div class="hero-stat-txt">minutos es todo lo que necesita el alumno</div>
       </div>
       <div>
-        <div class="hero-stat-num">177</div>
+        <div class="hero-stat-num">+170</div>
         <div class="hero-stat-txt">carreras universitarias argentinas en nuestra base</div>
       </div>
       <div>
@@ -881,7 +967,7 @@ footer {
       <div class="pstat-txt">puntos creció la incertidumbre laboral en solo 4 años</div>
     </div>
     <div class="pstat">
-      <div class="pstat-num">177</div>
+      <div class="pstat-num">+170</div>
       <div class="pstat-txt">carreras universitarias en Argentina sin orientación clara</div>
     </div>
   </div>
@@ -1016,7 +1102,7 @@ footer {
 
   <div class="ciencia-callout reveal">
     <div class="ciencia-callout-title">El resultado: un perfil único por alumno</div>
-    <div class="ciencia-callout-txt">Cada alumno recibe su arquetipo de personalidad, su área vocacional y sus 5 carreras más afines con porcentaje de compatibilidad — todo extraído de una base de 177 carreras universitarias argentinas. El orientador accede a todo desde su panel y puede profundizar en los casos que lo requieran.</div>
+    <div class="ciencia-callout-txt">Cada alumno recibe su arquetipo de personalidad, su área vocacional y sus 5 carreras más afines con porcentaje de compatibilidad — todo extraído de una base de más de 170 carreras universitarias argentinas. El orientador accede a todo desde su panel y puede profundizar en los casos que lo requieran.</div>
   </div>
 </section>
 
@@ -1060,6 +1146,97 @@ footer {
   </div>
 
   <div class="escuela-footer reveal">✦ Sin instalación · Sin hardware · Sin capacitación · Funciona desde el primer día en cualquier celular</div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" style="background:#0a0510;padding:100px 64px;text-align:center;">
+  <div class="section-eyebrow reveal" style="justify-content:center;"><span style="display:none"></span>Lo que dicen los alumnos</div>
+  <h2 class="section-title reveal" style="color:var(--gold);margin:0 auto 16px;">Resultados que resuenan</h2>
+  <p class="section-sub reveal" style="margin:0 auto 64px;">Estas son las primeras voces — alumnos reales que jugaron PathFinder y recibieron su perfil.</p>
+
+  <div class="carousel-wrap reveal">
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Me sorprendió lo preciso que fue. Las carreras que me aparecieron son exactamente lo que siempre imaginé estudiando. No esperaba que un juego pudiera captar eso tan bien."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(224,168,240,.2);color:#e0a8f0">L</div>
+          <div>
+            <div class="testi-name">Luna</div>
+            <div class="testi-age">14 años</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Los resultados me parecieron bastante acertados. Todas las carreras que aparecieron son opciones que me llaman la atención de verdad — no fueron al azar."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(122,176,240,.2);color:#7ab0f0">V</div>
+          <div>
+            <div class="testi-name">Violeta</div>
+            <div class="testi-age">15 años</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"De las tres carreras que me dieron, dos son exactamente lo que quiero estudiar. Bastante acertado para ser un juego de diez minutos."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(160,216,112,.2);color:#a0d870">S</div>
+          <div>
+            <div class="testi-name">Santiago</div>
+            <div class="testi-age">15 años</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Me encantó. No lo puedo describir de otra manera — fue una experiencia diferente a todo lo que hice antes para pensar en mi futuro."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(240,192,96,.2);color:#f0c060">F</div>
+          <div>
+            <div class="testi-name">Francesca</div>
+            <div class="testi-age">16 años</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★☆</div>
+        <div class="testi-text">"No está alejado de lo que me gusta. Tengo muchos intereses, así que es difícil encasillarme — pero el perfil captó cosas importantes de quién soy."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(240,128,96,.2);color:#f08060">O</div>
+          <div>
+            <div class="testi-name">Octavio</div>
+            <div class="testi-age">16 años</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">"Me dijo que tenía habilidades para las exactas, que es justo lo que me gusta. Está re piola — no esperaba que acertara tan bien jugando."</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:rgba(192,160,240,.2);color:#c0a0f0">G</div>
+          <div>
+            <div class="testi-name">Gerónimo</div>
+            <div class="testi-age">16 años</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="moveCarousel(-1)">←</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="moveCarousel(1)">→</button>
+    </div>
+  </div>
 </section>
 
 <!-- PROPUESTA -->
@@ -1142,7 +1319,6 @@ footer {
     <a href="#como">Cómo funciona</a>
     <a href="#contacto">Contacto</a>
     <a href="https://wa.me/5491169633434" target="_blank">WhatsApp</a>
-    <a href="https://www.instagram.com/pathfinder.ar" target="_blank">Instagram</a>
   </div>
 </footer>
 
@@ -1203,6 +1379,36 @@ if (contactForm) {
     }
   });
 }
+// Carousel
+const cards = document.querySelectorAll('.testi-card');
+const dotsContainer = document.getElementById('carouselDots');
+const perPage = window.innerWidth <= 768 ? 1 : 3;
+let page = 0;
+const totalPages = Math.ceil(cards.length / perPage);
+
+// Build dots
+for (let i = 0; i < totalPages; i++) {
+  const d = document.createElement('div');
+  d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goToPage(i);
+  dotsContainer.appendChild(d);
+}
+
+function goToPage(n) {
+  page = Math.max(0, Math.min(totalPages - 1, n));
+  cards.forEach((c, i) => {
+    const visible = i >= page * perPage && i < (page + 1) * perPage;
+    c.style.display = visible ? 'flex' : 'none';
+  });
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === page);
+  });
+}
+
+function moveCarousel(dir) { goToPage(page + dir); }
+
+goToPage(0);
+
 </script>
 </body>
 </html>

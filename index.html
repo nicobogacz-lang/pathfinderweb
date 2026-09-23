@@ -132,6 +132,25 @@ nav {
   max-width: 720px;
 }
 
+/* ── HERO AWARD BADGE ── */
+.hero-badge-award {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(245,192,64,.16), rgba(232,120,32,.10));
+  border: 1px solid rgba(245,192,64,.35);
+  color: var(--gold);
+  padding: 9px 18px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  box-shadow: 0 4px 20px rgba(245,192,64,.08);
+}
+.hero-badge-award-icon { font-size: 14px; }
+
 .hero-eyebrow {
   font-size: 11px;
   letter-spacing: .35em;
@@ -638,6 +657,14 @@ section {
   box-shadow: 0 16px 48px rgba(37,211,102,.15);
 }
 
+.contact-card.instagram { border-color: rgba(225,48,108,.22); }
+.contact-card.instagram:hover {
+  border-color: #E1306C;
+  background: rgba(225,48,108,.06);
+  box-shadow: 0 16px 48px rgba(225,48,108,.15);
+}
+.contact-card.instagram .cc-action { color: #E1306C; }
+
 .cc-icon { font-size: 40px; }
 .cc-label {
   font-size: 11px;
@@ -781,11 +808,12 @@ footer {
   .escuela-grid { grid-template-columns: 1fr; }
   .pasos-grid { grid-template-columns: repeat(2, 1fr); }
   .propuesta-gratuita { flex-direction: column; text-align: center; padding: 32px 24px; }
-  .hero-stats { gap: 28px; }
+  .hero-stats { gap: 28px; flex-wrap: wrap; }
   .como-claim { flex-direction: column; gap: 20px; padding: 28px; }
   .cf-row { grid-template-columns: 1fr; }
   footer { flex-direction: column; text-align: center; padding: 32px 24px; }
   .hero-compass { opacity: .15; right: -100px; width: 340px; height: 340px; }
+  .hero-badge-award { font-size: 11px; padding: 8px 14px; letter-spacing: .04em; }
 }
 /* ── TESTIMONIOS ── */
 .carousel-wrap { max-width: 1100px; margin: 0 auto; }
@@ -892,6 +920,10 @@ footer {
 <!-- HERO -->
 <section id="hero">
   <div class="hero-content">
+    <div class="hero-badge-award">
+      <span class="hero-badge-award-icon">🏆</span>
+      <span>Finalistas provinciales · Emprendimiento Argentino 2026</span>
+    </div>
     <div class="hero-eyebrow">Orientación Vocacional</div>
     <h1 class="hero-title">PathFinder</h1>
     <p class="hero-sub">Un juego que revela quién sos de verdad.</p>
@@ -902,16 +934,16 @@ footer {
     </div>
     <div class="hero-stats">
       <div>
+        <div class="hero-stat-num">+300</div>
+        <div class="hero-stat-txt">alumnos ya recibieron su perfil vocacional</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-txt">colegios argentinos ya trabajan con PathFinder</div>
+      </div>
+      <div>
         <div class="hero-stat-num">10'</div>
         <div class="hero-stat-txt">minutos es todo lo que necesita el alumno</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">+170</div>
-        <div class="hero-stat-txt">carreras universitarias argentinas en nuestra base</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">8</div>
-        <div class="hero-stat-txt">zonas de juego que miden comportamiento real</div>
       </div>
     </div>
   </div>
@@ -1294,6 +1326,12 @@ footer {
       <div class="cc-value">Escribinos por WhatsApp</div>
       <div class="cc-action">Abrir conversación →</div>
     </a>
+    <a href="https://instagram.com/pathfinder.ar" target="_blank" class="contact-card instagram reveal reveal-delay-2">
+      <div class="cc-icon">📸</div>
+      <div class="cc-label">Instagram</div>
+      <div class="cc-value">@pathfinder.ar</div>
+      <div class="cc-action">Seguinos →</div>
+    </a>
   </div>
 
   <div class="contacto-divider reveal">o dejanos tu mensaje</div>
@@ -1314,11 +1352,12 @@ footer {
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">PathFinder</a>
-  <div class="footer-copy">© 2025 Nicolás Bogacz · Proyecto Jaim · pathfinder.net.ar</div>
+  <div class="footer-copy">© 2026 Nicolás Bogacz · Proyecto Jaim · pathfinder.net.ar</div>
   <div class="footer-links">
     <a href="#como">Cómo funciona</a>
     <a href="#contacto">Contacto</a>
     <a href="https://wa.me/5491169633434" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/pathfinder.ar" target="_blank">Instagram</a>
   </div>
 </footer>
 

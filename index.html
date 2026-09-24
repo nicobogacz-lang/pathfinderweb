@@ -11,6 +11,9 @@
 <meta property="og:url" content="https://pathfinder.net.ar">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://pathfinder.net.ar">
+<!-- Favicon: brújula PathFinder (SVG inline) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a0500' stroke='%23F5C040' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23F5C040' stroke-width='1' stroke-opacity='0.35'/%3E%3Cpolygon points='32,8 37,32 32,28 27,32' fill='%23F5C040'/%3E%3Cpolygon points='32,56 37,32 32,36 27,32' fill='%23A855F7'/%3E%3Cpolygon points='8,32 32,27 28,32 32,37' fill='%23A855F7' fill-opacity='0.6'/%3E%3Cpolygon points='56,32 32,27 36,32 32,37' fill='%23A855F7' fill-opacity='0.6'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23F5C040'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%23FFF8E0'/%3E%3C/svg%3E">
+<link rel="alternate icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230a0500' stroke='%23F5C040' stroke-width='3'/%3E%3Cpolygon points='32,8 37,32 32,28 27,32' fill='%23F5C040'/%3E%3Cpolygon points='32,56 37,32 32,36 27,32' fill='%23A855F7'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23F5C040'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -743,6 +746,58 @@ section {
   background: rgba(255,248,236,.08);
 }
 
+/* ── CAFECITO ── */
+#cafecito {
+  background: #08030F;
+  border-top: 1px solid rgba(245,192,64,.06);
+  text-align: center;
+  padding: 72px 64px;
+}
+.cafecito-eyebrow {
+  font-size: 11px;
+  letter-spacing: .3em;
+  color: var(--orange);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.cafecito-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 14px;
+  line-height: 1.15;
+}
+.cafecito-desc {
+  font-size: 16px;
+  color: rgba(255,248,236,.55);
+  margin: 0 auto 32px;
+  max-width: 520px;
+  line-height: 1.65;
+}
+.cafecito-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #F5C040 0%, #E87820 100%);
+  color: #0A0500;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 99px;
+  text-decoration: none;
+  transition: transform .25s, box-shadow .25s;
+  letter-spacing: .02em;
+  box-shadow: 0 6px 24px rgba(245,192,64,.25);
+}
+.cafecito-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(245,192,64,.4);
+}
+.cafecito-btn-icon { font-size: 22px; line-height: 1; }
+.cafecito-btn-arrow { font-size: 18px; opacity: .7; }
+
 /* ── FOOTER ── */
 footer {
   background: #06020F;
@@ -772,6 +827,8 @@ footer {
 .footer-links {
   display: flex;
   gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .footer-links a {
   font-size: 13px;
@@ -814,6 +871,9 @@ footer {
   footer { flex-direction: column; text-align: center; padding: 32px 24px; }
   .hero-compass { opacity: .15; right: -100px; width: 340px; height: 340px; }
   .hero-badge-award { font-size: 11px; padding: 8px 14px; letter-spacing: .04em; }
+  #cafecito { padding: 56px 24px; }
+  .cafecito-title { font-size: 30px; }
+  .cafecito-desc { font-size: 15px; }
 }
 /* ── TESTIMONIOS ── */
 .carousel-wrap { max-width: 1100px; margin: 0 auto; }
@@ -1349,6 +1409,18 @@ footer {
   </form>
 </section>
 
+<!-- CAFECITO -->
+<section id="cafecito">
+  <div class="cafecito-eyebrow reveal">☕ Apoyanos</div>
+  <div class="cafecito-title reveal">Ayudanos a que PathFinder llegue a más chicos</div>
+  <p class="cafecito-desc reveal">Este proyecto lo empujamos a pulmón. Si te sumó lo que hacemos y querés colaborar, invitanos un café. Cada aporte suma para que más alumnos argentinos puedan encontrar su camino.</p>
+  <a href="https://cafecito.app/pathfinderar" rel="noopener" target="_blank" class="cafecito-btn reveal">
+    <span class="cafecito-btn-icon">☕</span>
+    <span>Invitanos un café</span>
+    <span class="cafecito-btn-arrow">→</span>
+  </a>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">PathFinder</a>
@@ -1358,6 +1430,7 @@ footer {
     <a href="#contacto">Contacto</a>
     <a href="https://wa.me/5491169633434" target="_blank">WhatsApp</a>
     <a href="https://instagram.com/pathfinder.ar" target="_blank">Instagram</a>
+    <a href="https://cafecito.app/pathfinderar" target="_blank">Cafecito</a>
   </div>
 </footer>
 
@@ -1421,9 +1494,13 @@ if (contactForm) {
 // Carousel
 const cards = document.querySelectorAll('.testi-card');
 const dotsContainer = document.getElementById('carouselDots');
+const track = document.getElementById('carouselTrack');
 const perPage = window.innerWidth <= 768 ? 1 : 3;
 let page = 0;
 const totalPages = Math.ceil(cards.length / perPage);
+
+// Ajustar grid según perPage — evita cards descentradas si el viewport es intermedio
+track.style.gridTemplateColumns = 'repeat(' + perPage + ', 1fr)';
 
 // Build dots
 for (let i = 0; i < totalPages; i++) {

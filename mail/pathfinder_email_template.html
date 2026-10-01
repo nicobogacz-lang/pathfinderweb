@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<title>PathFinder — Orientación Vocacional</title>
+</head>
+<body style="margin:0; padding:0; background-color:#0A0500; font-family: 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+
+<!-- Preview text (aparece en la lista de inbox junto al asunto) -->
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+  Un juego de 10 minutos que ayuda a los chicos de 5° y 6° a descubrir qué estudiar.
+</div>
+
+<!-- Wrapper -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#0A0500;">
+  <tr>
+    <td align="center" style="padding: 40px 16px;">
+
+      <!-- Contenedor principal -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px; width:100%; background-color:#0D0800; border-radius:20px; overflow:hidden; border: 1px solid rgba(245,192,64,0.15);">
+
+        <!-- HEADER con logo brújula + brand -->
+        <tr>
+          <td style="padding: 32px 40px 24px; background: linear-gradient(135deg, #2A1400 0%, #0D0800 100%);">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="vertical-align:middle; width:56px;">
+                  <!-- Logo brújula SVG inline -->
+                  <img
+                    src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='48' height='48'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230A0500' stroke='%23F5C040' stroke-width='2.5'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23F5C040' stroke-width='0.8' stroke-opacity='0.35'/%3E%3Cpolygon points='32,8 37,32 32,28 27,32' fill='%23F5C040'/%3E%3Cpolygon points='32,56 37,32 32,36 27,32' fill='%23A855F7'/%3E%3Cpolygon points='8,32 32,27 28,32 32,37' fill='%23A855F7' fill-opacity='0.55'/%3E%3Cpolygon points='56,32 32,27 36,32 32,37' fill='%23A855F7' fill-opacity='0.55'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23F5C040'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%23FFF8E0'/%3E%3C/svg%3E"
+                    alt="PathFinder"
+                    width="48" height="48"
+                    style="display:block; border:0;"
+                  >
+                </td>
+                <td style="vertical-align:middle; padding-left:14px;">
+                  <span style="font-family: Georgia, 'Times New Roman', serif; font-size:28px; font-weight:700; color:#F5C040; letter-spacing:-0.5px;">PathFinder</span>
+                </td>
+                <td align="right" style="vertical-align:middle;">
+                  <span style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size:10px; letter-spacing:0.2em; color:#E87820; text-transform:uppercase; font-weight:500;">Orientación<br>Vocacional</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- HERO / Hook -->
+        <tr>
+          <td style="padding: 40px 40px 24px; text-align:left;">
+            <p style="margin: 0 0 16px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:12px; letter-spacing:0.25em; color:#E87820; text-transform:uppercase; font-weight:500;">
+              Para {{nombre_colegio}}
+            </p>
+            <h1 style="margin: 0 0 20px; font-family: Georgia, 'Times New Roman', serif; font-size:32px; line-height:1.2; font-weight:700; color:#F5C040; letter-spacing:-0.5px;">
+              Ayudá a tus alumnos<br>de 5° y 6° a descubrir<br>qué estudiar.
+            </h1>
+            <p style="margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:16px; line-height:1.6; color:rgba(255,248,236,0.75);">
+              Un juego de <strong style="color:#F5C040;">10 minutos</strong> que observa el comportamiento del alumno mientras juega y le devuelve un perfil vocacional personalizado con las carreras universitarias argentinas más afines.
+            </p>
+          </td>
+        </tr>
+
+        <!-- IMAGEN 1: MAPA / MANDALA DE LAS 8 ZONAS -->
+        <tr>
+          <td style="padding: 8px 40px 24px;">
+            <a href="https://pathfinder.net.ar?utm_source=email&utm_medium=outreach&utm_campaign=colegios_pba" target="_blank" style="text-decoration:none; display:block;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-radius:16px; overflow:hidden; background-color:#1A0830; border:1px solid rgba(245,192,64,0.2);">
+                <tr>
+                  <td style="padding:0;">
+                    <!-- REEMPLAZAR: imagen del mapa/mandala de las 8 zonas -->
+                    <img src="https://pathfinder.net.ar/mail/mapa-zonas.png"
+                         alt="Las 8 zonas del juego PathFinder"
+                         width="520" height="292"
+                         style="display:block; width:100%; height:auto; border:0;">
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding: 14px 16px; background-color:#1A0830;">
+                    <span style="font-family: Georgia, 'Times New Roman', serif; font-size:15px; color:#F5C040; font-style:italic;">Un mapa de 8 zonas · comportamiento real</span>
+                  </td>
+                </tr>
+              </table>
+            </a>
+          </td>
+        </tr>
+
+        <!-- Cómo funciona -->
+        <tr>
+          <td style="padding: 8px 40px 24px;">
+            <p style="margin: 0 0 20px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; letter-spacing:0.3em; color:#A09070; text-transform:uppercase; font-weight:600;">
+              Cómo funciona en tu escuela
+            </p>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid rgba(245,192,64,0.08);">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td width="40" style="vertical-align:top; padding-right:12px;">
+                        <span style="font-family: Georgia, serif; font-size:24px; color:#F5C040; font-weight:700;">01</span>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0 0 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:15px; font-weight:600; color:#FFF8EC;">Se implementa en 1 clase de 1 hora</p>
+                        <p style="margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:14px; color:rgba(255,248,236,0.55); line-height:1.5;">Sin capacitación docente previa, sin infraestructura. Solo un celular por alumno con conexión a internet.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0; border-bottom: 1px solid rgba(245,192,64,0.08);">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td width="40" style="vertical-align:top; padding-right:12px;">
+                        <span style="font-family: Georgia, serif; font-size:24px; color:#F5C040; font-weight:700;">02</span>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0 0 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:15px; font-weight:600; color:#FFF8EC;">Cada alumno recibe su perfil por mail</p>
+                        <p style="margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:14px; color:rgba(255,248,236,0.55); line-height:1.5;">Un reporte narrativo generado con IA + las carreras universitarias argentinas más afines a su perfil.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 0;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td width="40" style="vertical-align:top; padding-right:12px;">
+                        <span style="font-family: Georgia, serif; font-size:24px; color:#F5C040; font-weight:700;">03</span>
+                      </td>
+                      <td style="vertical-align:top;">
+                        <p style="margin:0 0 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:15px; font-weight:600; color:#FFF8EC;">El orientador accede al dashboard del curso</p>
+                        <p style="margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:14px; color:rgba(255,248,236,0.55); line-height:1.5;">Perfil de cada alumno + agregados por curso, como punto de partida para trabajar con cada uno en profundidad.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- IMAGEN 2: EJEMPLO DE RESULTADO -->
+        <tr>
+          <td style="padding: 8px 40px 24px;">
+            <p style="margin: 0 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; letter-spacing:0.3em; color:#A09070; text-transform:uppercase; font-weight:600;">
+              Un ejemplo de lo que recibe el alumno
+            </p>
+            <a href="https://pathfinder.net.ar?utm_source=email&utm_medium=outreach&utm_campaign=colegios_pba" target="_blank" style="text-decoration:none; display:block;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-radius:16px; overflow:hidden; background-color:#1A0830; border:1px solid rgba(245,192,64,0.2);">
+                <tr>
+                  <td style="padding:0;">
+                    <!-- REEMPLAZAR: imagen del resultado (arquetipo + carreras) -->
+                    <img src="https://pathfinder.net.ar/mail/resultado-alumno.png"
+                         alt="Ejemplo de resultado de un alumno"
+                         width="520" height="292"
+                         style="display:block; width:100%; height:auto; border:0;">
+                  </td>
+                </tr>
+              </table>
+            </a>
+          </td>
+        </tr>
+
+        <!-- Bloque del problema -->
+        <tr>
+          <td style="padding: 8px 40px 32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background: linear-gradient(135deg, rgba(232,120,32,0.08), rgba(124,58,237,0.08)); border-radius:16px; border-left: 4px solid #E87820;">
+              <tr>
+                <td style="padding: 24px 28px;">
+                  <p style="margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; letter-spacing:0.25em; color:#E87820; text-transform:uppercase; font-weight:600;">
+                    Por qué importa
+                  </p>
+                  <p style="margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size:18px; line-height:1.55; color:#FFF8EC; font-style:italic;">
+                    En Argentina, el <strong style="color:#F5C040; font-style:normal;">40%</strong> de los universitarios no vuelve al segundo año, y otro <strong style="color:#A855F7; font-style:normal;">40%</strong> cree que eligió mal la carrera.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- CTA doble -->
+        <tr>
+          <td style="padding: 8px 40px 40px;" align="center">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding: 0 8px 12px;" align="center">
+                  <a href="https://pathfinder.net.ar?utm_source=email&utm_medium=outreach&utm_campaign=colegios_pba" target="_blank"
+                     style="display:inline-block; background-color:#F5C040; color:#0A0500; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:15px; font-weight:600; text-decoration:none; padding: 16px 32px; border-radius:99px; letter-spacing:0.02em;">
+                    Probá el juego ahora →
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" style="padding-top:8px;">
+                  <a href="mailto:hola@pathfinder.net.ar?subject=Demo%20PathFinder%20para%20{{nombre_colegio}}"
+                     style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size:14px; color:rgba(255,248,236,0.6); text-decoration:underline; text-decoration-color:rgba(245,192,64,0.3);">
+                    O coordinemos una demo para tu escuela
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Prueba social / Testimonial -->
+        <tr>
+          <td style="padding: 0 40px 32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: rgba(255,248,236,0.03); border-radius:14px;">
+              <tr>
+                <td style="padding: 22px 26px;">
+                  <p style="margin: 0 0 10px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; letter-spacing:0.3em; color:#A09070; text-transform:uppercase; font-weight:600;">
+                    Ya lo usan
+                  </p>
+                  <p style="margin: 0 0 6px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:16px; line-height:1.55; color:rgba(255,248,236,0.85);">
+                    <strong style="color:#F5C040;">Más de 5 colegios</strong> secundarios argentinos ya implementaron PathFinder con sus alumnos.
+                  </p>
+                  <p style="margin:0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:13px; color:rgba(255,248,236,0.45);">
+                    Más de <strong style="color:#F5C040;">300 alumnos</strong> ya recibieron su perfil vocacional · Finalistas provinciales del concurso <strong style="color:#F5C040;">Emprendimiento Argentino 2026</strong>.
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Firma -->
+        <tr>
+          <td style="padding: 0 40px 32px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="padding-top: 8px; border-top: 1px solid rgba(245,192,64,0.08);">
+                  <p style="margin: 20px 0 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:15px; font-weight:600; color:#FFF8EC;">Nicolás Bogacz</p>
+                  <p style="margin: 0 0 4px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:13px; color:rgba(255,248,236,0.55);">Fundador · PathFinder</p>
+                  <p style="margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:13px; color:rgba(255,248,236,0.55);">
+                    <a href="https://pathfinder.net.ar" style="color:#F5C040; text-decoration:none;">pathfinder.net.ar</a>
+                    · <a href="mailto:hola@pathfinder.net.ar" style="color:#F5C040; text-decoration:none;">hola@pathfinder.net.ar</a>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Footer legal -->
+        <tr>
+          <td style="padding: 24px 40px; background-color:#06020F; border-top: 1px solid rgba(245,192,64,0.05);">
+            <p style="margin: 0 0 8px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; color:rgba(255,248,236,0.3); line-height:1.5; text-align:center;">
+              Recibís este mail porque {{nombre_colegio}} figura en el registro público de escuelas de la Dirección General de Cultura y Educación de la Provincia de Buenos Aires.
+            </p>
+            <p style="margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size:11px; color:rgba(255,248,236,0.3); text-align:center;">
+              <a href="{{unsubscribe}}" style="color:rgba(245,192,64,0.5); text-decoration:underline;">No quiero recibir más mails de PathFinder</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

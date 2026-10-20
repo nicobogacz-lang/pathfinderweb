@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Información útil — Videos y notas para orientación vocacional · PathFinder</title>
+<meta name="description" content="Biblioteca curada de videos y notas periodísticas para ayudar a decidir qué estudiar: charlas TED, un día en la vida de profesionales, universidades por dentro, carreras del futuro e IA.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+:root{--gold:#F5C040;--orange:#E87820;--violet2:#A855F7;--cream:#FFF8EC;--muted:#A09070;--bg:#0A0610;--card:#160A24;--green:#5BC27A;--red:#E8706B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--orange)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,6,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,192,64,.1);padding:16px 32px}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);letter-spacing:1px}
+nav .menu{display:flex;gap:24px;font-size:14px}
+nav .menu a{color:rgba(255,248,236,.75)}
+nav .menu a:hover{color:var(--gold)}
+nav .cta{padding:10px 20px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:13px}
+.crumb{padding:30px 0 10px;color:rgba(255,248,236,.5);font-size:13px}
+.crumb a{color:rgba(255,248,236,.5)}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{margin:0 10px;color:rgba(255,248,236,.3)}
+footer{margin-top:80px;padding:40px 32px;background:#060310;color:rgba(255,248,236,.45);font-size:13px;text-align:center;border-top:1px solid rgba(245,192,64,.08)}
+footer a{color:var(--gold)}
+
+.hero{padding:50px 0 20px;text-align:center}
+.hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet2);font-weight:700;padding:6px 16px;border:1px solid rgba(168,85,247,.3);border-radius:99px;margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,78px);font-weight:400;line-height:1.05;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{font-size:17px;color:rgba(255,248,236,.7);max-width:720px;margin:0 auto}
+
+.view-toggle{display:flex;justify-content:center;margin:36px 0 24px;background:rgba(255,255,255,.03);border:1px solid rgba(245,192,64,.1);border-radius:99px;padding:5px;max-width:420px;margin-left:auto;margin-right:auto}
+.view-tab{flex:1;padding:12px 20px;background:transparent;border:none;color:rgba(255,248,236,.6);font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;border-radius:99px;transition:all .25s;letter-spacing:.3px}
+.view-tab.active{background:var(--gold);color:#0A0500}
+.view-tab:hover:not(.active){color:var(--cream)}
+.view-tab .n{opacity:.65;font-weight:500;margin-left:4px;font-size:12px}
+
+.cat-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:20px 0 30px}
+.chip{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(245,192,64,.18);color:rgba(255,248,236,.75);padding:9px 16px;border-radius:99px;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s;font-family:inherit}
+.chip:hover{border-color:var(--gold);color:var(--gold)}
+.chip.active{background:var(--gold);color:#0A0500;border-color:var(--gold);font-weight:600}
+.chip .n{opacity:.6;font-size:11px}
+.chip.active .n{opacity:.8}
+
+.summary{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.summary .count{font-size:14px;color:rgba(255,248,236,.6)}
+.summary .count b{color:var(--gold);font-weight:600}
+
+/* Videos grid */
+.videos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-bottom:60px}
+.vcard{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(245,192,64,.08);border-radius:16px;overflow:hidden;transition:all .3s cubic-bezier(.2,.8,.2,1);color:inherit!important;display:flex;flex-direction:column;position:relative}
+.vcard:hover{transform:translateY(-4px);border-color:rgba(245,192,64,.3);box-shadow:0 20px 50px -15px rgba(0,0,0,.5)}
+.vcard.destacado{border-color:rgba(245,192,64,.35);background:linear-gradient(145deg,rgba(245,192,64,.08),rgba(168,85,247,.03))}
+.vcard.destacado::after{content:'🔥 Destacado';position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#0A0500;background:var(--gold);padding:4px 10px;border-radius:99px;font-weight:700;z-index:3}
+.thumb-wrap{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000}
+.thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.vcard:hover .thumb-wrap img{transform:scale(1.05)}
+.play-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6) 100%);display:flex;align-items:center;justify-content:center;transition:background .3s}
+.vcard:hover .play-overlay{background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.5) 100%)}
+.play-btn{width:60px;height:60px;background:rgba(245,192,64,.95);border-radius:99px;display:flex;align-items:center;justify-content:center;transition:all .3s;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.play-btn svg{width:26px;height:26px;color:#0A0500;margin-left:4px}
+.vcard:hover .play-btn{transform:scale(1.1);background:var(--gold)}
+.vdur{position:absolute;bottom:10px;right:10px;background:rgba(0,0,0,.85);color:#fff;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:600;font-family:inherit}
+.vbody{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column}
+.vcat{display:inline-block;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cat-c,var(--gold));padding:3px 10px;border:1px solid var(--cat-c,var(--gold));border-radius:99px;font-weight:700;margin-bottom:10px;align-self:flex-start;background:rgba(10,6,16,.3)}
+.vtitulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--cream);line-height:1.2;margin-bottom:8px}
+.vcanal{font-size:12px;color:rgba(255,248,236,.55);letter-spacing:.4px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.vcanal b{color:var(--gold);font-weight:500}
+.vdesc{font-size:13px;color:rgba(255,248,236,.7);line-height:1.5;margin-bottom:14px;flex:1}
+.vmeta{display:flex;gap:14px;font-size:11px;color:rgba(255,248,236,.5);letter-spacing:.3px;border-top:1px solid rgba(245,192,64,.06);padding-top:12px}
+.vmeta .ic{display:inline-flex;align-items:center;gap:4px}
+
+/* Notas periodísticas - cards más tipo tarjeta editorial */
+.notas-list{display:flex;flex-direction:column;gap:16px;margin-bottom:60px}
+.ncard{display:grid;grid-template-columns:120px 1fr auto;gap:24px;padding:24px 28px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(245,192,64,.08);border-radius:16px;color:inherit!important;transition:all .3s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
+.ncard:hover{transform:translateY(-2px);border-color:rgba(245,192,64,.25);box-shadow:0 15px 40px -15px rgba(0,0,0,.5)}
+.ncard.destacado{border-color:rgba(245,192,64,.3);background:linear-gradient(145deg,rgba(245,192,64,.08),rgba(168,85,247,.03))}
+.ncard.destacado::after{content:'🔥 Destacado';position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#0A0500;background:var(--gold);padding:4px 10px;border-radius:99px;font-weight:700}
+.ndate{text-align:center;padding:14px 10px;background:rgba(10,6,16,.4);border:1px solid rgba(245,192,64,.12);border-radius:12px;height:fit-content}
+.ndate .day{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;line-height:1;color:var(--gold)}
+.ndate .month{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,248,236,.65);margin-top:4px;font-weight:600}
+.ndate .year{font-size:9px;color:rgba(255,248,236,.4);margin-top:2px;letter-spacing:.5px}
+.nbody{flex:1;min-width:0}
+.ntipo-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.nmedio{display:inline-flex;align-items:center;gap:5px;font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold);font-weight:700;padding:3px 10px;border:1px solid rgba(245,192,64,.3);border-radius:99px;background:rgba(10,6,16,.3)}
+.ntipo{display:inline-flex;align-items:center;font-size:11px;color:rgba(255,248,236,.55);text-transform:uppercase;letter-spacing:.5px}
+.nautor{font-size:12px;color:rgba(255,248,236,.5);font-style:italic}
+.ntitulo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--cream);line-height:1.2;margin-bottom:10px}
+.ndesc{font-size:14px;color:rgba(255,248,236,.75);line-height:1.55;margin-bottom:12px}
+.ntags{display:flex;flex-wrap:wrap;gap:6px}
+.ntag{font-size:10px;color:rgba(255,248,236,.5);letter-spacing:.5px;padding:3px 9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:99px}
+.narrow{flex-shrink:0;width:40px;height:40px;background:rgba(245,192,64,.08);border:1px solid rgba(245,192,64,.2);border-radius:99px;display:flex;align-items:center;justify-content:center;color:var(--gold);align-self:center;transition:all .3s}
+.ncard:hover .narrow{background:var(--gold);color:#0A0500;transform:translateX(4px)}
+.narrow svg{width:16px;height:16px}
+
+.empty-state{text-align:center;padding:60px 20px;color:rgba(255,248,236,.5);grid-column:1/-1}
+
+.suggest-box{margin:50px 0 20px;padding:28px 32px;background:linear-gradient(135deg,rgba(91,194,122,.08),rgba(168,85,247,.05));border:1px solid rgba(91,194,122,.2);border-radius:20px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.suggest-box .ic-box{flex-shrink:0;width:52px;height:52px;background:rgba(91,194,122,.15);border-radius:14px;display:flex;align-items:center;justify-content:center;color:var(--green)}
+.suggest-box .text{flex:1;min-width:260px}
+.suggest-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);margin-bottom:4px}
+.suggest-box p{font-size:14px;color:rgba(255,248,236,.7)}
+.suggest-box .wa-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:#25D366;color:#fff!important;font-weight:600;font-size:14px;border-radius:99px;transition:all .2s}
+.suggest-box .wa-btn:hover{background:#1EB352;transform:translateY(-1px)}
+
+@media (max-width:720px){
+  .videos-grid{grid-template-columns:1fr;gap:16px}
+  .ncard{grid-template-columns:70px 1fr;gap:14px;padding:18px}
+  .narrow{grid-column:1/-1;align-self:stretch;width:auto;justify-content:center;padding:10px}
+  .ndate .day{font-size:28px}
+  .ntitulo{font-size:20px}
+  .hero h1{font-size:40px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PathFinder</a>
+    <div class="menu">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/guia/">Guía</a>
+      <a href="/guia/carreras/">Carreras</a>
+      <a href="/guia/universidades/">Universidades</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="cta">Probá el juego →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb">
+    <a href="/">Inicio</a> <span class="sep">/</span>
+    <a href="/guia/">Guía</a> <span class="sep">/</span>
+    Información útil
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Información útil</div>
+    <h1>Material para <em>decidir</em> qué estudiar</h1>
+    <p class="sub">Videos y notas periodísticas curadas en español. Charlas TED, un día en la vida de distintos profesionales, carreras del futuro, el impacto de la IA en el mercado laboral.</p>
+  </section>
+
+  <div class="view-toggle">
+    <button class="view-tab active" data-view="videos" onclick="setView('videos')">
+      🎥 Videos <span class="n" id="videosN"></span>
+    </button>
+    <button class="view-tab" data-view="notas" onclick="setView('notas')">
+      📰 Notas <span class="n" id="notasN"></span>
+    </button>
+  </div>
+
+  <div class="cat-chips" id="chips"></div>
+
+  <div class="summary">
+    <div class="count"><b id="count">0</b> <span id="countLabel">videos</span></div>
+  </div>
+
+  <div id="viewVideos">
+    <div id="videosGrid" class="videos-grid"></div>
+  </div>
+  <div id="viewNotas" style="display:none">
+    <div id="notasList" class="notas-list"></div>
+  </div>
+
+  <div class="suggest-box">
+    <div class="ic-box">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+    </div>
+    <div class="text">
+      <h3>¿Conocés un video o nota que no está acá?</h3>
+      <p>Pasánoslo por WhatsApp con el link y lo sumamos a la biblioteca para que lo vean otras familias.</p>
+    </div>
+    <a href="https://wa.me/5491169633434?text=Hola%20PathFinder%2C%20quiero%20sugerir%20contenido%20para%20la%20biblioteca%3A%0A%0ATipo%3A%20video%20%2F%20nota%0ALink%3A%0ACategor%C3%ADa%20sugerida%3A" class="wa-btn" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 010 11.986C0 5.373 5.373 0 11.985 0a11.927 11.927 0 018.413 3.488 11.878 11.878 0 013.48 8.414c-.003 6.613-5.377 11.986-11.98 11.986a11.98 11.98 0 01-5.73-1.459L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.496 0 9.969-4.461 9.971-9.952.002-5.506-4.455-9.968-9.952-9.968-5.505 0-9.964 4.462-9.966 9.968 0 2.225.651 3.891 1.746 5.634l-.999 3.648 3.808-.922z"/></svg>
+      Sugerir contenido
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);">PathFinder</div>
+  <div>Información útil · <a href="/">Volver al inicio</a> · <a href="/guia/">Guía</a> · <a href="/guia/carreras/">Carreras</a> · <a href="/guia/charlas/">Charlas</a></div>
+  <div style="margin-top:10px;opacity:.6;">© 2026 PathFinder · nicobogacz@gmail.com · pathfinder.net.ar</div>
+</footer>
+
+<script>
+const CAT_VIDEOS = [
+  {id:'todas', label:'Todos', color:'var(--gold)'},
+  {id:'charla-orientacion', label:'💭 Orientación vocacional', color:'#A855F7'},
+  {id:'un-dia-en-la-vida', label:'🎥 Un día en la vida', color:'#5BC27A'},
+  {id:'universidad-por-dentro', label:'🏛 Universidades por dentro', color:'#378ADD'},
+  {id:'carreras-del-futuro', label:'📊 Carreras del futuro', color:'#E87820'},
+  {id:'testimonio', label:'🗣 Testimonios', color:'#D4537E'}
+];
+const CAT_NOTAS = [
+  {id:'todas', label:'Todas', color:'var(--gold)'},
+  {id:'ia', label:'🤖 IA', color:'#A855F7'},
+  {id:'nuevas-profesiones', label:'✨ Nuevas profesiones', color:'#5BC27A'},
+  {id:'carreras-que-desaparecen', label:'⚠️ Que desaparecen', color:'#E8706B'},
+  {id:'mercado-laboral', label:'📊 Mercado laboral', color:'#378ADD'},
+  {id:'universidades', label:'🏛 Universidades', color:'#D4537E'},
+  {id:'habilidades', label:'🎯 Habilidades', color:'#E87820'}
+];
+const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+const TIPO_LABEL = {'informe':'Informe','analisis':'Análisis','opinion':'Opinión','entrevista':'Entrevista','ranking':'Ranking'};
+
+let VIDEOS = [], NOTAS = [];
+let CURR_VIEW = 'videos';
+let CURR_CAT_VIDEOS = 'todas';
+let CURR_CAT_NOTAS = 'todas';
+
+async function init(){
+  try {
+    const [r1, r2] = await Promise.all([fetch('/guia/info-util/videos.json'), fetch('/guia/info-util/notas.json')]);
+    if(!r1.ok || !r2.ok) throw new Error('HTTP');
+    const dv = await r1.json();
+    const dn = await r2.json();
+    VIDEOS = dv.videos || [];
+    NOTAS = dn.notas || [];
+  } catch(e) {
+    document.getElementById('viewVideos').innerHTML = '<div class="empty-state">⚠️ No se pudo cargar la biblioteca. Si estás viendo esto localmente, subí la página a Vercel.</div>';
+    return;
+  }
+  document.getElementById('videosN').textContent = VIDEOS.length;
+  document.getElementById('notasN').textContent = NOTAS.length;
+  render();
+}
+
+function setView(v){
+  CURR_VIEW = v;
+  document.querySelectorAll('.view-tab').forEach(t => t.classList.toggle('active', t.dataset.view === v));
+  document.getElementById('viewVideos').style.display = v === 'videos' ? '' : 'none';
+  document.getElementById('viewNotas').style.display = v === 'notas' ? '' : 'none';
+  document.getElementById('countLabel').textContent = v === 'videos' ? 'videos' : 'notas';
+  render();
+}
+
+function setCat(id){
+  if(CURR_VIEW === 'videos') CURR_CAT_VIDEOS = id;
+  else CURR_CAT_NOTAS = id;
+  render();
+}
+
+function render(){
+  renderChips();
+  if(CURR_VIEW === 'videos') renderVideos();
+  else renderNotas();
+}
+
+function renderChips(){
+  const cats = CURR_VIEW === 'videos' ? CAT_VIDEOS : CAT_NOTAS;
+  const curr = CURR_VIEW === 'videos' ? CURR_CAT_VIDEOS : CURR_CAT_NOTAS;
+  const list = CURR_VIEW === 'videos' ? VIDEOS : NOTAS;
+  const container = document.getElementById('chips');
+  container.innerHTML = cats.map(c => {
+    let n;
+    if(c.id === 'todas') n = list.length;
+    else if(CURR_VIEW === 'videos') n = list.filter(v => v.categoria === c.id).length;
+    else n = list.filter(v => (v.tags||[]).includes(c.id)).length;
+    const active = c.id === curr ? ' active' : '';
+    return `<button class="chip${active}" onclick="setCat('${c.id}')">${c.label} <span class="n">${n}</span></button>`;
+  }).join('');
+}
+
+function renderVideos(){
+  const list = CURR_CAT_VIDEOS === 'todas' ? VIDEOS : VIDEOS.filter(v => v.categoria === CURR_CAT_VIDEOS);
+  list.sort((a,b) => (b.destacado?1:0) - (a.destacado?1:0));
+  document.getElementById('count').textContent = list.length;
+  const container = document.getElementById('videosGrid');
+  if(list.length === 0){
+    container.innerHTML = '<div class="empty-state"><p>No hay videos en esta categoría todavía.<br><a href="https://wa.me/5491169633434" style="color:var(--gold)">Sugerí uno por WhatsApp</a>.</p></div>';
+    return;
+  }
+  container.innerHTML = list.map(renderVideo).join('');
+}
+
+function renderVideo(v){
+  const cat = CAT_VIDEOS.find(c => c.id === v.categoria) || CAT_VIDEOS[0];
+  const thumb = `https://img.youtube.com/vi/${v.youtube_id}/mqdefault.jpg`;
+  const url = `https://www.youtube.com/watch?v=${v.youtube_id}`;
+  const dest = v.destacado ? ' destacado' : '';
+  return `
+    <a href="${url}" target="_blank" rel="noopener" class="vcard${dest}" style="--cat-c:${cat.color}">
+      <div class="thumb-wrap">
+        <img src="${thumb}" alt="${v.titulo.replace(/"/g,'&quot;')}" loading="lazy">
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7L8 5z"/></svg></div></div>
+        <div class="vdur">${v.duracion}</div>
+      </div>
+      <div class="vbody">
+        <div class="vcat">${cat.label}</div>
+        <div class="vtitulo">${v.titulo}</div>
+        <div class="vcanal"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a2.995 2.995 0 0 0-2.106-2.117C19.503 3.5 12 3.5 12 3.5s-7.503 0-9.392.569A2.995 2.995 0 0 0 .502 6.186C0 8.1 0 12 0 12s0 3.9.502 5.814a2.995 2.995 0 0 0 2.106 2.117C4.497 20.5 12 20.5 12 20.5s7.503 0 9.392-.569a2.995 2.995 0 0 0 2.106-2.117C24 15.9 24 12 24 12s0-3.9-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z"/></svg><b>${v.canal}</b></div>
+        <div class="vdesc">${v.descripcion}</div>
+        <div class="vmeta">
+          <span class="ic">👁 ${v.vistas}</span>
+          <span class="ic">📅 ${v.anio}</span>
+        </div>
+      </div>
+    </a>`;
+}
+
+function renderNotas(){
+  const list = CURR_CAT_NOTAS === 'todas' ? NOTAS.slice() : NOTAS.filter(n => (n.tags||[]).includes(CURR_CAT_NOTAS));
+  list.sort((a,b) => {
+    if((b.destacado?1:0) !== (a.destacado?1:0)) return (b.destacado?1:0) - (a.destacado?1:0);
+    return (b.fecha || '').localeCompare(a.fecha || '');
+  });
+  document.getElementById('count').textContent = list.length;
+  const container = document.getElementById('notasList');
+  if(list.length === 0){
+    container.innerHTML = '<div class="empty-state"><p>No hay notas en esta categoría todavía.<br><a href="https://wa.me/5491169633434" style="color:var(--gold)">Sugerí una por WhatsApp</a>.</p></div>';
+    return;
+  }
+  container.innerHTML = list.map(renderNota).join('');
+}
+
+function renderNota(n){
+  const [y,m,d] = (n.fecha || '').split('-');
+  const dayStr = d || '--';
+  const monStr = m ? MONTHS[parseInt(m)-1] : '';
+  const dest = n.destacado ? ' destacado' : '';
+  const tags = (n.tags||[]).map(t => `<span class="ntag">${t.replace(/-/g,' ')}</span>`).join('');
+  return `
+    <a href="${n.url}" target="_blank" rel="noopener" class="ncard${dest}">
+      <div class="ndate">
+        <div class="day">${dayStr}</div>
+        <div class="month">${monStr}</div>
+        <div class="year">${y||''}</div>
+      </div>
+      <div class="nbody">
+        <div class="ntipo-row">
+          <span class="nmedio">📰 ${n.medio}</span>
+          <span class="ntipo">· ${TIPO_LABEL[n.tipo]||n.tipo}</span>
+          ${n.autor ? `<span class="nautor">· ${n.autor}</span>` : ''}
+        </div>
+        <div class="ntitulo">${n.titulo}</div>
+        <div class="ndesc">${n.descripcion}</div>
+        <div class="ntags">${tags}</div>
+      </div>
+      <div class="narrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </div>
+    </a>`;
+}
+
+init();
+</script>
+</body>
+</html>

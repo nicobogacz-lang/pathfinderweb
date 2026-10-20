@@ -33,6 +33,13 @@ except ImportError:
     print("Faltan deps. Corré: pip install requests beautifulsoup4", file=sys.stderr)
     sys.exit(1)
 
+# Playwright es opcional — se usa para SPAs con JavaScript (UCA, UTDT, UdeSA, ITBA).
+try:
+    from playwright.sync_api import sync_playwright
+    HAS_PLAYWRIGHT = True
+except ImportError:
+    HAS_PLAYWRIGHT = False
+
 # ────────────────────────────────────────────────────────────────
 # CONFIG
 # ────────────────────────────────────────────────────────────────
@@ -223,12 +230,23 @@ def detect_universidad(text):
     return None
 
 def mentions_past_year(text):
-    """Descartar eventos de años anteriores a este."""
+    """Descartar eventos que mencionen años anteriores al actual."""
     year_now = date.today().year
-    for y in range(2015, year_now):
-        if re.search(r"\b" + str(y) + r"\b", text):
+    # Buscar cualquier año de 4 dígitos (1900-current_year-1)
+    for match in re.finditer(r"\b(19\d{2}|20\d{2})\b", text):
+        y = int(match.group(1))
+        if y < year_now:
             return True
     return False
+
+def is_future_or_recent(fecha_iso):
+    """Devuelve True si la fecha es de este año en adelante."""
+    if not fecha_iso: return True  # None = fecha desconocida, no descarta
+    try:
+        y = int(fecha_iso[:4])
+        return y >= date.today().year
+    except (ValueError, IndexError):
+        return True
 
 def extract_date(text):
     """Intenta extraer una fecha ISO (YYYY-MM-DD) del texto. Devuelve None si no."""
@@ -359,6 +377,9 @@ def scrape_google_news():
                     fecha = fecha_pub
                 except Exception:
                     pass
+            # Descartar si la fecha extraída/pub es de un año anterior
+            if not is_future_or_recent(fecha):
+                continue
             out.append(normalize_event(
                 titulo=title[:140],
                 link=link,
@@ -391,6 +412,8 @@ def scrape_wordpress(sigla, base_url, keyword="charla"):
         if mentions_past_year(full):
             continue
         fecha = extract_date(full) or (p.get("date","")[:10] if p.get("date") else None)
+        if not is_future_or_recent(fecha):
+            continue
         out.append(normalize_event(
             titulo=title[:140],
             link=link,
@@ -453,23 +476,68 @@ def scrape_sitemap(sigla, sitemap_url):
     out = []
     r = fetch(sitemap_url)
     if not r: return out
-    # Soportar sitemap index o sitemap simple
     text = r.text
     urls = re.findall(r"<loc>([^<]+)</loc>", text)
     for u in urls:
+        # Descartar URLs que mencionen años pasados en el path
+        if mentions_past_year(u):
+            continue
         slug_part = u.lower().split("/")[-2] if u.endswith("/") else u.lower().split("/")[-1]
         if not any(kw in slug_part for kw in ["charla","vocacional","puertas-abiertas","open-day","feria-carreras","muestra-carreras","expo-carreras","yoquieroestudiar","futureday","mundo-universitario","ingresantes"]):
             continue
         out.append(normalize_event(
             titulo=slug_part.replace("-"," ").title()[:140],
             link=u,
-            fecha_inicio=HOY,
+            fecha_inicio=None,  # no asumir HOY — queda estimada
             universidad=sigla,
             descripcion=f"URL detectada en sitemap de {sigla}",
             fuente_scraper=f"sitemap-{sigla.lower()}",
             nota="Detectado en sitemap — confirmar que esté vigente."
         ))
-    return out[:5]  # máximo 5 por sitemap para no inundar
+    return out[:5]
+
+def scrape_spa_playwright(sigla, url, selector="h1, h2, h3, .event, .evento, article"):
+    """Usa headless Chromium para scrapear sites con JavaScript (SPAs)."""
+    out = []
+    if not HAS_PLAYWRIGHT:
+        return out
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page(user_agent=UA)
+            page.set_default_timeout(TIMEOUT * 1000)
+            page.goto(url, wait_until="networkidle")
+            # Esperar un poco por si tarda contenido dinámico
+            try:
+                page.wait_for_selector(selector, timeout=8000)
+            except Exception:
+                pass
+            html_content = page.content()
+            browser.close()
+    except Exception as e:
+        print(f" (playwright err: {type(e).__name__})", end="", file=sys.stderr)
+        return out
+    soup = BeautifulSoup(html_content, "html.parser")
+    for el in soup.select(selector):
+        text = normalize_text(el.get_text(" ", strip=True))
+        if not text or len(text) < 15 or len(text) > 300: continue
+        if not (contains_fuerte(text) or contains_contexto_universidad(text)): continue
+        if mentions_past_year(text): continue
+        link_el = el.find("a", href=True) or el.find_parent("a", href=True)
+        href = urljoin(url, link_el["href"]) if link_el else url
+        fecha = extract_date(text)
+        if not is_future_or_recent(fecha):
+            continue
+        out.append(normalize_event(
+            titulo=text[:140],
+            link=href,
+            fecha_inicio=fecha,
+            universidad=sigla,
+            descripcion=text[:280],
+            fuente_scraper=f"spa-{sigla.lower()}",
+            nota="Detectado vía Playwright — confirmar fecha y detalles."
+        ))
+    return out[:10]  # cap por SPA
 
 def scrape_eventbrite_search():
     """Eventbrite público."""
@@ -514,6 +582,11 @@ SCRAPERS = [
     ("Sitemap · UNC",                  lambda: scrape_sitemap("UNC","https://www.unc.edu.ar/sitemap_index.xml")),
     ("Sitemap · UCA",                  lambda: scrape_sitemap("UCA","https://uca.edu.ar/sitemap.xml")),
     ("Eventbrite",                     scrape_eventbrite_search),
+    # SPAs con JavaScript — requieren Playwright
+    ("SPA · UCA eventos",              lambda: scrape_spa_playwright("UCA", "https://uca.edu.ar/es/novedades")),
+    ("SPA · UTDT eventos",             lambda: scrape_spa_playwright("UTDT","https://www.utdt.edu/eventos")),
+    ("SPA · UdeSA eventos",            lambda: scrape_spa_playwright("UdeSA","https://www.udesa.edu.ar/eventos")),
+    ("SPA · ITBA eventos",             lambda: scrape_spa_playwright("ITBA","https://www.itba.edu.ar/eventos/")),
 ]
 
 def main():

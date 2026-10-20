@@ -120,6 +120,21 @@
       "link": "https://www.unl.edu.ar/extension/",
       "actualizado": "2026-10-20",
       "nota": "Fecha estimada en base a edición 2026 (fines de septiembre)."
+    },
+    {
+      "id": "up-agenda-2026-10-20",
+      "titulo": "Agenda de reuniones informativas UP",
+      "universidad": "UP",
+      "universidad_nombre": "Universidad de Palermo",
+      "sistema": "privada",
+      "tipo": "charla",
+      "modalidad": "hibrido",
+      "fecha_inicio": "2026-10-20",
+      "descripcion": "Agenda rotativa de reuniones informativas de la UP, actualizada en calendario académico oficial.",
+      "link": "https://www.palermo.edu/calendario-academico/",
+      "fuente_scraper": "palermo",
+      "actualizado": "2026-10-20",
+      "nota": "Agenda rotativa — fechas vigentes en el link oficial."
     }
   ]
 }

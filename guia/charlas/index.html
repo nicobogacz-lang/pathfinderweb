@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Charlas y ferias de universidades — Agenda · PathFinder</title>
+<meta name="description" content="Agenda abierta de charlas vocacionales, ferias y jornadas de puertas abiertas de universidades argentinas. Actualizada automáticamente cada semana.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+:root{--gold:#F5C040;--orange:#E87820;--violet2:#A855F7;--cream:#FFF8EC;--muted:#A09070;--bg:#0A0610;--card:#160A24;--green:#5BC27A;--red:#E8706B}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--orange)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,6,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,192,64,.1);padding:16px 32px}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);letter-spacing:1px}
+nav .menu{display:flex;gap:24px;font-size:14px}
+nav .menu a{color:rgba(255,248,236,.75)}
+nav .menu a:hover{color:var(--gold)}
+nav .cta{padding:10px 20px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:13px}
+.crumb{padding:30px 0 10px;color:rgba(255,248,236,.5);font-size:13px}
+.crumb a{color:rgba(255,248,236,.5)}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{margin:0 10px;color:rgba(255,248,236,.3)}
+footer{margin-top:80px;padding:40px 32px;background:#060310;color:rgba(255,248,236,.45);font-size:13px;text-align:center;border-top:1px solid rgba(245,192,64,.08)}
+footer a{color:var(--gold)}
+
+.hero{padding:50px 0 30px;text-align:center;position:relative}
+.hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet2);font-weight:700;padding:6px 16px;border:1px solid rgba(168,85,247,.3);border-radius:99px;margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,78px);font-weight:400;line-height:1.05;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{font-size:17px;color:rgba(255,248,236,.7);max-width:720px;margin:0 auto 24px}
+.meta-strip{display:inline-flex;align-items:center;gap:16px;background:rgba(91,194,122,.08);border:1px solid rgba(91,194,122,.25);border-radius:99px;padding:8px 18px;font-size:12px;color:var(--green)}
+.meta-strip .dot{width:8px;height:8px;border-radius:99px;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.controls{display:grid;grid-template-columns:1fr auto auto auto;gap:12px;margin:40px 0 24px;background:rgba(255,255,255,.025);border:1px solid rgba(245,192,64,.08);border-radius:16px;padding:16px;align-items:center}
+.controls input, .controls select{background:transparent;color:var(--cream);border:1px solid rgba(245,192,64,.15);border-radius:10px;padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;cursor:pointer}
+.controls input{cursor:text}
+.controls input::placeholder{color:rgba(255,248,236,.4)}
+.controls input:focus, .controls select:focus{border-color:var(--gold)}
+.controls select option{background:#160A24;color:var(--cream)}
+
+.summary{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.summary .count{font-size:14px;color:rgba(255,248,236,.6)}
+.summary .count b{color:var(--gold);font-weight:600}
+.summary .legend{display:flex;gap:14px;font-size:12px;color:rgba(255,248,236,.55);flex-wrap:wrap}
+.summary .lg{display:inline-flex;align-items:center;gap:6px}
+.summary .lg-dot{width:8px;height:8px;border-radius:2px}
+
+.events-list{display:flex;flex-direction:column;gap:14px}
+.evt{display:grid;grid-template-columns:120px 1fr auto;gap:28px;padding:28px 32px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid rgba(255,248,236,.08);border-radius:20px;position:relative;overflow:hidden;transition:all .3s cubic-bezier(.2,.8,.2,1)}
+.evt::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--sc);transition:width .3s}
+.evt:hover{transform:translateY(-2px);border-color:rgba(245,192,64,.2);box-shadow:0 15px 40px -15px rgba(0,0,0,.5)}
+.evt:hover::before{width:5px}
+.evt.destacado{background:linear-gradient(145deg,rgba(245,192,64,.1),rgba(168,85,247,.05));border-color:rgba(245,192,64,.3)}
+.evt.destacado::after{content:'🔥 Destacado';position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);background:rgba(245,192,64,.15);padding:4px 10px;border-radius:99px;font-weight:700}
+.evt.pasado{opacity:.5}
+.evt-date{text-align:center;padding:14px 0;background:rgba(10,6,16,.5);border:1px solid rgba(245,192,64,.15);border-radius:12px;height:fit-content}
+.evt-date .day{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;line-height:1;color:var(--gold)}
+.evt-date .month{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,248,236,.65);margin-top:4px;font-weight:600}
+.evt-date .year{font-size:10px;color:rgba(255,248,236,.4);margin-top:2px}
+.evt-date .range{font-size:10px;color:var(--gold);margin-top:6px;letter-spacing:.5px}
+.evt-main h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;line-height:1.15;margin-bottom:8px}
+.evt-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.evt-tag{display:inline-block;font-size:11px;letter-spacing:.5px;padding:3px 10px;border-radius:99px;font-weight:500}
+.tag-uni{background:rgba(245,192,64,.1);color:var(--gold);border:1px solid rgba(245,192,64,.3)}
+.tag-sistema-publica{background:rgba(91,194,122,.1);color:var(--green);border:1px solid rgba(91,194,122,.3)}
+.tag-sistema-privada{background:rgba(168,85,247,.1);color:var(--violet2);border:1px solid rgba(168,85,247,.3)}
+.tag-tipo{background:rgba(255,255,255,.05);color:rgba(255,248,236,.75);border:1px solid rgba(255,255,255,.1)}
+.tag-modalidad{background:rgba(232,120,32,.08);color:var(--orange);border:1px solid rgba(232,120,32,.25)}
+.evt-desc{font-size:14px;color:rgba(255,248,236,.75);line-height:1.55;margin-bottom:10px}
+.evt-meta{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:rgba(255,248,236,.55)}
+.evt-meta b{color:var(--cream);font-weight:500}
+.evt-meta .ic{display:inline-flex;align-items:center;gap:6px}
+.evt-meta svg{width:14px;height:14px;flex-shrink:0;opacity:.6}
+.evt-note{margin-top:10px;font-size:12px;font-style:italic;color:rgba(245,192,64,.55);padding-left:12px;border-left:2px solid rgba(245,192,64,.2)}
+.evt-cta{display:flex;flex-direction:column;gap:8px;align-items:flex-end;justify-content:center}
+.evt-cta .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 22px;background:var(--gold);color:#0A0500!important;font-weight:600;font-size:13px;border-radius:99px;transition:all .2s;white-space:nowrap}
+.evt-cta .btn:hover{background:#fff;transform:translateY(-1px)}
+.evt-cta .btn-ghost{background:transparent;color:var(--cream)!important;border:1px solid rgba(245,192,64,.3);font-weight:500}
+.evt-cta .btn-ghost:hover{background:rgba(245,192,64,.08);color:var(--gold)!important}
+
+.empty-state{text-align:center;padding:60px 20px;color:rgba(255,248,236,.5);background:rgba(255,255,255,.02);border:1px dashed rgba(245,192,64,.15);border-radius:16px}
+.empty-state svg{width:60px;height:60px;color:var(--muted);margin-bottom:20px;opacity:.5}
+
+.suggest-box{margin:60px 0 20px;padding:32px;background:linear-gradient(135deg,rgba(91,194,122,.08),rgba(168,85,247,.05));border:1px solid rgba(91,194,122,.2);border-radius:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.suggest-box .ic-box{flex-shrink:0;width:56px;height:56px;background:rgba(91,194,122,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;color:var(--green)}
+.suggest-box .text{flex:1;min-width:260px}
+.suggest-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);margin-bottom:4px}
+.suggest-box p{font-size:14px;color:rgba(255,248,236,.7)}
+.suggest-box .wa-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:#25D366;color:#fff!important;font-weight:600;font-size:14px;border-radius:99px;transition:all .2s}
+.suggest-box .wa-btn:hover{background:#1EB352;transform:translateY(-1px)}
+
+.info-footer{margin:40px 0 60px;padding:24px;background:rgba(255,255,255,.02);border:1px solid rgba(245,192,64,.08);border-radius:16px;text-align:center;font-size:13px;color:rgba(255,248,236,.55)}
+.info-footer b{color:var(--gold)}
+
+@media (max-width:900px){
+  .controls{grid-template-columns:1fr 1fr;gap:10px}
+  .controls input{grid-column:1/-1}
+  .evt{grid-template-columns:80px 1fr;gap:16px;padding:20px}
+  .evt-cta{grid-column:1/-1;align-items:stretch;flex-direction:row;flex-wrap:wrap}
+  .evt-cta .btn{flex:1;justify-content:center;text-align:center}
+  .evt-date .day{font-size:32px}
+  .hero h1{font-size:40px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PathFinder</a>
+    <div class="menu">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/guia/">Guía</a>
+      <a href="/guia/carreras/">Carreras</a>
+      <a href="/guia/universidades/">Universidades</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="cta">Probá el juego →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb">
+    <a href="/">Inicio</a> <span class="sep">/</span>
+    <a href="/guia/">Guía</a> <span class="sep">/</span>
+    Charlas y ferias
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Agenda</div>
+    <h1>Charlas y <em>ferias</em> de universidades</h1>
+    <p class="sub">Agenda abierta de jornadas de puertas abiertas, ferias de carreras y charlas vocacionales de universidades argentinas. Para que una familia pueda planificar visitas con su hijo/a sin tener que rastrear 20 sitios distintos.</p>
+    <div class="meta-strip" id="updatedStrip">
+      <span class="dot"></span>
+      <span id="updatedText">Cargando…</span>
+    </div>
+  </section>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="Buscar por universidad, carrera o palabra clave…">
+    <select id="filterUni">
+      <option value="">Todas las universidades</option>
+    </select>
+    <select id="filterTipo">
+      <option value="">Todos los tipos</option>
+      <option value="feria">Feria</option>
+      <option value="open-day">Open Day</option>
+      <option value="charla">Charla</option>
+      <option value="workshop">Workshop</option>
+      <option value="jornada">Jornada</option>
+    </select>
+    <select id="filterMod">
+      <option value="">Todas las modalidades</option>
+      <option value="presencial">Presencial</option>
+      <option value="virtual">Virtual</option>
+      <option value="hibrido">Híbrido</option>
+    </select>
+  </div>
+
+  <div class="summary">
+    <div class="count"><b id="count">0</b> eventos encontrados</div>
+    <div class="legend">
+      <div class="lg"><span class="lg-dot" style="background:var(--green)"></span>Pública</div>
+      <div class="lg"><span class="lg-dot" style="background:var(--violet2)"></span>Privada</div>
+      <div class="lg"><span class="lg-dot" style="background:var(--gold)"></span>Destacado</div>
+    </div>
+  </div>
+
+  <div id="eventsList" class="events-list"></div>
+
+  <div class="suggest-box">
+    <div class="ic-box">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
+    </div>
+    <div class="text">
+      <h3>¿Conocés una charla o feria que no está acá?</h3>
+      <p>Pasánoslo por WhatsApp con fecha, universidad y link. Lo publicamos nosotros así ayudás a otras familias.</p>
+    </div>
+    <a href="https://wa.me/5491169633434?text=Hola%20PathFinder%2C%20quiero%20sugerir%20una%20charla%2Fferia%20universitaria%20para%20la%20agenda%3A%0A%0AUniversidad%3A%0ATítulo%3A%0AFecha%3A%0ALink%3A" class="wa-btn" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163A11.867 11.867 0 010 11.986C0 5.373 5.373 0 11.985 0a11.927 11.927 0 018.413 3.488 11.878 11.878 0 013.48 8.414c-.003 6.613-5.377 11.986-11.98 11.986a11.98 11.98 0 01-5.73-1.459L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.496 0 9.969-4.461 9.971-9.952.002-5.506-4.455-9.968-9.952-9.968-5.505 0-9.964 4.462-9.966 9.968 0 2.225.651 3.891 1.746 5.634l-.999 3.648 3.808-.922z"/></svg>
+      Sugerir evento
+    </a>
+  </div>
+
+  <div class="info-footer">
+    <p><b>¿Cómo se mantiene actualizada esta agenda?</b></p>
+    <p>Un script corre todos los lunes y rastrea las páginas de eventos de las principales universidades argentinas. Lo que encuentra se publica acá. Si algo falta o está mal, mandanos un WhatsApp y lo arreglamos.</p>
+  </div>
+</div>
+
+<footer>
+  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);">PathFinder</div>
+  <div>Charlas · <a href="/">Volver al inicio</a> · <a href="/guia/">Guía</a> · <a href="/guia/carreras/">Carreras</a> · <a href="/guia/comparar/">Comparar</a></div>
+  <div style="margin-top:10px;opacity:.6;">© 2026 PathFinder · nicobogacz@gmail.com · pathfinder.net.ar</div>
+</footer>
+
+<script>
+const MONTHS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+const TIPO_LABEL = {'feria':'Feria','open-day':'Open Day','charla':'Charla','workshop':'Workshop','jornada':'Jornada'};
+const MOD_LABEL = {'presencial':'🏛️ Presencial','virtual':'💻 Virtual','hibrido':'🔀 Híbrido'};
+let EVENTOS = [], ACTUALIZADO = '';
+
+async function init(){
+  try {
+    const r = await fetch('/guia/charlas/eventos.json');
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const data = await r.json();
+    EVENTOS = data.eventos || [];
+    ACTUALIZADO = data.actualizado || '';
+  } catch(e) {
+    document.getElementById('eventsList').innerHTML = '<div class="empty-state">⚠️ No se pudo cargar la agenda de eventos. Si estás viendo esto desde una vista previa local, subí la página a Vercel.</div>';
+    document.getElementById('updatedText').textContent = 'Error de carga';
+    return;
+  }
+  // Updated banner
+  const fmt = ACTUALIZADO.split('-').reverse().join('/');
+  document.getElementById('updatedText').textContent = 'Actualizado automáticamente — última corrida ' + fmt;
+  // Populate universidades select
+  const unis = [...new Set(EVENTOS.map(e => e.universidad_nombre))].sort();
+  const selUni = document.getElementById('filterUni');
+  unis.forEach(u => {
+    const o = document.createElement('option'); o.value = u; o.textContent = u; selUni.appendChild(o);
+  });
+  // Wire filters
+  ['search','filterUni','filterTipo','filterMod'].forEach(id => {
+    document.getElementById(id).addEventListener('input', render);
+    document.getElementById(id).addEventListener('change', render);
+  });
+  render();
+}
+
+function render(){
+  const q = document.getElementById('search').value.toLowerCase().trim();
+  const uni = document.getElementById('filterUni').value;
+  const tipo = document.getElementById('filterTipo').value;
+  const mod = document.getElementById('filterMod').value;
+  const today = new Date().toISOString().slice(0,10);
+  let list = EVENTOS.filter(e => {
+    if(uni && e.universidad_nombre !== uni) return false;
+    if(tipo && e.tipo !== tipo) return false;
+    if(mod && e.modalidad !== mod) return false;
+    if(q){
+      const hay = (e.titulo+' '+e.universidad_nombre+' '+e.descripcion+' '+(e.ubicacion||'')).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  // Sort: upcoming first, past at the bottom
+  list.sort((a,b) => {
+    const aPast = (a.fecha_fin || a.fecha_inicio) < today;
+    const bPast = (b.fecha_fin || b.fecha_inicio) < today;
+    if(aPast !== bPast) return aPast ? 1 : -1;
+    return a.fecha_inicio.localeCompare(b.fecha_inicio);
+  });
+  document.getElementById('count').textContent = list.length;
+  const container = document.getElementById('eventsList');
+  if(list.length === 0){
+    container.innerHTML = '<div class="empty-state"><p>No hay eventos que coincidan con tu búsqueda.<br>Probá cambiando los filtros, o <a href="https://wa.me/5491169633434" style="color:var(--gold)">sugerí uno nuevo por WhatsApp</a>.</p></div>';
+    return;
+  }
+  container.innerHTML = list.map(e => renderEvent(e, today)).join('');
+}
+
+function renderEvent(e, today){
+  const d1 = new Date(e.fecha_inicio + 'T00:00:00');
+  const d2 = e.fecha_fin ? new Date(e.fecha_fin + 'T00:00:00') : null;
+  const dayStr = String(d1.getDate()).padStart(2,'0');
+  const monthStr = MONTHS[d1.getMonth()];
+  const yearStr = d1.getFullYear();
+  let rangeStr = '';
+  if(d2 && (d2.getDate() !== d1.getDate() || d2.getMonth() !== d1.getMonth())){
+    if(d2.getMonth() === d1.getMonth()){
+      rangeStr = `al ${String(d2.getDate()).padStart(2,'0')}`;
+    } else {
+      rangeStr = `al ${String(d2.getDate()).padStart(2,'0')} ${MONTHS[d2.getMonth()]}`;
+    }
+  }
+  const sc = e.sistema === 'pública' ? 'var(--green)' : 'var(--violet2)';
+  const isPast = (e.fecha_fin || e.fecha_inicio) < today;
+  const classes = ['evt'];
+  if(e.destacado) classes.push('destacado');
+  if(isPast) classes.push('pasado');
+  const sysTag = `<span class="evt-tag tag-sistema-${e.sistema==='pública'?'publica':'privada'}">${e.sistema==='pública'?'Pública':'Privada'}</span>`;
+  const tipoTag = `<span class="evt-tag tag-tipo">${TIPO_LABEL[e.tipo] || e.tipo}</span>`;
+  const modTag = `<span class="evt-tag tag-modalidad">${MOD_LABEL[e.modalidad] || e.modalidad}</span>`;
+  const uniTag = `<span class="evt-tag tag-uni">${e.universidad}</span>`;
+  const hora = e.hora ? `<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>${e.hora}</b></span></div>` : '';
+  const ub = e.ubicacion ? `<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg><span>${e.ubicacion}</span></div>` : '';
+  const note = e.nota ? `<div class="evt-note">ⓘ ${e.nota}</div>` : '';
+  return `
+    <div class="${classes.join(' ')}" style="--sc:${sc}">
+      <div class="evt-date">
+        <div class="day">${dayStr}</div>
+        <div class="month">${monthStr}</div>
+        <div class="year">${yearStr}</div>
+        ${rangeStr ? `<div class="range">${rangeStr}</div>` : ''}
+      </div>
+      <div class="evt-main">
+        <h3>${e.titulo}</h3>
+        <div class="evt-tags">${uniTag}${sysTag}${tipoTag}${modTag}</div>
+        <div class="evt-desc">${e.descripcion}</div>
+        <div class="evt-meta">${hora}${ub}</div>
+        ${note}
+      </div>
+      <div class="evt-cta">
+        <a href="${e.link}" target="_blank" rel="noopener" class="btn">Más info →</a>
+      </div>
+    </div>`;
+}
+
+init();
+</script>
+</body>
+</html>

@@ -88,6 +88,22 @@
       "nota": "Fecha estimada basada en edición 2026 (fines de mayo)."
     },
     {
+      "id": "uade-reuniones-informativas-permanente",
+      "titulo": "Reuniones informativas UADE (personalizadas y grupales)",
+      "universidad": "UADE",
+      "universidad_nombre": "Universidad Argentina de la Empresa",
+      "sistema": "privada",
+      "tipo": "charla",
+      "modalidad": "hibrido",
+      "fecha_inicio": "2026-10-21",
+      "fecha_fin": "2027-12-31",
+      "hora": "Agenda personalizada o grupal — consultar sitio",
+      "ubicacion": "Campus Buenos Aires / Recoleta / Belgrano / Costa Argentina · o virtual (Teams)",
+      "descripcion": "UADE ofrece reuniones informativas personalizadas (elegís fecha y horario) o grupales (presenciales en el Campus Buenos Aires) para cada carrera. Modalidad presencial u online por Microsoft Teams. Reservá seleccionando carrera y modalidad en el selector interactivo del sitio.",
+      "link": "https://www.uade.edu.ar/sites/agenda-reuniones-informativas/",
+      "actualizado": "2026-10-20",
+      "nota": "Agenda rotativa a demanda — reservá en el sitio oficial eligiendo tu carrera y modalidad."
+    },
       "id": "up-reuniones-informativas-permanente",
       "titulo": "Reuniones informativas UP (permanentes)",
       "universidad": "UP",

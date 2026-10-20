@@ -1700,8 +1700,9 @@ nav, footer, section, .hero-content { position:relative; z-index:2; }
 #guia-section .area-count{font-size:13px;color:rgba(255,248,236,0.5);display:flex;align-items:center;gap:8px;}
 #guia-section .area-count::after{content:'→';color:var(--ac);transition:transform .3s;font-size:16px;margin-left:auto;}
 #guia-section .area-card:hover .area-count::after{transform:translateX(4px);}
-#guia-section .guia-tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 50px;}
-@media (max-width:900px){ #guia-section .guia-tools{grid-template-columns:1fr;} }
+#guia-section .guia-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0 50px;}
+@media (max-width:1100px){ #guia-section .guia-tools{grid-template-columns:1fr 1fr;} }
+@media (max-width:720px){ #guia-section .guia-tools{grid-template-columns:1fr;} }
 #guia-section .tool-card{display:flex;flex-direction:column;gap:16px;padding:28px;background:linear-gradient(135deg,color-mix(in srgb,var(--tc) 10%,transparent) 0%,rgba(255,255,255,0.02) 100%);border:1px solid color-mix(in srgb,var(--tc) 22%,transparent);border-radius:20px;text-decoration:none;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;}
 #guia-section .tool-card::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(circle at 100% 50%,color-mix(in srgb,var(--tc) 18%,transparent) 0%,transparent 70%);pointer-events:none;opacity:.7;transition:opacity .3s;}
 #guia-section .tool-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--tc) 45%,transparent);box-shadow:0 20px 50px -15px color-mix(in srgb,var(--tc) 30%,transparent);}
@@ -1844,6 +1845,27 @@ nav, footer, section, .hero-content { position:relative; z-index:2; }
           <div class="tool-title">Charlas y <em>ferias</em> de universidades</div>
           <div class="tool-desc">Open days, ferias de carreras y charlas vocacionales de universidades argentinas, actualizadas automáticamente cada semana.</div>
           <span class="tool-link">Ver agenda <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/guia/info-util/" class="tool-card" style="--tc:#E87820;">
+        <div class="tool-head">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="14" rx="2.5" fill="currentColor" fill-opacity=".15"/>
+              <rect x="2" y="4" width="20" height="14" rx="2.5"/>
+              <path d="M10 8l6 3-6 3V8z" fill="currentColor" fill-opacity=".4"/>
+              <path d="M10 8l6 3-6 3V8z"/>
+              <path d="M8 20h8" opacity=".5"/>
+              <path d="M12 18v2" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="tool-tag">🎥 Biblioteca</div>
+        </div>
+        <div class="tool-body">
+          <div class="tool-title">Videos útiles para <em>decidir</em></div>
+          <div class="tool-desc">Charlas TED, un día en la vida de distintos profesionales, universidades por dentro y carreras del futuro. Todo curado y en español.</div>
+          <span class="tool-link">Ver biblioteca <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
     </div>
@@ -2367,5 +2389,11 @@ function moveCarousel(dir) { goToPage(page + dir); }
 goToPage(0);
 
 </script>
+
+<!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

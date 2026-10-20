@@ -168,8 +168,11 @@ footer a{color:var(--gold)}
   </div>
 
   <div class="summary">
-    <div class="count"><b id="count">0</b> eventos encontrados</div>
+    <div class="count"><b id="count">0</b> eventos encontrados <span id="pastInfo" style="color:rgba(255,248,236,.4);margin-left:10px;font-size:13px"></span></div>
     <div class="legend">
+      <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:rgba(255,248,236,.6);margin-right:14px">
+        <input type="checkbox" id="togglePast" style="accent-color:var(--gold);cursor:pointer"> Mostrar pasados
+      </label>
       <div class="lg"><span class="lg-dot" style="background:var(--green)"></span>Pública</div>
       <div class="lg"><span class="lg-dot" style="background:var(--violet2)"></span>Privada</div>
       <div class="lg"><span class="lg-dot" style="background:var(--gold)"></span>Destacado</div>
@@ -232,9 +235,11 @@ async function init(){
     const o = document.createElement('option'); o.value = u; o.textContent = u; selUni.appendChild(o);
   });
   // Wire filters
-  ['search','filterUni','filterTipo','filterMod'].forEach(id => {
-    document.getElementById(id).addEventListener('input', render);
-    document.getElementById(id).addEventListener('change', render);
+  ['search','filterUni','filterTipo','filterMod','togglePast'].forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
   });
   render();
 }
@@ -255,20 +260,33 @@ function render(){
     }
     return true;
   });
-  // Sort: upcoming first, luego por confirmados-primero, luego por fecha
-  list.sort((a,b) => {
-    const aPast = (a.fecha_fin || a.fecha_inicio) < today;
-    const bPast = (b.fecha_fin || b.fecha_inicio) < today;
-    if(aPast !== bPast) return aPast ? 1 : -1;
-    // Dentro del mismo grupo, confirmados antes que estimados
+  // Separar en 3 grupos y ordenar cada uno
+  const futuros = [], pasados = [];
+  list.forEach(e => {
+    const endDate = e.fecha_fin || e.fecha_inicio;
+    if(endDate < today) pasados.push(e);
+    else futuros.push(e);
+  });
+  // Futuros: destacados primero, luego confirmados antes que estimados, luego por fecha ascendente (más próximo primero)
+  futuros.sort((a,b) => {
+    if((a.destacado?1:0) !== (b.destacado?1:0)) return (b.destacado?1:0) - (a.destacado?1:0);
     const aEst = a.fecha_estimada === true ? 1 : 0;
     const bEst = b.fecha_estimada === true ? 1 : 0;
     if(aEst !== bEst) return aEst - bEst;
-    // Destacados primero
-    if((a.destacado?1:0) !== (b.destacado?1:0)) return (b.destacado?1:0) - (a.destacado?1:0);
     return a.fecha_inicio.localeCompare(b.fecha_inicio);
   });
+  // Pasados: ocultos por default. Si el usuario los quiere ver, click en el toggle.
+  pasados.sort((a,b) => b.fecha_inicio.localeCompare(a.fecha_inicio));
+  const showPast = document.getElementById('togglePast')?.checked;
+  list = showPast ? [...futuros, ...pasados] : futuros;
+  window.__ALL_PAST_COUNT = pasados.length;
   document.getElementById('count').textContent = list.length;
+  const pastInfo = document.getElementById('pastInfo');
+  if(pastInfo){
+    const pastN = window.__ALL_PAST_COUNT || 0;
+    const showing = document.getElementById('togglePast')?.checked;
+    pastInfo.textContent = pastN > 0 && !showing ? `· ${pastN} eventos pasados ocultos` : '';
+  }
   const container = document.getElementById('eventsList');
   if(list.length === 0){
     container.innerHTML = '<div class="empty-state"><p>No hay eventos que coincidan con tu búsqueda.<br>Probá cambiando los filtros, o <a href="https://wa.me/5491169633434" style="color:var(--gold)">sugerí uno nuevo por WhatsApp</a>.</p></div>';

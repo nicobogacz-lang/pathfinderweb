@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Las 8 áreas vocacionales — Guía · PathFinder</title>
+<meta name="description" content="Las 8 áreas vocacionales en las que se agrupan todas las carreras universitarias argentinas. Explorá cuál encaja con tu perfil.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{
+  --gold:#F5C040; --orange:#E87820;
+  --violet:#7C3AED; --violet2:#A855F7;
+  --cream:#FFF8EC; --muted:#A09070;
+  --bg:#0A0610; --bg2:#12081A; --card:#160A24;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--orange)}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:500}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,6,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,192,64,.1);padding:16px 32px}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);letter-spacing:1px}
+nav .menu{display:flex;gap:28px;font-size:14px}
+nav .menu a{color:rgba(255,248,236,.75)}
+nav .menu a:hover{color:var(--gold)}
+nav .cta{padding:10px 20px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:13px}
+
+/* BREADCRUMB */
+.crumb{padding:30px 0 10px;color:rgba(255,248,236,.5);font-size:13px}
+.crumb a{color:rgba(255,248,236,.5)}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{margin:0 10px;color:rgba(255,248,236,.3)}
+
+/* FOOTER */
+footer{margin-top:80px;padding:40px 32px;background:#060310;color:rgba(255,248,236,.45);font-size:13px;text-align:center;border-top:1px solid rgba(245,192,64,.08)}
+footer a{color:var(--gold)}
+
+/* HELPERS */
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.btn-primary{display:inline-block;padding:16px 36px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:15px;transition:all .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,192,64,.3);color:#0a0510!important}
+.btn-ghost{display:inline-block;padding:14px 32px;border-radius:99px;border:1.5px solid rgba(245,192,64,.4);color:var(--gold)!important;font-weight:500;font-size:14px}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+.header{padding:80px 0 40px}
+.header h1{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:400;margin-bottom:16px}
+.header .sub{font-size:18px;color:rgba(255,248,236,.7);max-width:720px}
+.grid-areas{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding-bottom:60px}
+.area-card{display:flex;background:var(--card);border:1px solid rgba(245,192,64,.08);border-radius:16px;overflow:hidden;transition:all .3s;color:inherit!important}
+.area-card:hover{border-color:var(--c);transform:translateY(-3px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.area-color{width:8px;background:var(--c)}
+.area-body{padding:28px 32px;flex:1}
+.area-count{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--c);font-weight:700;margin-bottom:10px}
+.area-body h3{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:8px;line-height:1.15}
+.area-body p{color:rgba(255,248,236,.7);font-size:15px;margin-bottom:16px;font-style:italic}
+.area-body .arrow{color:var(--c);font-size:12px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+@media (max-width:720px){.grid-areas{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PathFinder</a>
+    <div class="menu">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/guia/">Guía de carreras</a>
+      <a href="/#escuela">Para colegios</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="cta">Probá el juego →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb"><a href="/">Inicio</a> <span class="sep">/</span> <a href="/guia/">Guía</a> <span class="sep">/</span> Áreas</div>
+  <section class="header">
+    <h1>Las 8 áreas <span style="color:var(--gold);font-style:italic">vocacionales</span></h1>
+    <p class="sub">Toda carrera universitaria encaja en alguna de estas 8 grandes familias. Cada una tiene su propia lógica, su propio perfil de persona característico, y abre caminos distintos.</p>
+  </section>
+  <section class="grid-areas">
+    <a href="/guia/areas/ciencias-de-la-salud" class="area-card" style="--c:#1D9E75">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">22 carreras</div>
+        <h3>Ciencias de la Salud</h3>
+        <p>Cuidar, curar, acompañar.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/ciencias-sociales-y-humanas" class="area-card" style="--c:#7F77DD">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">30 carreras</div>
+        <h3>Ciencias Sociales y Humanas</h3>
+        <p>Entender a las personas y a la sociedad.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/ciencias-exactas-y-naturales" class="area-card" style="--c:#378ADD">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">19 carreras</div>
+        <h3>Ciencias Exactas y Naturales</h3>
+        <p>La curiosidad por entender cómo funciona el mundo.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/ingenieria-y-tecnologia" class="area-card" style="--c:#BA7517">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">33 carreras</div>
+        <h3>Ingeniería y Tecnología</h3>
+        <p>Diseñar soluciones donde no las había.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/ciencias-economicas-y-administracion" class="area-card" style="--c:#D85A30">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">20 carreras</div>
+        <h3>Ciencias Económicas y Administración</h3>
+        <p>El negocio, la decisión, el valor.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/arte-diseno-y-arquitectura" class="area-card" style="--c:#D4537E">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">25 carreras</div>
+        <h3>Arte, Diseño y Arquitectura</h3>
+        <p>Crear forma, sentido y belleza.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/ciencias-agropecuarias-y-ambiente" class="area-card" style="--c:#3B6D11">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">20 carreras</div>
+        <h3>Ciencias Agropecuarias y Ambiente</h3>
+        <p></p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+    <a href="/guia/areas/educacion-y-ciencias-pedagogicas" class="area-card" style="--c:#639922">
+      <div class="area-color"></div>
+      <div class="area-body">
+        <div class="area-count">18 carreras</div>
+        <h3>Educación y Ciencias Pedagógicas</h3>
+        <p>Formar a quienes vienen después.</p>
+        <span class="arrow">Explorar →</span>
+      </div>
+    </a>
+  </section>
+</div>
+
+<footer>
+  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);">PathFinder</div>
+  <div>Una herramienta argentina de orientación vocacional · <a href="/">Volver al inicio</a> · <a href="/guia/">Guía de carreras</a> · <a href="/#contacto">Contacto</a></div>
+  <div style="margin-top:10px;opacity:.6;">© 2026 PathFinder · nicobogacz@gmail.com · pathfinder.net.ar</div>
+</footer>
+
+</body></html>

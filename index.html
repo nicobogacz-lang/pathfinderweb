@@ -1700,26 +1700,23 @@ nav, footer, section, .hero-content { position:relative; z-index:2; }
 #guia-section .area-count{font-size:13px;color:rgba(255,248,236,0.5);display:flex;align-items:center;gap:8px;}
 #guia-section .area-count::after{content:'→';color:var(--ac);transition:transform .3s;font-size:16px;margin-left:auto;}
 #guia-section .area-card:hover .area-count::after{transform:translateX(4px);}
-#guia-section .guia-tools{display:grid;grid-template-columns:1fr;gap:16px;margin:40px 0 50px;}
-#guia-section .tool-card{display:flex;align-items:center;gap:28px;padding:32px 36px;background:linear-gradient(135deg,rgba(168,85,247,0.08) 0%,rgba(245,192,64,0.05) 100%);border:1px solid rgba(168,85,247,0.22);border-radius:20px;text-decoration:none;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;}
-#guia-section .tool-card::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(circle at 100% 50%,rgba(168,85,247,0.15) 0%,transparent 70%);pointer-events:none;opacity:.7;transition:opacity .3s;}
-#guia-section .tool-card:hover{transform:translateY(-3px);border-color:rgba(168,85,247,0.45);box-shadow:0 20px 50px -15px rgba(168,85,247,0.3);}
+#guia-section .guia-tools{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:40px 0 50px;}
+@media (max-width:900px){ #guia-section .guia-tools{grid-template-columns:1fr;} }
+#guia-section .tool-card{display:flex;flex-direction:column;gap:16px;padding:28px;background:linear-gradient(135deg,color-mix(in srgb,var(--tc) 10%,transparent) 0%,rgba(255,255,255,0.02) 100%);border:1px solid color-mix(in srgb,var(--tc) 22%,transparent);border-radius:20px;text-decoration:none;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;}
+#guia-section .tool-card::after{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(circle at 100% 50%,color-mix(in srgb,var(--tc) 18%,transparent) 0%,transparent 70%);pointer-events:none;opacity:.7;transition:opacity .3s;}
+#guia-section .tool-card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--tc) 45%,transparent);box-shadow:0 20px 50px -15px color-mix(in srgb,var(--tc) 30%,transparent);}
 #guia-section .tool-card:hover::after{opacity:1;}
-#guia-section .tool-icon{flex-shrink:0;width:72px;height:72px;display:flex;align-items:center;justify-content:center;background:rgba(168,85,247,0.15);border-radius:18px;color:var(--violet2);position:relative;z-index:2;}
-#guia-section .tool-icon svg{width:38px;height:38px;}
+#guia-section .tool-head{display:flex;align-items:center;gap:18px;position:relative;z-index:2;}
+#guia-section .tool-icon{flex-shrink:0;width:60px;height:60px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--tc) 15%,transparent);border-radius:16px;color:var(--tc);position:relative;z-index:2;}
+#guia-section .tool-icon svg{width:30px;height:30px;}
 #guia-section .tool-body{flex:1;min-width:0;position:relative;z-index:2;}
-#guia-section .tool-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--violet2);font-weight:700;padding:3px 10px;border:1px solid rgba(168,85,247,0.3);border-radius:99px;margin-bottom:10px;background:rgba(10,6,16,0.4);}
-#guia-section .tool-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--cream);line-height:1.2;margin-bottom:6px;}
-#guia-section .tool-title em{color:var(--violet2);font-style:italic;}
-#guia-section .tool-desc{font-size:14px;color:rgba(255,248,236,0.65);line-height:1.5;}
-#guia-section .tool-arrow{flex-shrink:0;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.04);border:1px solid rgba(245,192,64,0.2);border-radius:99px;color:var(--gold);transition:all .3s;position:relative;z-index:2;}
-#guia-section .tool-card:hover .tool-arrow{background:var(--gold);color:#0A0500;border-color:var(--gold);transform:translateX(4px);}
-@media (max-width:720px){
-  #guia-section .tool-card{flex-direction:column;text-align:center;gap:16px;padding:28px 24px;}
-  #guia-section .tool-icon{width:60px;height:60px;}
-  #guia-section .tool-icon svg{width:32px;height:32px;}
-  #guia-section .tool-title{font-size:24px;}
-}
+#guia-section .tool-tag{display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--tc);font-weight:700;padding:3px 10px;border:1px solid color-mix(in srgb,var(--tc) 30%,transparent);border-radius:99px;margin-bottom:8px;background:rgba(10,6,16,0.4);}
+#guia-section .tool-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--cream);line-height:1.2;margin-bottom:6px;}
+#guia-section .tool-title em{color:var(--tc);font-style:italic;}
+#guia-section .tool-desc{font-size:14px;color:rgba(255,248,236,0.65);line-height:1.5;margin-bottom:14px;}
+#guia-section .tool-link{display:inline-flex;align-items:center;gap:8px;color:var(--tc);font-weight:600;font-size:13px;letter-spacing:.02em;transition:gap .25s;}
+#guia-section .tool-card:hover .tool-link{gap:14px;}
+#guia-section .tool-link svg{width:16px;height:16px;}
 #guia-section .guia-ctas{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding-top:40px;border-top:1px solid rgba(245,192,64,0.08);}
 #guia-section .guia-cta-primary{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:var(--gold);color:#0A0500;font-weight:600;font-size:15px;border-radius:99px;text-decoration:none;letter-spacing:.02em;transition:all .2s;}
 #guia-section .guia-cta-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,192,64,0.3);}
@@ -1806,25 +1803,47 @@ nav, footer, section, .hero-content { position:relative; z-index:2; }
     </div>
 
     <div class="guia-tools reveal">
-      <a href="/guia/comparar/" class="tool-card">
-        <div class="tool-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 20V8M3 20l-2-2M3 20l2-2M3 4v2" opacity=".5"/>
-            <path d="M3 4L10 11M3 4h4M3 4v4" fill="currentColor" fill-opacity=".15"/>
-            <rect x="2" y="13" width="7" height="8" rx="1.5" fill="currentColor" fill-opacity=".2"/>
-            <rect x="15" y="8" width="7" height="13" rx="1.5" fill="currentColor" fill-opacity=".35"/>
-            <rect x="2" y="13" width="7" height="8" rx="1.5"/>
-            <rect x="15" y="8" width="7" height="13" rx="1.5"/>
-            <path d="M11 3h2M11 6h2M11 9h2M11 12h2M11 15h2M11 18h2" opacity=".4"/>
-          </svg>
+      <a href="/guia/comparar/" class="tool-card" style="--tc:#A855F7;">
+        <div class="tool-head">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="13" width="7" height="8" rx="1.5" fill="currentColor" fill-opacity=".2"/>
+              <rect x="15" y="8" width="7" height="13" rx="1.5" fill="currentColor" fill-opacity=".35"/>
+              <rect x="2" y="13" width="7" height="8" rx="1.5"/>
+              <rect x="15" y="8" width="7" height="13" rx="1.5"/>
+              <path d="M11 3h2M11 6h2M11 9h2M11 12h2M11 15h2M11 18h2" opacity=".4"/>
+            </svg>
+          </div>
+          <div class="tool-tag">🆕 Herramienta</div>
         </div>
         <div class="tool-body">
-          <div class="tool-tag">🆕 Nueva herramienta</div>
           <div class="tool-title">Comparar <em>carreras</em> lado a lado</div>
           <div class="tool-desc">Elegí 2 o 3 carreras del catálogo y mirá sus diferencias: perfil comportamental, duración, campo laboral y universidades donde se dictan.</div>
+          <span class="tool-link">Abrir comparador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
-        <div class="tool-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <a href="/guia/charlas/" class="tool-card" style="--tc:#5BC27A;">
+        <div class="tool-head">
+          <div class="tool-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2.5" fill="currentColor" fill-opacity=".15"/>
+              <rect x="3" y="5" width="18" height="16" rx="2.5"/>
+              <path d="M3 9h18"/>
+              <path d="M8 3v4M16 3v4"/>
+              <circle cx="8" cy="14" r="1.3" fill="currentColor"/>
+              <circle cx="12" cy="14" r="1.3" fill="currentColor"/>
+              <circle cx="16" cy="14" r="1.3" fill="currentColor" fill-opacity=".4"/>
+              <circle cx="8" cy="18" r="1.3" fill="currentColor" fill-opacity=".4"/>
+              <circle cx="12" cy="18" r="1.3" fill="currentColor"/>
+            </svg>
+          </div>
+          <div class="tool-tag">📅 Agenda viva</div>
+        </div>
+        <div class="tool-body">
+          <div class="tool-title">Charlas y <em>ferias</em> de universidades</div>
+          <div class="tool-desc">Open days, ferias de carreras y charlas vocacionales de universidades argentinas, actualizadas automáticamente cada semana.</div>
+          <span class="tool-link">Ver agenda <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </div>
       </a>
     </div>

@@ -88,6 +88,25 @@ UNIVERSIDADES = {
     "Austral": ("Universidad Austral", "privada"),
     "UCCUYO":  ("Universidad Católica de Cuyo", "privada"),
     "Siglo 21":("Universidad Siglo 21", "privada"),
+    "UADER":   ("Universidad Autónoma de Entre Ríos", "pública"),
+    "UNER":    ("Universidad Nacional de Entre Ríos", "pública"),
+    "UNaM":    ("Universidad Nacional de Misiones", "pública"),
+    "UNCo":    ("Universidad Nacional del Comahue", "pública"),
+    "UNRC":    ("Universidad Nacional de Río Cuarto", "pública"),
+    "UNSa":    ("Universidad Nacional de Salta", "pública"),
+    "UNJu":    ("Universidad Nacional de Jujuy", "pública"),
+    "UNSE":    ("Universidad Nacional de Santiago del Estero", "pública"),
+    "UNLaM":   ("Universidad Nacional de La Matanza", "pública"),
+    "UNLa":    ("Universidad Nacional de Lanús", "pública"),
+    "UNSJ":    ("Universidad Nacional de San Juan", "pública"),
+    "UNLZ":    ("Universidad Nacional de Lomas de Zamora", "pública"),
+    "UNICEN":  ("Universidad Nacional del Centro de la Pcia de Bs As", "pública"),
+    "UNM":     ("Universidad Nacional de Moreno", "pública"),
+    "UBP":     ("Universidad Blas Pascal", "privada"),
+    "UMET":    ("Universidad Metropolitana para la Educación y el Trabajo", "privada"),
+    "UFLO":    ("Universidad de Flores", "privada"),
+    "UMSA":    ("Universidad del Museo Social Argentino", "privada"),
+    "UNA":     ("Universidad Nacional de las Artes", "pública"),
 }
 
 # Patrones de nombres completos → sigla
@@ -120,6 +139,25 @@ NAME_TO_SIGLA = {
     "universidad austral": "Austral",
     "universidad católica de cuyo": "UCCUYO", "uccuyo": "UCCUYO",
     "universidad siglo 21": "Siglo 21", "siglo 21": "Siglo 21", "siglo21": "Siglo 21",
+    "universidad autónoma de entre ríos": "UADER", "universidad autonoma de entre rios": "UADER", "uader": "UADER",
+    "universidad nacional de entre ríos": "UNER", "universidad nacional de entre rios": "UNER",
+    "universidad nacional de misiones": "UNaM",
+    "universidad nacional del comahue": "UNCo",
+    "universidad nacional de río cuarto": "UNRC", "universidad nacional de rio cuarto": "UNRC",
+    "universidad nacional de salta": "UNSa",
+    "universidad nacional de jujuy": "UNJu",
+    "universidad nacional de santiago del estero": "UNSE",
+    "universidad nacional de la matanza": "UNLaM",
+    "universidad nacional de lanús": "UNLa", "universidad nacional de lanus": "UNLa",
+    "universidad nacional de san juan": "UNSJ",
+    "universidad nacional de lomas de zamora": "UNLZ",
+    "universidad nacional del centro": "UNICEN", "unicen": "UNICEN",
+    "universidad nacional de moreno": "UNM",
+    "universidad blas pascal": "UBP",
+    "universidad metropolitana para la educación": "UMET",
+    "universidad de flores": "UFLO",
+    "universidad del museo social argentino": "UMSA",
+    "universidad nacional de las artes": "UNA",
 }
 
 MESES = {"ene":1,"enero":1,"feb":2,"febrero":2,"mar":3,"marzo":3,"abr":4,"abril":4,
@@ -166,12 +204,31 @@ def contains_contexto_universidad(text):
     return has_uni and has_ctx
 
 def detect_universidad(text):
-    """Intenta detectar sigla de universidad a partir del texto."""
+    """Intenta detectar sigla de universidad en el texto.
+       Ordena matches por longitud descendente (así UADER no es confundido con UADE)
+       y usa word-boundary para siglas cortas (evita UBA en 'subaltierno')."""
     t = text.lower()
-    for name, sigla in NAME_TO_SIGLA.items():
+    # Primero intentar matches de nombre completo (más confiable)
+    full_names = [(n, s) for n, s in NAME_TO_SIGLA.items() if " " in n]
+    full_names.sort(key=lambda x: -len(x[0]))
+    for name, sigla in full_names:
         if name in t:
             return sigla
+    # Después siglas sueltas, con word boundary. Más largas primero.
+    siglas = sorted([(n, s) for n, s in NAME_TO_SIGLA.items() if " " not in n],
+                    key=lambda x: -len(x[0]))
+    for name, sigla in siglas:
+        if re.search(r"\b" + re.escape(name) + r"\b", t):
+            return sigla
     return None
+
+def mentions_past_year(text):
+    """Descartar eventos de años anteriores a este."""
+    year_now = date.today().year
+    for y in range(2015, year_now):
+        if re.search(r"\b" + str(y) + r"\b", text):
+            return True
+    return False
 
 def extract_date(text):
     """Intenta extraer una fecha ISO (YYYY-MM-DD) del texto. Devuelve None si no."""
@@ -222,7 +279,9 @@ def normalize_event(**kwargs):
     """Toma un evento parcial y lo completa con defaults."""
     titulo = kwargs.get("titulo", "")
     link = kwargs.get("link", "")
-    fecha_inicio = kwargs.get("fecha_inicio") or HOY
+    fecha_explicita = kwargs.get("fecha_inicio")
+    fecha_inicio = fecha_explicita or HOY
+    fecha_estimada = not bool(fecha_explicita)
     universidad = kwargs.get("universidad") or "???"
     sigla = universidad
     if universidad in UNIVERSIDADES:
@@ -244,6 +303,7 @@ def normalize_event(**kwargs):
         "modalidad": modalidad,
         "fecha_inicio": fecha_inicio,
         "fecha_fin": kwargs.get("fecha_fin"),
+        "fecha_estimada": fecha_estimada,
         "hora": kwargs.get("hora", ""),
         "ubicacion": kwargs.get("ubicacion", ""),
         "descripcion": kwargs.get("descripcion", "Evento detectado automáticamente. Ver el link para fecha y detalles."),
@@ -281,16 +341,28 @@ def scrape_google_news():
             title = normalize_text((item.findtext("title") or ""))
             link = (item.findtext("link") or "").strip()
             desc = normalize_text((item.findtext("description") or ""))
+            pub = (item.findtext("pubDate") or "").strip()
             full = title + " " + desc
             if not (contains_fuerte(full) or contains_contexto_universidad(full)):
                 continue
+            # Filtrar menciones a años anteriores
+            if mentions_past_year(full):
+                continue
             sigla = detect_universidad(full) or "???"
-            if sigla == "???": continue  # saltar si no identificamos uni
+            if sigla == "???": continue
             fecha = extract_date(full)
+            # Fallback: usar pubDate del feed si no hay fecha en el texto
+            if not fecha and pub:
+                try:
+                    from email.utils import parsedate_to_datetime
+                    fecha_pub = parsedate_to_datetime(pub).date().isoformat()
+                    fecha = fecha_pub
+                except Exception:
+                    pass
             out.append(normalize_event(
                 titulo=title[:140],
                 link=link,
-                fecha_inicio=fecha or HOY,
+                fecha_inicio=fecha,  # None => fecha_estimada=True
                 universidad=sigla,
                 descripcion=desc[:280] or title,
                 fuente_scraper="google-news",
@@ -316,7 +388,9 @@ def scrape_wordpress(sigla, base_url, keyword="charla"):
         full = title + " " + excerpt
         if not (contains_fuerte(full) or contains_contexto_universidad(full)):
             continue
-        fecha = extract_date(full) or (p.get("date","")[:10] if p.get("date") else HOY)
+        if mentions_past_year(full):
+            continue
+        fecha = extract_date(full) or (p.get("date","")[:10] if p.get("date") else None)
         out.append(normalize_event(
             titulo=title[:140],
             link=link,
@@ -337,8 +411,9 @@ def scrape_uba_noticias():
         title = a.get_text(strip=True)
         if not title: continue
         if not (contains_fuerte(title) or contains_contexto_universidad(title)): continue
+        if mentions_past_year(title): continue
         href = urljoin("https://www.uba.ar/", a.get("href",""))
-        fecha = extract_date(title) or HOY
+        fecha = extract_date(title)
         out.append(normalize_event(
             titulo=title[:140],
             link=href,
@@ -360,8 +435,9 @@ def scrape_unc_noticias():
             title = a.get_text(strip=True)
             if not title or len(title) < 20: continue
             if not (contains_fuerte(title) or ("muestra" in title.lower() and "carrera" in title.lower())): continue
+            if mentions_past_year(title): continue
             href = urljoin(url, a["href"])
-            fecha = extract_date(title) or HOY
+            fecha = extract_date(title)
             out.append(normalize_event(
                 titulo=title[:140],
                 link=href,

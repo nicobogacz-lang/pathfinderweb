@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Explorá tu futuro — Guía de carreras · PathFinder</title>
+<meta name="description" content="Guía de 187 carreras universitarias argentinas, agrupadas por área. Descubrí cuál encaja con tu perfil con el juego de PathFinder.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{
+  --gold:#F5C040; --orange:#E87820;
+  --violet:#7C3AED; --violet2:#A855F7;
+  --cream:#FFF8EC; --muted:#A09070;
+  --bg:#0A0610; --bg2:#12081A; --card:#160A24;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--orange)}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:500}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(10,6,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,192,64,.1);padding:16px 32px}
+.nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);letter-spacing:1px}
+nav .menu{display:flex;gap:28px;font-size:14px}
+nav .menu a{color:rgba(255,248,236,.75)}
+nav .menu a:hover{color:var(--gold)}
+nav .cta{padding:10px 20px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:13px}
+
+/* BREADCRUMB */
+.crumb{padding:30px 0 10px;color:rgba(255,248,236,.5);font-size:13px}
+.crumb a{color:rgba(255,248,236,.5)}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{margin:0 10px;color:rgba(255,248,236,.3)}
+
+/* FOOTER */
+footer{margin-top:80px;padding:40px 32px;background:#060310;color:rgba(255,248,236,.45);font-size:13px;text-align:center;border-top:1px solid rgba(245,192,64,.08)}
+footer a{color:var(--gold)}
+
+/* HELPERS */
+.pill{display:inline-block;padding:6px 14px;border-radius:99px;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.btn-primary{display:inline-block;padding:16px 36px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:15px;transition:all .2s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,192,64,.3);color:#0a0510!important}
+.btn-ghost{display:inline-block;padding:14px 32px;border-radius:99px;border:1.5px solid rgba(245,192,64,.4);color:var(--gold)!important;font-weight:500;font-size:14px}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+.hero{padding:100px 0 60px;text-align:center}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:400;line-height:1.05;margin-bottom:24px}
+.hero .acc{color:var(--gold);font-style:italic}
+.hero .sub{font-size:19px;color:rgba(255,248,236,.75);max-width:720px;margin:0 auto 40px}
+.hero .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.secciones{padding:60px 0}
+.secciones h2{font-family:'Cormorant Garamond',serif;font-size:40px;text-align:center;margin-bottom:50px;font-weight:400}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--card);border:1px solid rgba(245,192,64,.08);border-radius:16px;padding:32px;transition:all .3s}
+.card:hover{border-color:rgba(245,192,64,.3);transform:translateY(-4px)}
+.card h3{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:12px;color:var(--gold)}
+.card p{color:rgba(255,248,236,.75);font-size:15px}
+.card .arrow{display:block;margin-top:20px;color:var(--gold);font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:600}
+@media (max-width:720px){.hero h1{font-size:48px}.grid-2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PathFinder</a>
+    <div class="menu">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/guia/">Guía de carreras</a>
+      <a href="/#escuela">Para colegios</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="cta">Probá el juego →</a>
+  </div>
+</nav>
+
+<section class="hero wrap">
+  <div class="crumb"><a href="/">Inicio</a> <span class="sep">/</span> Guía</div>
+  <h1>Explorá <span class="acc">tu futuro</span></h1>
+  <p class="sub">Una guía completa de 187 carreras universitarias argentinas, agrupadas en 8 áreas vocacionales. Explorá, compará, descubrí.</p>
+  <div class="cta-row">
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="btn-primary">Probá el juego de PathFinder</a>
+    <a href="/guia/carreras/" class="btn-ghost">Ver todas las carreras →</a>
+  </div>
+</section>
+
+<section class="secciones wrap">
+  <h2>Empezá por acá</h2>
+  <div class="grid-2">
+    <a href="/guia/areas/" class="card">
+      <h3>8 áreas vocacionales</h3>
+      <p>Las 8 grandes áreas en las que se agrupan todas las carreras universitarias. Entendé qué define a cada una, qué perfiles de persona encajan mejor y qué carreras incluye.</p>
+      <span class="arrow">Explorar áreas →</span>
+    </a>
+    <a href="/guia/carreras/" class="card">
+      <h3>187 carreras</h3>
+      <p>El catálogo completo de las carreras de grado universitarias disponibles en Argentina, con sus universidades, duración y campo laboral típico. Filtrá por área o buscá por nombre.</p>
+      <span class="arrow">Ver carreras →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);">PathFinder</div>
+  <div>Una herramienta argentina de orientación vocacional · <a href="/">Volver al inicio</a> · <a href="/guia/">Guía de carreras</a> · <a href="/#contacto">Contacto</a></div>
+  <div style="margin-top:10px;opacity:.6;">© 2026 PathFinder · nicobogacz@gmail.com · pathfinder.net.ar</div>
+</footer>
+
+</body></html>

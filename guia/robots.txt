@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pathfinder.net.ar/guia/sitemap.xml

@@ -961,6 +961,462 @@ footer {
   .carousel-track { grid-template-columns: 1fr; }
 }
 
+/* ═══════════════════════════════════════════════════
+   DESIGN PASS v2 — EDITORIAL DEPTH
+   grain · orbs · shimmer · gradient text · micro-ix
+   ═══════════════════════════════════════════════════ */
+
+/* Grain overlay (fixed, non-interactive) */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+/* Keyframes */
+@keyframes floatY { 0%,100%{ transform:translate(0,0); } 50%{ transform:translate(14px,-26px); } }
+@keyframes drift  { 0%,100%{ transform:translate(0,0); } 33%{ transform:translate(30px,-18px); } 66%{ transform:translate(-22px,22px); } }
+@keyframes shimmer{ 0%{ background-position:-200% 0; } 100%{ background-position:200% 0; } }
+@keyframes pulseDot{ 0%,100%{ box-shadow:0 0 0 0 rgba(245,192,64,.55); } 50%{ box-shadow:0 0 0 10px rgba(245,192,64,0); } }
+@keyframes gradientSweep{ 0%{ background-position:0% 50%; } 50%{ background-position:100% 50%; } 100%{ background-position:0% 50%; } }
+
+/* Reusable orb */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.75;z-index:0;}
+
+/* Keep real content above grain overlay */
+nav, footer, section, .hero-content { position:relative; z-index:2; }
+
+/* ─── NAV polish ─── */
+.nav-logo{position:relative;}
+.nav-logo::after{
+  content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--orange);margin-left:5px;vertical-align:middle;transform:translateY(-6px);
+  animation:pulseDot 2.8s ease-in-out infinite;
+}
+.nav-cta{position:relative;overflow:hidden;}
+.nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-100%);transition:transform .7s;}
+.nav-cta:hover::before{transform:translateX(100%);}
+
+/* ─── HERO v2 ─── */
+#hero{background:radial-gradient(ellipse 70% 70% at 15% 55%,#3D1A00 0%,#1A0830 46%,#07000F 100%);}
+#hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(ellipse 45% 32% at 90% 8%, rgba(168,85,247,.28), transparent 70%),
+    radial-gradient(ellipse 30% 26% at 2% 92%, rgba(245,192,64,.18), transparent 70%),
+    linear-gradient(180deg,transparent 70%,rgba(0,0,0,.5) 100%);
+}
+.hero-orb-1{top:-120px;left:38%;width:420px;height:420px;background:radial-gradient(circle,rgba(168,85,247,.45),transparent 70%);animation:drift 20s ease-in-out infinite;}
+.hero-orb-2{bottom:-140px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(245,192,64,.35),transparent 70%);animation:floatY 18s ease-in-out infinite;}
+.hero-orb-3{top:30%;right:12%;width:260px;height:260px;background:radial-gradient(circle,rgba(232,120,32,.3),transparent 70%);animation:floatY 24s ease-in-out infinite reverse;opacity:.5;}
+
+.hero-title{
+  background:linear-gradient(100deg,#FFE49A 0%,#F5C040 30%,#E87820 55%,#F5C040 80%,#FFE49A 100%);
+  background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:gradientSweep 10s ease-in-out infinite;
+  text-shadow:0 0 60px rgba(245,192,64,.08);
+}
+.hero-eyebrow::after{
+  content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 10px var(--gold);margin-left:4px;animation:pulseDot 2.2s ease-in-out infinite;
+}
+.hero-badge-award{position:relative;overflow:hidden;}
+.hero-badge-award::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(245,192,64,.25),transparent);transform:translateX(-100%);animation:shimmer 5s ease-in-out infinite;}
+
+.btn-primary{position:relative;overflow:hidden;isolation:isolate;}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-120%);transition:transform .7s;z-index:1;}
+.btn-primary:hover::after{transform:translateX(120%);}
+
+.hero-stat-num{
+  background:linear-gradient(180deg,#FFE49A 0%,var(--gold) 50%,var(--orange) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-stats > div{transition:transform .35s cubic-bezier(.2,.8,.2,1);position:relative;padding-left:2px;}
+.hero-stats > div::before{content:'';position:absolute;left:-14px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--gold),transparent);opacity:0;transition:opacity .3s;}
+.hero-stats > div:hover{transform:translateY(-4px);}
+.hero-stats > div:hover::before{opacity:.8;}
+
+/* ─── Section title emphasis ─── */
+.section-title em{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--gold),var(--orange));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent !important;
+}
+
+/* ─── PROBLEMA v2 ─── */
+#problema{position:relative;overflow:hidden;}
+#problema::after{
+  content:'';position:absolute;top:-180px;right:-180px;width:520px;height:520px;pointer-events:none;
+  background:radial-gradient(circle,rgba(232,120,32,.14),transparent 70%);filter:blur(70px);
+}
+.pstat{transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s;}
+.pstat::before{transition:background .3s,width .3s;}
+.pstat:hover{transform:translateY(-5px);background:rgba(255,248,236,.07);border-color:rgba(245,192,64,.3);}
+.pstat:hover::before{width:4px;background:linear-gradient(180deg,var(--gold),var(--orange));}
+.pstat-num{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--orange) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* ─── COMO v2 ─── */
+#como{position:relative;overflow:hidden;}
+#como::before{content:'';position:absolute;top:10%;left:-10%;width:420px;height:420px;background:radial-gradient(circle,rgba(124,58,237,.09),transparent 70%);filter:blur(80px);pointer-events:none;}
+#como::after{content:'';position:absolute;bottom:10%;right:-10%;width:420px;height:420px;background:radial-gradient(circle,rgba(245,192,64,.08),transparent 70%);filter:blur(80px);pointer-events:none;}
+.zona-card{position:relative;transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .3s;overflow:hidden;}
+.zona-card::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.08),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none;}
+.zona-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 22px 50px rgba(0,0,0,.5);}
+.zona-card:hover::after{opacity:1;}
+.zona-icon{transition:transform .4s cubic-bezier(.2,.8,.2,1);}
+.zona-card:hover .zona-icon{transform:scale(1.18) rotate(-5deg);}
+.como-claim{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(245,192,64,.09),rgba(124,58,237,.06)) !important;}
+.como-claim::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(245,192,64,.2),transparent 70%);filter:blur(50px);pointer-events:none;}
+
+/* ─── GUÍA v2 (asimétrico, editorial) ─── */
+#guia-section{padding:150px 64px !important;}
+#guia-section .guia-orb-1{position:absolute;top:5%;right:-120px;width:460px;height:460px;background:radial-gradient(circle,rgba(124,58,237,.22),transparent 70%);filter:blur(90px);pointer-events:none;z-index:0;animation:drift 26s ease-in-out infinite;}
+#guia-section .guia-orb-2{position:absolute;bottom:8%;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,192,64,.14),transparent 70%);filter:blur(90px);pointer-events:none;z-index:0;animation:floatY 22s ease-in-out infinite;}
+#guia-section .guia-wrap{position:relative;z-index:2;}
+
+#guia-section .guia-stats{
+  display:grid !important;grid-template-columns:repeat(3,1fr) !important;gap:0 !important;
+  border-top:1px solid rgba(245,192,64,.18);border-bottom:1px solid rgba(245,192,64,.18);
+  padding:56px 0 !important;margin:0 auto 110px !important;max-width:1040px;
+}
+#guia-section .guia-stat{border-top:none !important;position:relative;padding:0 24px !important;}
+#guia-section .guia-stat + .guia-stat::before{
+  content:'';position:absolute;left:0;top:12%;bottom:12%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(245,192,64,.25),transparent);
+}
+#guia-section .guia-stat-num{
+  font-size:clamp(68px,8.2vw,120px) !important;font-weight:700 !important;letter-spacing:-.04em !important;line-height:1;
+}
+#guia-section .guia-stat:nth-child(1) .guia-stat-num{background:linear-gradient(180deg,#FFE49A,#F5C040 55%,#E87820);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent !important;}
+#guia-section .guia-stat:nth-child(2) .guia-stat-num{background:linear-gradient(180deg,#C9ADF9,#A855F7 50%,#7C3AED);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent !important;}
+#guia-section .guia-stat:nth-child(3) .guia-stat-num{background:linear-gradient(180deg,#F5C040,#E87820 50%,#D4537E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent !important;}
+#guia-section .guia-stat-label{margin-top:18px !important;}
+
+#guia-section .area-card{position:relative;}
+#guia-section .area-card::after{
+  content:'';position:absolute;inset:0;border-radius:20px;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--ac) 25%, transparent), transparent 65%);
+  transition:opacity .45s;
+}
+#guia-section .area-card:hover::after{opacity:1;}
+#guia-section .area-name{transition:color .3s;}
+#guia-section .area-card:hover .area-name{color:var(--ac);}
+#guia-section .area-icon{box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ac) 20%, transparent);}
+#guia-section .area-card:hover .area-icon{box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--ac) 50%, transparent), 0 10px 24px -8px color-mix(in srgb, var(--ac) 50%, transparent);}
+
+#guia-section .guia-cta-primary{position:relative;overflow:hidden;isolation:isolate;}
+#guia-section .guia-cta-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-120%);transition:transform .7s;}
+#guia-section .guia-cta-primary:hover::after{transform:translateX(120%);}
+
+/* ─── CIENCIA v2 ─── */
+#ciencia{position:relative;overflow:hidden;background:linear-gradient(180deg,#0D0420 0%,#140632 50%,#0D0420 100%);}
+#ciencia > *{position:relative;z-index:2;}
+#ciencia::before{content:'';position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(124,58,237,.10),transparent 55%);filter:blur(100px);pointer-events:none;z-index:0;}
+#ciencia::after{content:'';position:absolute;bottom:-120px;right:-120px;width:420px;height:420px;background:radial-gradient(circle,rgba(232,120,32,.1),transparent 70%);filter:blur(80px);pointer-events:none;z-index:0;}
+
+.modelos-grid{background:rgba(255,255,255,.015);backdrop-filter:blur(8px);position:relative;}
+.modelo{position:relative;overflow:hidden;}
+.modelo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:currentColor;opacity:0;transition:opacity .35s;}
+.modelo:hover::before{opacity:.8;}
+.modelo::after{content:attr(data-num);position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:rgba(255,248,236,.25);letter-spacing:.1em;}
+.modelo-ico{transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.modelo:hover .modelo-ico{transform:scale(1.1) rotate(-3deg);}
+.ciencia-callout{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(168,85,247,.04)) !important;}
+.ciencia-callout::after{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(168,85,247,.3),transparent 70%);filter:blur(50px);pointer-events:none;}
+
+/* ─── ESCUELA v2 ─── */
+#escuela{position:relative;overflow:hidden;}
+#escuela::before{content:'';position:absolute;top:20%;right:-150px;width:460px;height:460px;background:radial-gradient(circle,rgba(122,176,240,.09),transparent 70%);filter:blur(80px);pointer-events:none;}
+.eitem{position:relative;overflow:hidden;}
+.eitem::before{content:'';position:absolute;top:0;left:0;width:0;height:2px;background:#7ab0f0;transition:width .4s cubic-bezier(.2,.8,.2,1);}
+.eitem:hover::before{width:100%;}
+.eitem-icon{transition:transform .35s;display:inline-block;}
+.eitem:hover .eitem-icon{transform:scale(1.15) rotate(-4deg);}
+
+/* ─── TESTIMONIOS v2 ─── */
+#testimonios{position:relative;overflow:hidden;}
+#testimonios::before{content:'';position:absolute;top:15%;left:-200px;width:520px;height:520px;background:radial-gradient(circle,rgba(245,192,64,.08),transparent 70%);filter:blur(80px);pointer-events:none;}
+#testimonios::after{content:'';position:absolute;bottom:10%;right:-150px;width:420px;height:420px;background:radial-gradient(circle,rgba(168,85,247,.08),transparent 70%);filter:blur(80px);pointer-events:none;}
+.testi-card{position:relative;overflow:hidden;}
+.testi-card::after{content:'\201C';position:absolute;top:0;right:16px;font-family:'Cormorant Garamond',serif;font-size:120px;line-height:1;color:rgba(245,192,64,.07);pointer-events:none;}
+
+/* ─── PROPUESTA v2 ─── */
+#propuesta{position:relative;overflow:hidden;background:linear-gradient(135deg,#200A00 0%,#180435 55%,#0A0220 100%);}
+#propuesta::before{content:'';position:absolute;top:-100px;left:30%;width:460px;height:460px;background:radial-gradient(circle,rgba(245,192,64,.14),transparent 70%);filter:blur(90px);pointer-events:none;animation:drift 22s ease-in-out infinite;}
+#propuesta::after{content:'';position:absolute;bottom:-100px;right:-100px;width:420px;height:420px;background:radial-gradient(circle,rgba(124,58,237,.14),transparent 70%);filter:blur(90px);pointer-events:none;animation:floatY 20s ease-in-out infinite;}
+#propuesta > *{position:relative;z-index:2;}
+
+.paso{position:relative;overflow:hidden;}
+.paso::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--orange));transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1);}
+.paso:hover::before{transform:scaleX(1);}
+.paso-num{transition:color .3s;}
+.paso:hover .paso-num{color:rgba(245,192,64,.4);}
+.paso-icon{display:inline-block;transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.paso:hover .paso-icon{transform:scale(1.15) translateY(-2px);}
+
+.propuesta-gratuita{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(245,192,64,.12),rgba(232,120,32,.05)) !important;}
+.propuesta-gratuita::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:460px;height:220px;background:radial-gradient(ellipse,rgba(245,192,64,.28),transparent 70%);filter:blur(60px);pointer-events:none;}
+
+/* ─── CONTACTO v2 ─── */
+.contact-card{position:relative;overflow:hidden;}
+.contact-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.07),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none;}
+.contact-card:hover::before{opacity:1;}
+.cc-icon{transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+.contact-card:hover .cc-icon{transform:scale(1.12) translateY(-2px);}
+
+.cf-submit{position:relative;overflow:hidden;}
+.cf-submit::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-120%);transition:transform .7s;}
+.cf-submit:hover::after{transform:translateX(120%);}
+
+/* ─── CAFECITO v2 ─── */
+#cafecito{position:relative;overflow:hidden;}
+#cafecito::before{content:'';position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(ellipse 50% 40% at 20% 50%,rgba(245,192,64,.09),transparent 70%),
+  radial-gradient(ellipse 40% 30% at 80% 50%,rgba(232,120,32,.07),transparent 70%);}
+#cafecito > *{position:relative;z-index:2;}
+.cafecito-btn{position:relative;overflow:hidden;isolation:isolate;}
+.cafecito-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-120%);transition:transform .7s;z-index:1;}
+.cafecito-btn:hover::after{transform:translateX(120%);}
+.cafecito-btn > *{position:relative;z-index:2;}
+
+/* ─── Section ornamental dividers (optional subtle) ─── */
+.section-divider{position:relative;height:60px;margin:0;display:flex;align-items:center;justify-content:center;background:var(--bg);}
+.section-divider::before,.section-divider::after{content:'';flex:1;height:1px;max-width:260px;background:linear-gradient(90deg,transparent,rgba(245,192,64,.22),transparent);}
+.section-divider span{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:16px;padding:0 18px;opacity:.6;letter-spacing:.3em;}
+
+/* ─── Mobile adjustments ─── */
+@media (max-width:960px){
+  #guia-section .guia-stat-num{font-size:52px !important;}
+  #guia-section .guia-stat + .guia-stat::before{top:20%;bottom:20%;}
+}
+@media (max-width:768px){
+  #guia-section{padding:90px 24px !important;}
+  #guia-section .guia-stats{padding:36px 0 !important;margin-bottom:60px !important;}
+  #guia-section .guia-stat{padding:0 10px !important;}
+  .hero-orb-1,.hero-orb-2,.hero-orb-3{opacity:.5;filter:blur(60px);}
+}
+
+/* ═══════════════════════════════════════════════════
+   DESIGN PASS v3 — EDITORIAL MAXIMALISM
+   ═══════════════════════════════════════════════════ */
+
+/* Typography amplification */
+.section-title{font-size:clamp(44px,6.5vw,88px) !important;letter-spacing:-.025em;line-height:1.02 !important;}
+.hero-title{font-size:clamp(68px,9vw,120px) !important;letter-spacing:-.045em !important;}
+.section-eyebrow{letter-spacing:.32em !important;font-size:11px;}
+
+/* Section mega-marker (01/09 editorial number) */
+.section-marker{
+  position:absolute;top:56px;right:56px;z-index:3;pointer-events:none;user-select:none;
+  display:flex;flex-direction:column;align-items:flex-end;gap:4px;
+}
+.section-marker .big{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(64px,8vw,110px);font-weight:600;line-height:.9;letter-spacing:-.05em;
+  background:linear-gradient(180deg,rgba(245,192,64,.22) 0%,rgba(245,192,64,0) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+.section-marker .sub{font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,192,64,.35);font-weight:500;}
+
+/* Ornamental section divider */
+.sec-divider{
+  display:flex;align-items:center;justify-content:center;gap:18px;
+  padding:0;margin:0;height:72px;background:var(--bg);position:relative;z-index:4;
+}
+.sec-divider.on-dark2{background:#0F0520;}
+.sec-divider .line{flex:0 0 200px;height:1px;background:linear-gradient(90deg,transparent,rgba(245,192,64,.32),transparent);}
+.sec-divider .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 16px rgba(245,192,64,.7);position:relative;}
+.sec-divider .dot::before{content:'';position:absolute;inset:-6px;border:1px solid rgba(245,192,64,.3);border-radius:50%;}
+.sec-divider .num{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold);font-size:15px;letter-spacing:.3em;opacity:.7;}
+
+/* ─── HERO STATS v3 — editorial grid ─── */
+.hero-stats{
+  margin-top:72px !important;display:grid !important;grid-template-columns:repeat(3,1fr) !important;
+  gap:0 !important;padding:48px 0 0 !important;border-top:1px solid rgba(245,192,64,.14);
+}
+.hero-stats > div{position:relative;padding:0 28px !important;text-align:left;}
+.hero-stats > div:first-child{padding-left:0 !important;}
+.hero-stats > div:last-child{padding-right:0 !important;}
+.hero-stats > div + div::before{
+  content:'';position:absolute;left:0;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(245,192,64,.3),transparent);
+}
+.hero-stats > div::after{
+  content:'';position:absolute;left:28px;top:-49px;width:28px;height:1px;background:var(--orange);
+}
+.hero-stats > div:first-child::after{left:0;}
+.hero-stat-num{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:clamp(72px,8.4vw,108px) !important;
+  font-weight:700 !important;letter-spacing:-.045em !important;line-height:.95 !important;
+  background-size:200% 100% !important;
+  -webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;
+}
+.hero-stats > div:nth-child(1) .hero-stat-num{background-image:linear-gradient(180deg,#FFE49A 0%,#F5C040 55%,#E87820 100%) !important;}
+.hero-stats > div:nth-child(2) .hero-stat-num{background-image:linear-gradient(180deg,#C9ADF9 0%,#A855F7 55%,#7C3AED 100%) !important;}
+.hero-stats > div:nth-child(3) .hero-stat-num{background-image:linear-gradient(180deg,#FFE49A 0%,#E87820 55%,#D4537E 100%) !important;}
+.hero-stat-txt{
+  margin-top:16px !important;font-size:11px !important;letter-spacing:.18em !important;
+  text-transform:uppercase;color:rgba(255,248,236,.55) !important;font-weight:500;
+  max-width:180px;line-height:1.55 !important;
+}
+
+/* ─── PROBLEMA v3 — editorial giant stats ─── */
+.problema-stats{gap:28px !important;}
+.pstat{
+  padding:38px 32px 30px !important;background:rgba(255,248,236,.025) !important;
+  border:1px solid rgba(245,192,64,.08) !important;border-radius:20px !important;overflow:hidden;
+}
+.pstat::before{display:none !important;}
+.pstat::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--orange),transparent);
+  transform:scaleX(.2);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1);opacity:.5;
+}
+.pstat:hover::after{transform:scaleX(1);opacity:1;}
+.pstat-num{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:clamp(64px,6.8vw,104px) !important;
+  font-weight:700 !important;letter-spacing:-.045em !important;line-height:.92 !important;margin-bottom:14px !important;
+  background-size:200% 100% !important;
+  -webkit-background-clip:text !important;background-clip:text !important;-webkit-text-fill-color:transparent !important;color:transparent !important;
+}
+.pstat:nth-child(1) .pstat-num{background-image:linear-gradient(180deg,#FFE49A,#F5C040 55%,#E87820) !important;}
+.pstat:nth-child(2) .pstat-num{background-image:linear-gradient(180deg,#C9ADF9,#A855F7 55%,#7C3AED) !important;}
+.pstat:nth-child(3) .pstat-num{background-image:linear-gradient(180deg,#F5C040,#E87820 55%,#D4537E) !important;}
+.pstat:nth-child(4) .pstat-num{background-image:linear-gradient(180deg,#FFE49A,#F5C040 55%,#A855F7) !important;}
+.pstat-txt{font-size:13px !important;line-height:1.6 !important;color:rgba(255,248,236,.55) !important;letter-spacing:.02em;max-width:280px;}
+
+/* ─── ZONA cards icon container ─── */
+.zona-icon{
+  width:64px !important;height:64px !important;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:16px;font-size:0 !important;margin-bottom:4px;
+  background:transparent;
+  position:relative;
+}
+.zona-icon::before{content:'';position:absolute;inset:0;background:currentColor;opacity:.14;border-radius:16px;}
+.zona-icon svg{width:38px;height:38px;position:relative;z-index:2;}
+.zona-card{padding:32px 20px 28px !important;}
+
+/* ─── MODELOS v3 — editorial giant number ─── */
+.modelo{padding:48px 32px 36px !important;min-height:290px;position:relative;overflow:hidden;}
+.modelo::after{
+  font-family:'Cormorant Garamond',serif !important;
+  font-size:84px !important;font-weight:700 !important;
+  font-style:italic !important;letter-spacing:-.04em !important;
+  top:14px !important;right:24px !important;line-height:1 !important;
+  color:currentColor !important;opacity:.1 !important;
+  transition:opacity .35s;
+}
+.modelo:hover::after{opacity:.2 !important;}
+.modelo-ico{
+  width:68px !important;height:68px !important;border-radius:18px !important;
+  position:relative;z-index:2;
+  background:color-mix(in srgb,currentColor 15%,transparent) !important;
+}
+.modelo-ico::before{content:'';position:absolute;inset:0;border-radius:18px;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 22%,transparent);}
+.modelo-ico svg{width:40px !important;height:40px !important;}
+.modelo-name{font-size:22px !important;}
+
+/* ─── ESCUELA v3 — custom icons ─── */
+.eitem{padding:40px 36px !important;}
+.eitem-icon{
+  width:58px !important;height:58px !important;
+  display:flex;align-items:center;justify-content:center;border-radius:14px;
+  background:rgba(122,176,240,.1);margin-bottom:8px !important;font-size:0 !important;position:relative;
+}
+.eitem-icon::before{content:'';position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(122,176,240,.25);}
+.eitem-icon svg{width:32px;height:32px;position:relative;z-index:2;}
+
+/* ─── PASOS v3 — editorial giant num + icon ─── */
+.paso{padding:42px 32px 32px !important;position:relative;}
+.paso-icon{
+  width:58px !important;height:58px !important;
+  display:flex;align-items:center;justify-content:center;border-radius:14px !important;
+  background:rgba(245,192,64,.12) !important;margin-bottom:16px !important;font-size:0 !important;position:relative;
+}
+.paso-icon::before{content:'';position:absolute;inset:0;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(245,192,64,.25);}
+.paso-icon svg{width:30px;height:30px;position:relative;z-index:2;}
+.paso-num{
+  font-size:clamp(56px,6vw,88px) !important;letter-spacing:-.04em !important;
+  background:linear-gradient(135deg,rgba(245,192,64,.5) 0%,rgba(232,120,32,.15) 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;color:transparent !important;
+  transition:background .4s;
+}
+.paso:hover .paso-num{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--orange) 100%) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+
+/* ─── COMO claim icon upgrade ─── */
+.como-claim-icon{
+  width:76px !important;height:76px !important;flex-shrink:0;
+  display:flex !important;align-items:center;justify-content:center;
+  border-radius:20px;font-size:0 !important;
+  background:linear-gradient(135deg,rgba(245,192,64,.2),rgba(232,120,32,.08));
+  box-shadow:inset 0 0 0 1px rgba(245,192,64,.25);
+}
+.como-claim-icon svg{width:42px;height:42px;}
+
+/* ─── CONTACT cards icon upgrade ─── */
+.cc-icon{width:60px;height:60px;display:flex;align-items:center;justify-content:center;border-radius:16px;font-size:0 !important;background:rgba(245,192,64,.08);box-shadow:inset 0 0 0 1px rgba(245,192,64,.2);}
+.contact-card.whatsapp .cc-icon{background:rgba(37,211,102,.08);box-shadow:inset 0 0 0 1px rgba(37,211,102,.22);}
+.contact-card.instagram .cc-icon{background:rgba(225,48,108,.08);box-shadow:inset 0 0 0 1px rgba(225,48,108,.22);}
+.cc-icon svg{width:32px;height:32px;}
+
+/* ─── GUIA area icons — harmonize bigger duotone ─── */
+#guia-section .area-icon{width:62px !important;height:62px !important;border-radius:16px !important;position:relative;margin-bottom:24px !important;}
+#guia-section .area-icon::before{content:'';position:absolute;inset:0;border-radius:16px;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ac) 30%,transparent);transition:box-shadow .3s;}
+#guia-section .area-card:hover .area-icon::before{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ac) 60%,transparent);}
+#guia-section .area-icon svg{width:34px !important;height:34px !important;position:relative;z-index:2;}
+
+/* Hover character — slight rotation + lift */
+.paso:hover{transform:translateY(-6px) rotate(-.5deg) !important;}
+.pstat:hover{transform:translateY(-5px) rotate(.4deg) !important;}
+.eitem:hover{position:relative;}
+.testi-card:hover{transform:translateY(-6px) rotate(-.4deg) !important;}
+.zona-card:hover{transform:translateY(-8px) rotate(.4deg) scale(1.015) !important;}
+
+/* Testimonios editorial — stats block */
+.testi-metric{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;max-width:720px;margin:0 auto 56px;
+  padding:40px 0;border-top:1px solid rgba(245,192,64,.14);border-bottom:1px solid rgba(245,192,64,.14);
+}
+.testi-metric > div{position:relative;padding:0 20px;text-align:center;}
+.testi-metric > div + div::before{content:'';position:absolute;left:0;top:18%;bottom:18%;width:1px;background:linear-gradient(180deg,transparent,rgba(245,192,64,.25),transparent);}
+.testi-metric-num{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(56px,6vw,88px);font-weight:700;line-height:1;letter-spacing:-.04em;
+  background-size:200% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+.testi-metric > div:nth-child(1) .testi-metric-num{background-image:linear-gradient(180deg,#FFE49A,#F5C040 55%,#E87820);}
+.testi-metric > div:nth-child(2) .testi-metric-num{background-image:linear-gradient(180deg,#C9ADF9,#A855F7 55%,#7C3AED);}
+.testi-metric > div:nth-child(3) .testi-metric-num{background-image:linear-gradient(180deg,#FFE49A,#E87820 55%,#D4537E);}
+.testi-metric-lbl{margin-top:12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,248,236,.5);}
+
+/* MOBILE adjustments */
+@media(max-width:768px){
+  .hero-stats{grid-template-columns:1fr !important;gap:28px !important;}
+  .hero-stats > div{padding:0 !important;}
+  .hero-stats > div + div::before{display:none;}
+  .hero-stats > div::after{display:none;}
+  .hero-stat-num{font-size:72px !important;}
+  .pstat-num{font-size:60px !important;}
+  .section-marker{display:none;}
+  .modelo::after{font-size:52px !important;}
+  .paso-num{font-size:52px !important;}
+  .testi-metric{grid-template-columns:1fr !important;gap:24px;}
+  .testi-metric > div + div::before{display:none;}
+  .sec-divider .line{flex:0 0 60px;}
+}
+
 </style>
 </head>
 <body>
@@ -980,6 +1436,9 @@ footer {
 
 <!-- HERO -->
 <section id="hero">
+  <div class="orb hero-orb-1"></div>
+  <div class="orb hero-orb-2"></div>
+  <div class="orb hero-orb-3"></div>
   <div class="hero-content">
     <div class="hero-badge-award">
       <span class="hero-badge-award-icon">🏆</span>
@@ -1039,8 +1498,10 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider on-dark2"><span class="line"></span><span class="num">02</span><span class="dot"></span><span class="num">EL PROBLEMA</span><span class="line"></span></div>
 <!-- EL PROBLEMA -->
 <section id="problema">
+  <div class="section-marker"><span class="big">02</span><span class="sub">/ 09</span></div>
   <div class="problema-left reveal">
     <div class="section-eyebrow">El problema</div>
     <h2 class="section-title">El test vocacional<br>ya <em>no alcanza</em></h2>
@@ -1066,50 +1527,123 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">03</span><span class="dot"></span><span class="num">EL JUEGO</span><span class="line"></span></div>
 <!-- CÓMO FUNCIONA -->
 <section id="como">
+  <div class="section-marker"><span class="big">03</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal">Cómo funciona</div>
   <h2 class="section-title reveal">Un juego, no un test</h2>
   <p class="section-sub reveal">El alumno nunca sabe que lo están evaluando. Cada decisión, tiempo de respuesta y comportamiento alimenta un perfil vocacional único. 10 minutos. Desde cualquier celular.</p>
 
   <div class="zonas-grid">
     <div class="zona-card reveal reveal-delay-1" style="background:linear-gradient(180deg,#080e14,#0d1520);border-color:rgba(122,176,240,.15);">
-      <div class="zona-icon">🏙️</div>
+      <div class="zona-icon" style="color:#7ab0f0">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="18" width="10" height="22" rx="1" fill="currentColor" fill-opacity=".22"/>
+          <rect x="19" y="8" width="10" height="32" rx="1" fill="currentColor" fill-opacity=".3"/>
+          <rect x="31" y="22" width="10" height="18" rx="1" fill="currentColor" fill-opacity=".18"/>
+          <rect x="7" y="18" width="10" height="22" rx="1"/>
+          <rect x="19" y="8" width="10" height="32" rx="1"/>
+          <rect x="31" y="22" width="10" height="18" rx="1"/>
+          <path d="M24 14v-3M4 40h40"/>
+          <circle cx="24" cy="8" r=".9" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#7ab0f0">La Ciudad</div>
       <div class="zona-desc">Crisis de apagón. Decisiones bajo presión. Liderazgo y priorización.</div>
     </div>
     <div class="zona-card reveal reveal-delay-2" style="background:linear-gradient(180deg,#081a12,#0e2018);border-color:rgba(122,216,176,.15);">
-      <div class="zona-icon">🧪</div>
+      <div class="zona-icon" style="color:#7ad8b0">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6h12v10l8 20a4 4 0 0 1-3.7 5.5H13.7A4 4 0 0 1 10 36l8-20V6z" fill="currentColor" fill-opacity=".2"/>
+          <path d="M18 6h12v10l8 20a4 4 0 0 1-3.7 5.5H13.7A4 4 0 0 1 10 36l8-20V6z"/>
+          <path d="M14 26h20"/>
+          <circle cx="20" cy="32" r="1.6" fill="currentColor"/>
+          <circle cx="28" cy="36" r="1.2" fill="currentColor"/>
+          <circle cx="24" cy="30" r=".9" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#7ad8b0">El Lab</div>
       <div class="zona-desc">Fórmula secreta. Pensamiento analítico. Ensayo, error y método.</div>
     </div>
     <div class="zona-card reveal reveal-delay-3" style="background:linear-gradient(180deg,#100820,#180c28);border-color:rgba(224,168,240,.15);">
-      <div class="zona-icon">🎨</div>
+      <div class="zona-icon" style="color:#e0a8f0">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="18" r="10" fill="currentColor" fill-opacity=".22"/>
+          <circle cx="30" cy="30" r="10" fill="currentColor" fill-opacity=".32"/>
+          <circle cx="18" cy="18" r="10"/>
+          <circle cx="30" cy="30" r="10"/>
+          <circle cx="24" cy="24" r="2" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#e0a8f0">El Estudio</div>
       <div class="zona-desc">Composición libre. Expresión creativa. Espacialidad y arte.</div>
     </div>
     <div class="zona-card reveal reveal-delay-4" style="background:linear-gradient(180deg,#0a1608,#111e0e);border-color:rgba(160,216,112,.15);">
-      <div class="zona-icon">🌿</div>
+      <div class="zona-icon" style="color:#a0d870">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 42c-10 0-18-8-18-18C6 15 11 9 20 7c3 11 11 17 22 20-3 10-11 15-18 15z" fill="currentColor" fill-opacity=".22"/>
+          <path d="M24 42c-10 0-18-8-18-18C6 15 11 9 20 7c3 11 11 17 22 20-3 10-11 15-18 15z"/>
+          <path d="M10 36c6-8 14-12 24-14"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#a0d870">El Campo</div>
       <div class="zona-desc">Dilemas éticos. Prioridades personales. Empatía y valores.</div>
     </div>
     <div class="zona-card reveal reveal-delay-1" style="background:linear-gradient(180deg,#1a1000,#221600);border-color:rgba(240,192,96,.15);">
-      <div class="zona-icon">💬</div>
+      <div class="zona-icon" style="color:#f0c060">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 10h22a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H16l-6 6V28H10a4 4 0 0 1-4-4V14a4 4 0 0 1 0-4z" fill="currentColor" fill-opacity=".22"/>
+          <path d="M6 10h22a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H16l-6 6V28H10a4 4 0 0 1-4-4V14a4 4 0 0 1 0-4z"/>
+          <path d="M20 18h22a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4h-4v6l-6-6H24a4 4 0 0 1-4-4" fill="currentColor" fill-opacity=".14"/>
+          <path d="M20 18h22a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4h-4v6l-6-6H24a4 4 0 0 1-4-4"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#f0c060">La Plaza</div>
       <div class="zona-desc">Conversaciones. Comunidad. Liderazgo social.</div>
     </div>
     <div class="zona-card reveal reveal-delay-2" style="background:linear-gradient(180deg,#1a0a08,#200e0c);border-color:rgba(240,128,96,.15);">
-      <div class="zona-icon">📊</div>
+      <div class="zona-icon" style="color:#f08060">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="26" width="7" height="14" rx="1" fill="currentColor" fill-opacity=".2"/>
+          <rect x="20" y="18" width="7" height="22" rx="1" fill="currentColor" fill-opacity=".3"/>
+          <rect x="32" y="10" width="7" height="30" rx="1" fill="currentColor" fill-opacity=".4"/>
+          <rect x="8" y="26" width="7" height="14" rx="1"/>
+          <rect x="20" y="18" width="7" height="22" rx="1"/>
+          <rect x="32" y="10" width="7" height="30" rx="1"/>
+          <path d="M8 10l10 6 10-4 10-6"/>
+          <circle cx="38" cy="6" r="1.2" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#f08060">El Mercado</div>
       <div class="zona-desc">Negociación. Recursos. Estrategia e intercambio.</div>
     </div>
     <div class="zona-card reveal reveal-delay-3" style="background:linear-gradient(180deg,#0e0820,#150c2a);border-color:rgba(192,160,240,.15);">
-      <div class="zona-icon">📖</div>
+      <div class="zona-icon" style="color:#c0a0f0">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="7" y="8" width="10" height="32" rx="1.5" fill="currentColor" fill-opacity=".22"/>
+          <rect x="19" y="12" width="10" height="28" rx="1.5" fill="currentColor" fill-opacity=".3"/>
+          <rect x="31" y="6" width="10" height="34" rx="1.5" fill="currentColor" fill-opacity=".18"/>
+          <rect x="7" y="8" width="10" height="32" rx="1.5"/>
+          <rect x="19" y="12" width="10" height="28" rx="1.5"/>
+          <rect x="31" y="6" width="10" height="34" rx="1.5"/>
+          <path d="M10 16h4M22 20h4M34 14h4"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#c0a0f0">La Biblioteca</div>
       <div class="zona-desc">Investigación. Lectura. Conocimiento profundo.</div>
     </div>
     <div class="zona-card reveal reveal-delay-4" style="background:linear-gradient(180deg,#181208,#201a0a);border-color:rgba(240,208,96,.15);">
-      <div class="zona-icon">🧭</div>
+      <div class="zona-icon" style="color:#f0d060">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="18" fill="currentColor" fill-opacity=".16"/>
+          <circle cx="24" cy="24" r="18"/>
+          <circle cx="24" cy="24" r="12" stroke-opacity=".5"/>
+          <path d="M24 10l4 14-4-2-4 2z" fill="currentColor" fill-opacity=".9"/>
+          <path d="M24 38l4-14-4 2-4-2z" fill="currentColor" fill-opacity=".4"/>
+          <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="zona-name" style="color:#f0d060">El Cruce</div>
       <div class="zona-desc">Decisión. Camino. Síntesis final del perfil.</div>
     </div>
@@ -1122,7 +1656,17 @@ footer {
   </div>
 
   <div class="como-claim reveal">
-    <div class="como-claim-icon">🎯</div>
+    <div class="como-claim-icon">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#F5C040" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="18" fill="#F5C040" fill-opacity=".14"/>
+        <circle cx="24" cy="24" r="18"/>
+        <circle cx="24" cy="24" r="12" stroke-opacity=".55"/>
+        <circle cx="24" cy="24" r="6" fill="#E87820" fill-opacity=".35"/>
+        <circle cx="24" cy="24" r="6"/>
+        <circle cx="24" cy="24" r="2" fill="#F5C040"/>
+        <path d="M34 14l6-6M34 14h5M34 14v-5" stroke="#E87820"/>
+      </svg>
+    </div>
     <div>
       <div class="como-claim-title">El alumno nunca sabe que lo están evaluando</div>
       <div class="como-claim-txt">Eso es exactamente lo que hace que los datos sean confiables. No hay respuestas "correctas". Solo comportamiento real, capturado de forma implícita a través del juego.</div>
@@ -1130,98 +1674,188 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">04</span><span class="dot"></span><span class="num">LA GUÍA</span><span class="line"></span></div>
 <!-- EXPLORÁ TU FUTURO (GUÍA DE CARRERAS) -->
-<section id="guia" style="padding:120px 64px;background:linear-gradient(180deg,#0A0610 0%,#1A0A2E 50%,#0A0610 100%);position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(124,58,237,0.08) 0%,transparent 70%);pointer-events:none;"></div>
-  <div style="position:relative;max-width:1180px;margin:0 auto;text-align:center;">
-    <div class="section-eyebrow reveal" style="color:var(--violet2);">La guía</div>
-    <h2 class="section-title reveal" style="margin-bottom:24px;">Explorá tu futuro</h2>
-    <p class="section-sub reveal" style="margin-bottom:60px;max-width:720px;margin-left:auto;margin-right:auto;">La guía más completa de carreras universitarias argentinas, abierta y gratuita. Cada carrera con su perfil comportamental, duración, campo laboral y universidades donde se dicta.</p>
-
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;margin-bottom:64px;max-width:900px;margin-left:auto;margin-right:auto;">
-      <div style="background:rgba(245,192,64,0.05);border:1px solid rgba(245,192,64,0.15);border-radius:16px;padding:32px 20px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--gold);line-height:1;">187</div>
-        <div style="font-size:13px;color:rgba(255,248,236,0.6);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;">Carreras</div>
-      </div>
-      <div style="background:rgba(168,85,247,0.05);border:1px solid rgba(168,85,247,0.18);border-radius:16px;padding:32px 20px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--violet2);line-height:1;">46</div>
-        <div style="font-size:13px;color:rgba(255,248,236,0.6);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;">Universidades</div>
-      </div>
-      <div style="background:rgba(232,120,32,0.05);border:1px solid rgba(232,120,32,0.18);border-radius:16px;padding:32px 20px;">
-        <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:600;color:var(--orange);line-height:1;">8</div>
-        <div style="font-size:13px;color:rgba(255,248,236,0.6);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;">Áreas vocacionales</div>
-      </div>
+<style>
+#guia-section{padding:140px 64px;background:#0A0610;position:relative;overflow:hidden;}
+#guia-section::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 50% 40% at 15% 20%,rgba(124,58,237,0.10) 0%,transparent 70%),
+  radial-gradient(ellipse 40% 30% at 85% 80%,rgba(245,192,64,0.07) 0%,transparent 70%);
+  pointer-events:none;}
+#guia-section .guia-wrap{position:relative;max-width:1280px;margin:0 auto;}
+#guia-section .guia-head{text-align:center;margin-bottom:80px;}
+#guia-section .guia-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:860px;margin:0 auto 90px;}
+#guia-section .guia-stat{text-align:center;padding:28px 20px;border-top:1px solid rgba(245,192,64,0.15);}
+#guia-section .guia-stat-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:600;line-height:1;letter-spacing:-.02em;}
+#guia-section .guia-stat-label{font-size:12px;color:rgba(255,248,236,0.55);letter-spacing:.14em;text-transform:uppercase;margin-top:14px;font-weight:500;}
+#guia-section .areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:80px;}
+#guia-section .area-card{display:block;position:relative;padding:36px 28px 30px;background:linear-gradient(145deg,rgba(255,255,255,0.03) 0%,rgba(255,255,255,0.01) 100%);border:1px solid rgba(255,248,236,0.08);border-radius:20px;text-decoration:none;transition:all .35s cubic-bezier(.2,.8,.2,1);overflow:hidden;}
+#guia-section .area-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--ac);opacity:0;transition:opacity .3s;}
+#guia-section .area-card:hover{transform:translateY(-6px);border-color:var(--ac);background:linear-gradient(145deg,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.02) 100%);box-shadow:0 20px 50px -10px rgba(0,0,0,0.5),0 0 0 1px var(--ac);}
+#guia-section .area-card:hover::before{opacity:1;}
+#guia-section .area-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,var(--ac) 15%,transparent);border-radius:14px;margin-bottom:22px;transition:all .3s;}
+#guia-section .area-card:hover .area-icon{background:color-mix(in srgb,var(--ac) 25%,transparent);transform:scale(1.05);}
+#guia-section .area-icon svg{width:28px;height:28px;color:var(--ac);stroke:var(--ac);}
+#guia-section .area-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cream);line-height:1.2;margin-bottom:10px;letter-spacing:-.01em;}
+#guia-section .area-count{font-size:13px;color:rgba(255,248,236,0.5);display:flex;align-items:center;gap:8px;}
+#guia-section .area-count::after{content:'→';color:var(--ac);transition:transform .3s;font-size:16px;margin-left:auto;}
+#guia-section .area-card:hover .area-count::after{transform:translateX(4px);}
+#guia-section .guia-ctas{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding-top:40px;border-top:1px solid rgba(245,192,64,0.08);}
+#guia-section .guia-cta-primary{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:var(--gold);color:#0A0500;font-weight:600;font-size:15px;border-radius:99px;text-decoration:none;letter-spacing:.02em;transition:all .2s;}
+#guia-section .guia-cta-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,192,64,0.3);}
+#guia-section .guia-cta-ghost{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;background:transparent;color:var(--cream);font-weight:500;font-size:15px;border-radius:99px;text-decoration:none;letter-spacing:.02em;border:1px solid rgba(245,192,64,0.25);transition:all .2s;}
+#guia-section .guia-cta-ghost:hover{background:rgba(245,192,64,0.06);border-color:rgba(245,192,64,0.4);}
+@media (max-width:960px){
+  #guia-section{padding:90px 32px;}
+  #guia-section .areas-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
+  #guia-section .guia-stats{grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:60px;}
+  #guia-section .guia-stat-num{font-size:48px;}
+  #guia-section .guia-stat-label{font-size:10px;}
+  #guia-section .area-card{padding:28px 20px 24px;}
+  #guia-section .area-name{font-size:19px;}
+}
+@media (max-width:480px){
+  #guia-section .areas-grid{grid-template-columns:1fr;}
+}
+</style>
+<section id="guia-section">
+  <a id="guia" style="position:relative;top:-80px;visibility:hidden;"></a>
+  <div class="guia-orb-1"></div>
+  <div class="guia-orb-2"></div>
+  <div class="guia-wrap">
+    <div class="guia-head">
+      <div class="section-eyebrow reveal" style="color:var(--violet2);justify-content:center;">La guía</div>
+      <h2 class="section-title reveal" style="margin-bottom:24px;">Explorá tu <em style="color:var(--gold);font-style:italic;">futuro</em></h2>
+      <p class="section-sub reveal" style="max-width:720px;margin:0 auto;">La guía abierta y gratuita de carreras universitarias argentinas. Cada carrera con su perfil comportamental, duración, campo laboral y las universidades donde se dicta.</p>
     </div>
 
-    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:60px;max-width:980px;margin-left:auto;margin-right:auto;">
-      <a href="/guia/areas/ciencias-de-la-salud" style="display:block;padding:18px 20px;background:rgba(29,158,117,0.08);border:1px solid rgba(29,158,117,0.22);border-radius:12px;color:#1D9E75;text-decoration:none;font-weight:500;font-size:14px;text-align:left;transition:all .2s;">Ciencias de la Salud →</a>
-      <a href="/guia/areas/ingenieria-y-tecnologia" style="display:block;padding:18px 20px;background:rgba(186,117,23,0.08);border:1px solid rgba(186,117,23,0.22);border-radius:12px;color:#BA7517;text-decoration:none;font-weight:500;font-size:14px;text-align:left;transition:all .2s;">Ingeniería y Tecnología →</a>
-      <a href="/guia/areas/ciencias-sociales-y-humanas" style="display:block;padding:18px 20px;background:rgba(127,119,221,0.08);border:1px solid rgba(127,119,221,0.22);border-radius:12px;color:#7F77DD;text-decoration:none;font-weight:500;font-size:14px;text-align:left;transition:all .2s;">Ciencias Sociales y Humanas →</a>
-      <a href="/guia/areas/arte-diseno-y-arquitectura" style="display:block;padding:18px 20px;background:rgba(212,83,126,0.08);border:1px solid rgba(212,83,126,0.22);border-radius:12px;color:#D4537E;text-decoration:none;font-weight:500;font-size:14px;text-align:left;transition:all .2s;">Arte, Diseño y Arquitectura →</a>
+    <div class="guia-stats reveal">
+      <div class="guia-stat"><div class="guia-stat-num" style="color:var(--gold);">187</div><div class="guia-stat-label">Carreras</div></div>
+      <div class="guia-stat"><div class="guia-stat-num" style="color:var(--violet2);">46</div><div class="guia-stat-label">Universidades</div></div>
+      <div class="guia-stat"><div class="guia-stat-num" style="color:var(--orange);">8</div><div class="guia-stat-label">Áreas vocacionales</div></div>
     </div>
 
-    <div class="reveal" style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;">
-      <a href="/guia/" style="display:inline-block;padding:18px 42px;background:var(--gold);color:#0A0500;font-weight:600;font-size:15px;border-radius:99px;text-decoration:none;letter-spacing:.02em;transition:opacity .2s,transform .2s;">Entrar a la guía completa →</a>
-      <a href="/guia/carreras/" style="display:inline-block;padding:18px 42px;background:transparent;color:var(--cream);font-weight:500;font-size:15px;border-radius:99px;text-decoration:none;letter-spacing:.02em;border:1px solid rgba(245,192,64,0.3);transition:all .2s;">Ver las 187 carreras</a>
+    <div class="areas-grid reveal">
+      <a href="/guia/areas/ciencias-de-la-salud" class="area-card" style="--ac:#1D9E75;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28c-6-4-12-9-12-16a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 7-6 12-12 16z" fill="currentColor" fill-opacity=".2"/><path d="M16 28c-6-4-12-9-12-16a6 6 0 0 1 12-2 6 6 0 0 1 12 2c0 7-6 12-12 16z"/><path d="M3 16h4l2-5 3 10 2-7 2 3h13" stroke-width="1.7"/></svg></div>
+        <div class="area-name">Ciencias de la Salud</div>
+        <div class="area-count"><span>22 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/ciencias-sociales-y-humanas" class="area-card" style="--ac:#7F77DD;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="10" r="4" fill="currentColor" fill-opacity=".25"/><circle cx="22" cy="12" r="3.2" fill="currentColor" fill-opacity=".35"/><path d="M3 26c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor" fill-opacity=".15"/><circle cx="11" cy="10" r="4"/><circle cx="22" cy="12" r="3.2"/><path d="M3 26c0-4.4 3.6-8 8-8s8 3.6 8 8"/><path d="M19 26c0-3 1.8-5.5 4-6"/></svg></div>
+        <div class="area-name">Ciencias Sociales y Humanas</div>
+        <div class="area-count"><span>30 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/ciencias-exactas-y-naturales" class="area-card" style="--ac:#378ADD;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="4" fill="currentColor" fill-opacity=".4"/><ellipse cx="16" cy="16" rx="13" ry="5"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="13" ry="5" transform="rotate(-60 16 16)"/><circle cx="16" cy="16" r="2.5" fill="currentColor"/><circle cx="29" cy="16" r="1.3" fill="currentColor"/><circle cx="9" cy="27.3" r="1.3" fill="currentColor"/><circle cx="9" cy="4.7" r="1.3" fill="currentColor"/></svg></div>
+        <div class="area-name">Ciencias Exactas y Naturales</div>
+        <div class="area-count"><span>19 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/ingenieria-y-tecnologia" class="area-card" style="--ac:#BA7517;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a6 6 0 1 1 0 12 6 6 0 0 1 0-12z" fill="currentColor" fill-opacity=".3"/><circle cx="16" cy="16" r="6"/><circle cx="16" cy="16" r="2.4" fill="currentColor"/><path d="M16 2v5M16 25v5M3 16h5M24 16h5M6.5 6.5l3.5 3.5M22 22l3.5 3.5M6.5 25.5l3.5-3.5M22 10l3.5-3.5" stroke-width="1.7"/></svg></div>
+        <div class="area-name">Ingeniería y Tecnología</div>
+        <div class="area-count"><span>33 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/ciencias-economicas-y-administracion" class="area-card" style="--ac:#D85A30;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="18" width="4.5" height="10" rx=".8" fill="currentColor" fill-opacity=".3"/><rect x="11.5" y="10" width="4.5" height="18" rx=".8" fill="currentColor" fill-opacity=".4"/><rect x="19" y="14" width="4.5" height="14" rx=".8" fill="currentColor" fill-opacity=".35"/><rect x="4" y="18" width="4.5" height="10" rx=".8"/><rect x="11.5" y="10" width="4.5" height="18" rx=".8"/><rect x="19" y="14" width="4.5" height="14" rx=".8"/><path d="M4 10l9-6 7 8 8-7" stroke-width="1.6"/><circle cx="28" cy="5" r="1.4" fill="currentColor"/></svg></div>
+        <div class="area-name">Ciencias Económicas y Administración</div>
+        <div class="area-count"><span>20 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/arte-diseno-y-arquitectura" class="area-card" style="--ac:#D4537E;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="18" r="12" fill="currentColor" fill-opacity=".2"/><circle cx="16" cy="18" r="12"/><circle cx="10" cy="14" r="1.6" fill="currentColor"/><circle cx="16" cy="10" r="1.6" fill="currentColor" fill-opacity=".7"/><circle cx="22" cy="14" r="1.6" fill="currentColor" fill-opacity=".5"/><circle cx="23" cy="21" r="1.6" fill="currentColor" fill-opacity=".3"/><path d="M14 29c0-2 1-3 2.5-3S20 25.5 20 24s-2-2-2-4" stroke-width="1.6"/></svg></div>
+        <div class="area-name">Arte, Diseño y Arquitectura</div>
+        <div class="area-count"><span>25 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/ciencias-agropecuarias-y-ambiente" class="area-card" style="--ac:#3B6D11;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 29c-7 0-12-5-12-12 0-4 3-8 7-9 1 5 5 9 11 11-1 5-5 10-6 10z" fill="currentColor" fill-opacity=".25"/><path d="M16 29c7 0 12-5 12-12 0-4-3-8-7-9-1 5-5 9-11 11" fill="currentColor" fill-opacity=".35"/><path d="M16 29c-7 0-12-5-12-12 0-4 3-8 7-9 1 5 5 9 11 11-1 5-5 10-6 10z"/><path d="M16 29c7 0 12-5 12-12 0-4-3-8-7-9-1 5-5 9-11 11"/><path d="M16 29V17" stroke-width="1.6"/></svg></div>
+        <div class="area-name">Ciencias Agropecuarias y Ambiente</div>
+        <div class="area-count"><span>20 carreras</span></div>
+      </a>
+
+      <a href="/guia/areas/educacion-y-ciencias-pedagogicas" class="area-card" style="--ac:#639922;">
+        <div class="area-icon"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10l14-6 14 6-14 6L2 10z" fill="currentColor" fill-opacity=".3"/><path d="M8 14v6c3 3 13 3 16 0v-6" fill="currentColor" fill-opacity=".2"/><path d="M2 10l14-6 14 6-14 6L2 10z"/><path d="M8 14v6c3 3 13 3 16 0v-6"/><path d="M28 10v8M28 24a1 1 0 0 1 2 0"/></svg></div>
+        <div class="area-name">Educación y Ciencias Pedagógicas</div>
+        <div class="area-count"><span>18 carreras</span></div>
+      </a>
+    </div>
+
+    <div class="guia-ctas reveal">
+      <a href="/guia/" class="guia-cta-primary">Entrar a la guía completa <span>→</span></a>
+      <a href="/guia/carreras/" class="guia-cta-ghost">Ver todas las 187 carreras</a>
     </div>
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">05</span><span class="dot"></span><span class="num">LA CIENCIA</span><span class="line"></span></div>
 <!-- LA CIENCIA -->
 <section id="ciencia">
+  <div class="section-marker"><span class="big">05</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal">La ciencia</div>
   <h2 class="section-title reveal">4 modelos psicológicos<br>validados, combinados</h2>
   <p class="section-sub reveal" style="margin-bottom:52px">Cada decisión alimenta cuatro frameworks de psicología vocacional y organizacional, ponderados para maximizar la precisión del perfil.</p>
 
   <div class="modelos-grid reveal">
-    <div class="modelo">
-      <div class="modelo-ico" style="background:rgba(124,58,237,.15);color:#7C3AED">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="18" cy="12" r="6" stroke="#7C3AED" stroke-width="2"/>
-          <circle cx="8" cy="26" r="4" stroke="#7C3AED" stroke-width="2"/>
-          <circle cx="28" cy="26" r="4" stroke="#7C3AED" stroke-width="2"/>
-          <line x1="13" y1="17" x2="10" y2="22" stroke="#7C3AED" stroke-width="1.5"/>
-          <line x1="23" y1="17" x2="26" y2="22" stroke="#7C3AED" stroke-width="1.5"/>
+    <div class="modelo" data-num="01" style="color:#7C3AED">
+      <div class="modelo-ico" style="color:#7C3AED">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6l15 9v18l-15 9-15-9V15z" fill="currentColor" fill-opacity=".18"/>
+          <path d="M24 6l15 9v18l-15 9-15-9V15z"/>
+          <circle cx="24" cy="6" r="2.4" fill="currentColor"/>
+          <circle cx="39" cy="15" r="2.4" fill="currentColor"/>
+          <circle cx="39" cy="33" r="2.4" fill="currentColor"/>
+          <circle cx="24" cy="42" r="2.4" fill="currentColor"/>
+          <circle cx="9" cy="33" r="2.4" fill="currentColor"/>
+          <circle cx="9" cy="15" r="2.4" fill="currentColor"/>
+          <circle cx="24" cy="24" r="3" fill="currentColor"/>
         </svg>
       </div>
       <div class="modelo-name">Holland RIASEC</div>
       <div class="modelo-tag" style="color:#7C3AED">Personalidad vocacional</div>
       <div class="modelo-desc">Clasifica intereses en 6 tipos: Realista, Investigador, Artístico, Social, Emprendedor y Convencional.</div>
     </div>
-    <div class="modelo">
-      <div class="modelo-ico" style="background:rgba(8,145,178,.15);color:#0891B2">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 4 L32 18 L18 32 L4 18 Z" stroke="#0891B2" stroke-width="2" fill="none"/>
-          <circle cx="18" cy="18" r="5" stroke="#0891B2" stroke-width="2"/>
-          <line x1="18" y1="4" x2="18" y2="13" stroke="#0891B2" stroke-width="1.5"/>
-          <line x1="18" y1="23" x2="18" y2="32" stroke="#0891B2" stroke-width="1.5"/>
-          <line x1="4" y1="18" x2="13" y2="18" stroke="#0891B2" stroke-width="1.5"/>
-          <line x1="23" y1="18" x2="32" y2="18" stroke="#0891B2" stroke-width="1.5"/>
+    <div class="modelo" data-num="02" style="color:#0891B2">
+      <div class="modelo-ico" style="color:#0891B2">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6l18 18-18 18L6 24z" fill="currentColor" fill-opacity=".16"/>
+          <path d="M24 6l18 18-18 18L6 24z"/>
+          <path d="M24 6l18 18H24zM24 42l-18-18h18z" fill="currentColor" fill-opacity=".22"/>
+          <circle cx="24" cy="24" r="4" fill="currentColor" fill-opacity=".8"/>
+          <path d="M24 10v6M24 32v6M10 24h6M32 24h6" stroke-width="1.4"/>
         </svg>
       </div>
       <div class="modelo-name">DISC</div>
       <div class="modelo-tag" style="color:#0891B2">Comportamiento bajo presión</div>
       <div class="modelo-desc">Mide Dominancia, Influencia, Estabilidad y Cumplimiento — cómo actúa el alumno en situaciones reales.</div>
     </div>
-    <div class="modelo">
-      <div class="modelo-ico" style="background:rgba(5,150,105,.15);color:#059669">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6 L18 30" stroke="#059669" stroke-width="2"/>
-          <path d="M18 6 C18 6 10 12 10 18 C10 24 18 30 18 30 C18 30 26 24 26 18 C26 12 18 6 18 6Z" stroke="#059669" stroke-width="2" fill="none"/>
-          <circle cx="18" cy="18" r="3" fill="#059669"/>
+    <div class="modelo" data-num="03" style="color:#059669">
+      <div class="modelo-ico" style="color:#059669">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 42s-16-9-16-22a9 9 0 0 1 16-5.6A9 9 0 0 1 40 20c0 13-16 22-16 22z" fill="currentColor" fill-opacity=".18"/>
+          <path d="M24 42s-16-9-16-22a9 9 0 0 1 16-5.6A9 9 0 0 1 40 20c0 13-16 22-16 22z"/>
+          <path d="M12 22h5l2-4 3 10 2-5 2 3h10" stroke-width="1.6"/>
+          <circle cx="24" cy="14.4" r="2" fill="currentColor"/>
         </svg>
       </div>
       <div class="modelo-name">Motivadores</div>
       <div class="modelo-tag" style="color:#059669">Valores internos</div>
       <div class="modelo-desc">Qué impulsa a cada persona más allá de sus habilidades — los valores que definen sus decisiones profundas.</div>
     </div>
-    <div class="modelo">
-      <div class="modelo-ico" style="background:rgba(232,120,32,.15);color:#E87820">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="10" cy="18" r="5" stroke="#E87820" stroke-width="2"/>
-          <rect x="20" y="13" width="10" height="10" stroke="#E87820" stroke-width="2" rx="2"/>
-          <path d="M15 18 L20 18" stroke="#E87820" stroke-width="1.5" stroke-dasharray="2 2"/>
-          <path d="M8" y1="8" x2="8" y2="28" stroke="#E87820" stroke-width="1"/>
+    <div class="modelo" data-num="04" style="color:#E87820">
+      <div class="modelo-ico" style="color:#E87820">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="18" r="9" fill="currentColor" fill-opacity=".22"/>
+          <circle cx="32" cy="18" r="9" fill="currentColor" fill-opacity=".28"/>
+          <circle cx="24" cy="32" r="9" fill="currentColor" fill-opacity=".18"/>
+          <circle cx="16" cy="18" r="9"/>
+          <circle cx="32" cy="18" r="9"/>
+          <circle cx="24" cy="32" r="9"/>
+          <circle cx="24" cy="24" r="2" fill="currentColor"/>
         </svg>
       </div>
       <div class="modelo-name">PDC</div>
@@ -1236,40 +1870,92 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">06</span><span class="dot"></span><span class="num">PARA LA ESCUELA</span><span class="line"></span></div>
 <!-- PARA LA ESCUELA -->
 <section id="escuela">
+  <div class="section-marker"><span class="big">06</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal">Para la escuela</div>
   <h2 class="section-title reveal">Panel del orientador</h2>
   <p class="section-sub reveal">Cada orientador y cada colegio tiene su propio espacio de gestión. Sin instalaciones, sin capacitación, sin burocracia.</p>
 
   <div class="escuela-grid reveal">
     <div class="eitem">
-      <div class="eitem-icon">🔗</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 30l-5 5a7 7 0 0 1-10-10l7-7a7 7 0 0 1 10 0" fill="#7ab0f0" fill-opacity=".2"/>
+          <path d="M30 18l5-5a7 7 0 0 1 10 10l-7 7a7 7 0 0 1-10 0" fill="#7ab0f0" fill-opacity=".3"/>
+          <path d="M18 30l-5 5a7 7 0 0 1-10-10l7-7a7 7 0 0 1 10 0"/>
+          <path d="M30 18l5-5a7 7 0 0 1 10 10l-7 7a7 7 0 0 1-10 0"/>
+          <path d="M19 29l10-10"/>
+        </svg>
+      </div>
       <div class="eitem-title">Agregar alumnos</div>
       <div class="eitem-desc">Genera el link personalizado de cada alumno con un click. Sin códigos, sin pasos extra.</div>
     </div>
     <div class="eitem">
-      <div class="eitem-icon">📊</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 42V26M18 42V18M28 42V8M38 42V22" stroke-opacity=".4"/>
+          <rect x="6" y="26" width="4" height="16" rx="1" fill="#7ab0f0" fill-opacity=".3"/>
+          <rect x="16" y="18" width="4" height="24" rx="1" fill="#7ab0f0" fill-opacity=".4"/>
+          <rect x="26" y="8" width="4" height="34" rx="1" fill="#7ab0f0" fill-opacity=".5"/>
+          <rect x="36" y="22" width="4" height="20" rx="1" fill="#7ab0f0" fill-opacity=".35"/>
+          <rect x="6" y="26" width="4" height="16" rx="1"/>
+          <rect x="16" y="18" width="4" height="24" rx="1"/>
+          <rect x="26" y="8" width="4" height="34" rx="1"/>
+          <rect x="36" y="22" width="4" height="20" rx="1"/>
+        </svg>
+      </div>
       <div class="eitem-title">Ver resultados completos</div>
       <div class="eitem-desc">Área vocacional, arquetipo de personalidad y las 5 carreras más afines de cada alumno en detalle.</div>
     </div>
     <div class="eitem">
-      <div class="eitem-icon">🗂️</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="12" width="18" height="30" rx="2" fill="#7ab0f0" fill-opacity=".18"/>
+          <rect x="24" y="18" width="18" height="24" rx="2" fill="#7ab0f0" fill-opacity=".3"/>
+          <rect x="6" y="12" width="18" height="30" rx="2"/>
+          <rect x="24" y="18" width="18" height="24" rx="2"/>
+          <path d="M6 20h18M24 26h18M24 34h12M12 28h6M12 34h6"/>
+          <path d="M8 10l4-4h8l4 4"/>
+        </svg>
+      </div>
       <div class="eitem-title">Organizar por división</div>
       <div class="eitem-desc">Agrupa alumnos por curso para comparar perfiles y detectar patrones grupales.</div>
     </div>
     <div class="eitem">
-      <div class="eitem-icon">📁</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 14a4 4 0 0 1 4-4h10l4 5h22a4 4 0 0 1 4 4v19a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z" fill="#7ab0f0" fill-opacity=".2"/>
+          <path d="M4 14a4 4 0 0 1 4-4h10l4 5h22a4 4 0 0 1 4 4v19a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/>
+          <path d="M24 22v12M18 28h12"/>
+          <circle cx="24" cy="28" r="7" stroke-opacity=".4"/>
+        </svg>
+      </div>
       <div class="eitem-title">Importar desde Excel</div>
       <div class="eitem-desc">Carga listas completas en segundos. El sistema genera todos los links automáticamente.</div>
     </div>
     <div class="eitem">
-      <div class="eitem-icon">💬</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 24a18 18 0 1 1 7.5 14.6L6 42l3.4-7.4A18 18 0 0 1 6 24z" fill="#7ab0f0" fill-opacity=".2"/>
+          <path d="M6 24a18 18 0 1 1 7.5 14.6L6 42l3.4-7.4A18 18 0 0 1 6 24z"/>
+          <path d="M17 21c0-2 1.6-4 4-4 2 0 4 1.6 4 4 0 3-4 4-4 6M21 32v1"/>
+          <circle cx="30" cy="27" r="1.4" fill="currentColor"/>
+        </svg>
+      </div>
       <div class="eitem-title">Compartir por WhatsApp</div>
       <div class="eitem-desc">Envía el link de cada alumno directamente desde el panel con un toque.</div>
     </div>
     <div class="eitem">
-      <div class="eitem-icon">📧</div>
+      <div class="eitem-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#7ab0f0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="10" width="36" height="28" rx="3" fill="#7ab0f0" fill-opacity=".2"/>
+          <rect x="6" y="10" width="36" height="28" rx="3"/>
+          <path d="M6 14l18 14 18-14"/>
+          <path d="M14 32l6-6M34 32l-6-6" stroke-opacity=".45"/>
+        </svg>
+      </div>
       <div class="eitem-title">Resultados automáticos</div>
       <div class="eitem-desc">El alumno recibe sus resultados completos por mail al terminar, sin intervención del orientador.</div>
     </div>
@@ -1278,11 +1964,19 @@ footer {
   <div class="escuela-footer reveal">✦ Sin instalación · Sin hardware · Sin capacitación · Funciona desde el primer día en cualquier celular</div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">07</span><span class="dot"></span><span class="num">VOCES</span><span class="line"></span></div>
 <!-- TESTIMONIOS -->
-<section id="testimonios" style="background:#0a0510;padding:100px 64px;text-align:center;">
+<section id="testimonios" style="background:#0a0510;padding:100px 64px;text-align:center;position:relative;">
+  <div class="section-marker"><span class="big">07</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal" style="justify-content:center;"><span style="display:none"></span>Lo que dicen los alumnos</div>
   <h2 class="section-title reveal" style="color:var(--gold);margin:0 auto 16px;">Resultados que resuenan</h2>
-  <p class="section-sub reveal" style="margin:0 auto 64px;">Estas son las primeras voces — alumnos reales que jugaron PathFinder y recibieron su perfil.</p>
+  <p class="section-sub reveal" style="margin:0 auto 56px;">Estas son las primeras voces — alumnos reales que jugaron PathFinder y recibieron su perfil.</p>
+
+  <div class="testi-metric reveal">
+    <div><div class="testi-metric-num">+400</div><div class="testi-metric-lbl">Alumnos jugados</div></div>
+    <div><div class="testi-metric-num">4.8</div><div class="testi-metric-lbl">Rating promedio</div></div>
+    <div><div class="testi-metric-num">6</div><div class="testi-metric-lbl">Colegios activos</div></div>
+  </div>
 
   <div class="carousel-wrap reveal">
     <div class="carousel-track" id="carouselTrack">
@@ -1369,33 +2063,62 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">08</span><span class="dot"></span><span class="num">LA PROPUESTA</span><span class="line"></span></div>
 <!-- PROPUESTA -->
 <section id="propuesta">
+  <div class="section-marker"><span class="big">08</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal">Empezamos juntos</div>
   <h2 class="section-title reveal">Sin riesgo, sin compromiso</h2>
   <p class="section-sub reveal">Arrancamos con un grupo reducido para que lo veas funcionar antes de tomar cualquier decisión.</p>
 
   <div class="pasos-grid">
     <div class="paso reveal reveal-delay-1">
-      <div class="paso-icon">🎁</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#F5C040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="18" width="36" height="24" rx="2" fill="#F5C040" fill-opacity=".22"/>
+          <rect x="6" y="18" width="36" height="24" rx="2"/>
+          <path d="M4 18h40M24 18v24" stroke-width="1.6"/>
+          <path d="M24 18s-6-4-6-9a4 4 0 0 1 8 0M24 18s6-4 6-9a4 4 0 0 0-8 0"/>
+          <path d="M24 9v9" stroke-opacity=".4"/>
+        </svg>
+      </div>
       <div class="paso-num">01</div>
       <div class="paso-title">Prueba gratuita</div>
       <div class="paso-desc">Empezamos con un curso o división sin costo. Queremos que lo experimenten antes de decidir.</div>
     </div>
     <div class="paso reveal reveal-delay-2">
-      <div class="paso-icon">⚡</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#F5C040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M26 4L8 26h12l-4 18 20-24H24z" fill="#F5C040" fill-opacity=".3"/>
+          <path d="M26 4L8 26h12l-4 18 20-24H24z"/>
+        </svg>
+      </div>
       <div class="paso-num">02</div>
       <div class="paso-title">Acceso inmediato</div>
       <div class="paso-desc">Cada alumno recibe su link. Lo abre desde el celular. En 10 minutos tiene sus resultados.</div>
     </div>
     <div class="paso reveal reveal-delay-3">
-      <div class="paso-icon">🖥️</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#F5C040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="8" width="40" height="28" rx="3" fill="#F5C040" fill-opacity=".2"/>
+          <rect x="4" y="8" width="40" height="28" rx="3"/>
+          <path d="M18 42h12M24 36v6"/>
+          <path d="M10 14h12M10 20h18M10 26h8" stroke-opacity=".55"/>
+          <circle cx="34" cy="23" r="4" fill="#F5C040" fill-opacity=".45"/>
+        </svg>
+      </div>
       <div class="paso-num">03</div>
       <div class="paso-title">Panel del orientador</div>
       <div class="paso-desc">El psicólogo accede a todos los resultados en su panel propio, organizado por división.</div>
     </div>
     <div class="paso reveal reveal-delay-4">
-      <div class="paso-icon">✅</div>
+      <div class="paso-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#F5C040" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="24" cy="24" r="18" fill="#F5C040" fill-opacity=".2"/>
+          <circle cx="24" cy="24" r="18"/>
+          <path d="M14 24l7 7 13-14" stroke-width="2"/>
+        </svg>
+      </div>
       <div class="paso-num">04</div>
       <div class="paso-title">Decidís vos</div>
       <div class="paso-desc">Después de la prueba, con resultados en mano, decidís si querés continuar. Sin presión.</div>
@@ -1411,21 +2134,37 @@ footer {
   </div>
 </section>
 
+<div class="sec-divider"><span class="line"></span><span class="num">09</span><span class="dot"></span><span class="num">HABLEMOS</span><span class="line"></span></div>
 <!-- CONTACTO -->
 <section id="contacto">
+  <div class="section-marker"><span class="big">09</span><span class="sub">/ 09</span></div>
   <div class="section-eyebrow reveal">Contacto</div>
   <h2 class="section-title reveal">¿<em>Hablamos?</em></h2>
   <p class="contacto-sub reveal">Contanos de tu colegio y te respondemos a la brevedad para coordinar la prueba gratuita.</p>
 
   <div class="contacto-cards">
     <a href="https://wa.me/5491169633434?text=Hola%20Nicolás%2C%20me%20interesa%20conocer%20más%20sobre%20PathFinder" target="_blank" class="contact-card whatsapp reveal reveal-delay-1">
-      <div class="cc-icon">💬</div>
+      <div class="cc-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#25D366" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 24a18 18 0 1 1 7.5 14.6L6 42l3.4-7.4A18 18 0 0 1 6 24z" fill="#25D366" fill-opacity=".2"/>
+          <path d="M6 24a18 18 0 1 1 7.5 14.6L6 42l3.4-7.4A18 18 0 0 1 6 24z"/>
+          <path d="M18 20c0 6 4 10 10 10l2-2 4 2-1 4a3 3 0 0 1-3 2 15 15 0 0 1-14-14 3 3 0 0 1 2-3l4-1 2 4z" fill="#25D366" fill-opacity=".5"/>
+        </svg>
+      </div>
       <div class="cc-label">WhatsApp</div>
       <div class="cc-value">Escribinos por WhatsApp</div>
       <div class="cc-action">Abrir conversación →</div>
     </a>
     <a href="https://instagram.com/pathfinder.ar" target="_blank" class="contact-card instagram reveal reveal-delay-2">
-      <div class="cc-icon">📸</div>
+      <div class="cc-icon">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#E1306C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="6" width="36" height="36" rx="9" fill="#E1306C" fill-opacity=".2"/>
+          <rect x="6" y="6" width="36" height="36" rx="9"/>
+          <circle cx="24" cy="24" r="8" fill="#E1306C" fill-opacity=".4"/>
+          <circle cx="24" cy="24" r="8"/>
+          <circle cx="34" cy="14" r="1.8" fill="#E1306C"/>
+        </svg>
+      </div>
       <div class="cc-label">Instagram</div>
       <div class="cc-value">@pathfinder.ar</div>
       <div class="cc-action">Seguinos →</div>

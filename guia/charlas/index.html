@@ -65,6 +65,10 @@ footer a{color:var(--gold)}
 .evt-date .month{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,248,236,.65);margin-top:4px;font-weight:600}
 .evt-date .year{font-size:10px;color:rgba(255,248,236,.4);margin-top:2px}
 .evt-date .range{font-size:10px;color:var(--gold);margin-top:6px;letter-spacing:.5px}
+.evt-date.estimada{opacity:.75}
+.evt-date.estimada .day{color:rgba(255,248,236,.5)}
+.evt-date.estimada .month{color:rgba(255,248,236,.4)}
+.evt-date .estimada-tag{font-size:9px;color:rgba(232,120,32,.9);margin-top:6px;letter-spacing:.5px;font-weight:600;text-transform:uppercase;padding:2px 6px;background:rgba(232,120,32,.1);border-radius:4px;display:inline-block}
 .evt-main h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;line-height:1.15;margin-bottom:8px}
 .evt-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .evt-tag{display:inline-block;font-size:11px;letter-spacing:.5px;padding:3px 10px;border-radius:99px;font-weight:500}
@@ -251,11 +255,17 @@ function render(){
     }
     return true;
   });
-  // Sort: upcoming first, past at the bottom
+  // Sort: upcoming first, luego por confirmados-primero, luego por fecha
   list.sort((a,b) => {
     const aPast = (a.fecha_fin || a.fecha_inicio) < today;
     const bPast = (b.fecha_fin || b.fecha_inicio) < today;
     if(aPast !== bPast) return aPast ? 1 : -1;
+    // Dentro del mismo grupo, confirmados antes que estimados
+    const aEst = a.fecha_estimada === true ? 1 : 0;
+    const bEst = b.fecha_estimada === true ? 1 : 0;
+    if(aEst !== bEst) return aEst - bEst;
+    // Destacados primero
+    if((a.destacado?1:0) !== (b.destacado?1:0)) return (b.destacado?1:0) - (a.destacado?1:0);
     return a.fecha_inicio.localeCompare(b.fecha_inicio);
   });
   document.getElementById('count').textContent = list.length;
@@ -293,13 +303,16 @@ function renderEvent(e, today){
   const hora = e.hora ? `<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>${e.hora}</b></span></div>` : '';
   const ub = e.ubicacion ? `<div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-9 8-14a8 8 0 0 0-16 0c0 5 8 14 8 14z"/><circle cx="12" cy="10" r="3"/></svg><span>${e.ubicacion}</span></div>` : '';
   const note = e.nota ? `<div class="evt-note">ⓘ ${e.nota}</div>` : '';
+  const estimada = e.fecha_estimada === true;
+  const dateCls = 'evt-date' + (estimada ? ' estimada' : '');
   return `
     <div class="${classes.join(' ')}" style="--sc:${sc}">
-      <div class="evt-date">
+      <div class="${dateCls}">
         <div class="day">${dayStr}</div>
         <div class="month">${monthStr}</div>
         <div class="year">${yearStr}</div>
         ${rangeStr ? `<div class="range">${rangeStr}</div>` : ''}
+        ${estimada ? `<div class="estimada-tag">📅 estimada</div>` : ''}
       </div>
       <div class="evt-main">
         <h3>${e.titulo}</h3>

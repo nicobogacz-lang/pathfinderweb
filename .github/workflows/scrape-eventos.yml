@@ -1,0 +1,42 @@
+name: Scrape eventos universitarios
+
+on:
+  schedule:
+    # Todos los lunes a las 12:00 UTC (09:00 Argentina)
+    - cron: '0 12 * * 1'
+  workflow_dispatch:  # Permite correr a mano desde la pestaña Actions
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout del repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install requests beautifulsoup4
+
+      - name: Ejecutar scraper
+        id: scrape
+        continue-on-error: true
+        run: python scripts/scrape_eventos.py
+
+      - name: Commit cambios si hubo
+        if: steps.scrape.outcome == 'success'
+        run: |
+          git config user.name "PathFinder Bot"
+          git config user.email "bot@pathfinder.net.ar"
+          git add guia/charlas/eventos.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios para commitear"
+          else
+            git commit -m "chore: actualización semanal de eventos universitarios"
+            git push
+          fi

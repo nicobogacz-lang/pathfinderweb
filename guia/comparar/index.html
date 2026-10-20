@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comparar carreras — Guía · PathFinder</title>
+<meta name="description" content="Compará 2 o 3 carreras universitarias argentinas lado a lado: perfil, duración, campo laboral y universidades. Herramienta gratuita de PathFinder.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" href="/favicon.ico">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+:root{--gold:#F5C040;--orange:#E87820;--violet2:#A855F7;--cream:#FFF8EC;--muted:#A09070;--bg:#0A0610;--card:#160A24;--c1:#F5C040;--c2:#A855F7;--c3:#E87820}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+a:hover{color:var(--orange)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:rgba(10,6,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(245,192,64,.1);padding:16px 32px}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+nav .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);letter-spacing:1px}
+nav .menu{display:flex;gap:24px;font-size:14px}
+nav .menu a{color:rgba(255,248,236,.75)}
+nav .menu a:hover{color:var(--gold)}
+nav .cta{padding:10px 20px;border-radius:99px;background:var(--gold);color:#0a0510!important;font-weight:600;font-size:13px}
+.crumb{padding:30px 0 10px;color:rgba(255,248,236,.5);font-size:13px}
+.crumb a{color:rgba(255,248,236,.5)}
+.crumb a:hover{color:var(--gold)}
+.crumb .sep{margin:0 10px;color:rgba(255,248,236,.3)}
+footer{margin-top:80px;padding:40px 32px;background:#060310;color:rgba(255,248,236,.45);font-size:13px;text-align:center;border-top:1px solid rgba(245,192,64,.08)}
+footer a{color:var(--gold)}
+
+.hero{padding:50px 0 30px;text-align:center}
+.hero .eyebrow{display:inline-block;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--violet2);font-weight:700;padding:6px 16px;border:1px solid rgba(168,85,247,.3);border-radius:99px;margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,72px);font-weight:400;line-height:1.05;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .sub{font-size:17px;color:rgba(255,248,236,.7);max-width:620px;margin:0 auto}
+
+.selectors{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:50px 0 40px;max-width:1100px;margin-left:auto;margin-right:auto}
+.selectors.cols-2{grid-template-columns:repeat(2,1fr);max-width:720px}
+.sel-card{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid rgba(245,192,64,.12);border-radius:16px;padding:20px;position:relative}
+.sel-card .sel-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--c);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sel-card .sel-dot{width:10px;height:10px;border-radius:99px;background:var(--c);box-shadow:0 0 12px var(--c)}
+.sel-card select{width:100%;background:transparent;color:var(--cream);border:none;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;padding:4px 0;cursor:pointer;outline:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5C040' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 0 center;background-size:18px;padding-right:28px}
+.sel-card select option{background:#160A24;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px}
+.sel-card .remove{position:absolute;top:14px;right:14px;width:26px;height:26px;border-radius:99px;background:rgba(255,255,255,.06);border:none;color:var(--cream);cursor:pointer;font-size:16px;line-height:1;transition:all .2s}
+.sel-card .remove:hover{background:rgba(255,80,80,.2);color:#ff6b6b}
+.add-row{text-align:center;margin-bottom:50px}
+.add-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 24px;background:transparent;border:1px dashed rgba(245,192,64,.4);border-radius:99px;color:var(--gold);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
+.add-btn:hover{background:rgba(245,192,64,.08);border-style:solid}
+.add-btn[disabled]{opacity:.3;cursor:not-allowed}
+
+.chart-section{background:linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.01));border:1px solid rgba(245,192,64,.08);border-radius:24px;padding:40px;margin-bottom:40px}
+.chart-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;text-align:center;margin-bottom:8px}
+.chart-sub{text-align:center;color:rgba(255,248,236,.55);font-size:14px;margin-bottom:30px}
+.chart-wrap{display:flex;justify-content:center;align-items:center}
+.chart-wrap svg{max-width:600px;width:100%;height:auto}
+.chart-legend{display:flex;justify-content:center;gap:28px;margin-top:24px;flex-wrap:wrap}
+.chart-legend .lg{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,248,236,.75)}
+.chart-legend .lg-dot{width:14px;height:14px;border-radius:4px;background:var(--c)}
+.chart-legend .lg b{color:var(--cream);font-weight:600}
+
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.cards-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.car-card{background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.01));border:1px solid var(--c);border-color:color-mix(in srgb,var(--c) 25%,transparent);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.car-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c)}
+.car-card .car-area{display:inline-block;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:var(--c);font-weight:700;padding:4px 10px;border:1px solid color-mix(in srgb,var(--c) 40%,transparent);border-radius:99px;margin-bottom:14px}
+.car-card h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;line-height:1.1;margin-bottom:18px}
+.car-field{padding:14px 0;border-bottom:1px solid rgba(245,192,64,.06)}
+.car-field:last-of-type{border:none}
+.car-field b{display:block;font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,248,236,.5);font-weight:600;margin-bottom:6px}
+.car-field p{color:rgba(255,248,236,.85);font-size:14px;line-height:1.55}
+.car-unis{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.car-unis a{display:inline-block;padding:4px 10px;background:color-mix(in srgb,var(--c) 10%,transparent);border:1px solid color-mix(in srgb,var(--c) 25%,transparent);border-radius:6px;font-size:12px;color:var(--c)!important;transition:all .15s}
+.car-unis a:hover{background:color-mix(in srgb,var(--c) 20%,transparent)}
+.car-card .car-cta{display:block;text-align:center;margin-top:20px;padding:12px;border-radius:99px;background:color-mix(in srgb,var(--c) 15%,transparent);border:1px solid color-mix(in srgb,var(--c) 30%,transparent);color:var(--c)!important;font-weight:600;font-size:13px;transition:all .2s}
+.car-card .car-cta:hover{background:color-mix(in srgb,var(--c) 25%,transparent)}
+
+.empty-state{text-align:center;padding:60px 20px;color:rgba(255,248,236,.5)}
+.empty-state svg{width:60px;height:60px;color:var(--muted);margin-bottom:20px;opacity:.5}
+
+.share-row{text-align:center;margin:40px 0}
+.share-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:transparent;color:rgba(255,248,236,.7);border:1px solid rgba(245,192,64,.2);border-radius:99px;font-size:13px;cursor:pointer;transition:all .2s}
+.share-btn:hover{background:rgba(245,192,64,.08);color:var(--gold);border-color:rgba(245,192,64,.4)}
+
+@media (max-width:900px){
+  .selectors,.selectors.cols-2{grid-template-columns:1fr}
+  .cards-grid,.cards-grid.cols-2{grid-template-columns:1fr}
+  .chart-section{padding:24px 16px}
+  .hero h1{font-size:36px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">PathFinder</a>
+    <div class="menu">
+      <a href="/#como">Cómo funciona</a>
+      <a href="/guia/">Guía</a>
+      <a href="/guia/carreras/">Carreras</a>
+      <a href="/guia/universidades/">Universidades</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+    <a href="https://pathfinder-rouge-iota.vercel.app/" class="cta">Probá el juego →</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb">
+    <a href="/">Inicio</a> <span class="sep">/</span>
+    <a href="/guia/">Guía</a> <span class="sep">/</span>
+    Comparar carreras
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Comparador</div>
+    <h1>Compará <em>carreras</em> lado a lado</h1>
+    <p class="sub">Elegí 2 o 3 carreras del catálogo y mirá sus diferencias: perfil comportamental, duración, campo laboral y universidades donde se dictan.</p>
+  </section>
+
+  <div class="selectors cols-2" id="selectors"></div>
+
+  <div class="add-row">
+    <button class="add-btn" id="addBtn" onclick="addCareer()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      Agregar una tercera carrera
+    </button>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="share-row" id="shareRow" style="display:none">
+    <button class="share-btn" onclick="shareLink()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+      <span id="shareText">Copiar link de esta comparación</span>
+    </button>
+  </div>
+</div>
+
+<footer>
+  <div style="margin-bottom:12px;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);">PathFinder</div>
+  <div>Comparador · <a href="/">Volver al inicio</a> · <a href="/guia/">Guía</a> · <a href="/guia/carreras/">Carreras</a></div>
+  <div style="margin-top:10px;opacity:.6;">© 2026 PathFinder · nicobogacz@gmail.com · pathfinder.net.ar</div>
+</footer>
+
+<script>
+const DIM_DESC = {'D':'Dominancia','I':'Influencia','S':'Estabilidad','C':'Precisión','hR':'Realista','hI':'Investigador','hA':'Artístico','hS':'Social','hE':'Emprendedor','hC':'Convencional','mTeo':'Teórico','mEco':'Pragmático','mEst':'Estético','mSoc':'Vocacional','mAut':'Autonomía','mTra':'Tradicional','pdcP':'Personas','pdcD':'Datos','pdcC':'Objetos'};
+const DIM_ORDER = ['D','I','S','C','hR','hI','hA','hS','hE','hC','mTeo','mEco','mEst','mSoc','mAut','mTra','pdcP','pdcD','pdcC'];
+const COLORS = ['#F5C040','#A855F7','#E87820'];
+const slugFromSel = sel => sel ? sel.value : null;
+let DATA = null;
+let state = ['','','']; // 3 slots, '' means empty
+
+function slugify(s){return s.toLowerCase().replace(/ /g,'-').replace(/[^a-z0-9\-]/g,'');}
+
+async function init(){
+  try {
+    const r = await fetch('/guia/data.json');
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    DATA = await r.json();
+  } catch(e) {
+    document.getElementById('selectors').innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:rgba(255,248,236,.5);border:1px dashed rgba(245,192,64,.2);border-radius:16px;">⚠️ No se pudo cargar el catálogo de carreras.<br><small>Esta página necesita estar en el servidor para funcionar. Si estás viendo esto localmente, subila a Vercel.</small></div>';
+    return;
+  }
+  DATA.carreras.sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+
+  // Read URL params
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('c');
+  if(q){
+    const slugs = q.split(',').filter(Boolean).slice(0,3);
+    for(let i=0;i<slugs.length;i++) state[i] = slugs[i];
+  } else {
+    // Smart defaults
+    state[0] = 'medicina';
+    state[1] = 'psicologia';
+  }
+  render();
+}
+
+function render(){
+  const activeCount = state.filter(Boolean).length;
+  const slots = activeCount <= 2 ? 2 : 3;
+  renderSelectors(slots);
+  renderContent();
+  updateAddBtn(slots);
+  updateURL();
+}
+
+function renderSelectors(slots){
+  const container = document.getElementById('selectors');
+  container.className = 'selectors ' + (slots===2 ? 'cols-2' : '');
+  container.innerHTML = '';
+  for(let i=0;i<slots;i++){
+    const slot = i;
+    const curr = state[slot];
+    const c = COLORS[i];
+    const opts = DATA.carreras.map(car => `<option value="${car.slug}" ${car.slug===curr?'selected':''}>${car.nombre}</option>`).join('');
+    const removeBtn = slots===3 ? `<button class="remove" onclick="removeSlot(${slot})" title="Quitar">×</button>` : '';
+    container.innerHTML += `
+      <div class="sel-card" style="--c:${c}">
+        ${removeBtn}
+        <div class="sel-label"><span class="sel-dot"></span>Carrera ${i+1}</div>
+        <select onchange="setSlot(${slot},this.value)">
+          <option value="">— Elegí una carrera —</option>
+          ${opts}
+        </select>
+      </div>`;
+  }
+}
+
+function renderContent(){
+  const container = document.getElementById('content');
+  const active = state.filter(Boolean);
+  if(active.length === 0){
+    container.innerHTML = `
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <p>Elegí al menos 2 carreras arriba para empezar a comparar.</p>
+      </div>`;
+    document.getElementById('shareRow').style.display = 'none';
+    return;
+  }
+  const careers = active.map(sl => DATA.carreras.find(c => c.slug===sl)).filter(Boolean);
+  const cols = careers.length;
+  let html = '';
+  if(careers.length >= 2){
+    html += renderChart(careers);
+  }
+  html += `<div class="cards-grid ${cols===2?'cols-2':''}">`;
+  careers.forEach((c,i) => {
+    const color = COLORS[state.indexOf(c.slug)];
+    html += renderCard(c, color);
+  });
+  html += '</div>';
+  container.innerHTML = html;
+  document.getElementById('shareRow').style.display = 'block';
+}
+
+function renderChart(careers){
+  const size = 520, cx = size/2, cy = size/2, r = 180;
+  const n = DIM_ORDER.length;
+  const angleStep = (Math.PI*2) / n;
+  // Grid rings (20, 40, 60, 80, 100)
+  let rings = '';
+  for(let v=20; v<=100; v+=20){
+    const rr = r * v/100;
+    const pts = [];
+    for(let i=0;i<n;i++){
+      const a = angleStep*i - Math.PI/2;
+      pts.push([cx + Math.cos(a)*rr, cy + Math.sin(a)*rr]);
+    }
+    rings += `<polygon points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="rgba(245,192,64,0.08)" stroke-width="1"/>`;
+  }
+  // Axes
+  let axes = '';
+  for(let i=0;i<n;i++){
+    const a = angleStep*i - Math.PI/2;
+    const x2 = cx + Math.cos(a)*r;
+    const y2 = cy + Math.sin(a)*r;
+    axes += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="rgba(245,192,64,0.06)" stroke-width="1"/>`;
+  }
+  // Labels
+  let labels = '';
+  for(let i=0;i<n;i++){
+    const a = angleStep*i - Math.PI/2;
+    const lx = cx + Math.cos(a)*(r+20);
+    const ly = cy + Math.sin(a)*(r+20);
+    const ta = Math.abs(Math.cos(a)) < 0.3 ? 'middle' : (Math.cos(a) > 0 ? 'start' : 'end');
+    labels += `<text x="${lx}" y="${ly}" text-anchor="${ta}" dominant-baseline="middle" fill="rgba(255,248,236,0.55)" font-family="DM Sans" font-size="11" font-weight="500">${DIM_DESC[DIM_ORDER[i]]}</text>`;
+  }
+  // Career polygons
+  let polys = '';
+  careers.forEach((c,ci) => {
+    const color = COLORS[state.indexOf(c.slug)];
+    const pts = [];
+    for(let i=0;i<n;i++){
+      const v = c.vector[DIM_ORDER[i]] || 0;
+      const rr = r * v/100;
+      const a = angleStep*i - Math.PI/2;
+      pts.push([cx + Math.cos(a)*rr, cy + Math.sin(a)*rr]);
+    }
+    const d = pts.map(p=>p.join(',')).join(' ');
+    polys += `<polygon points="${d}" fill="${color}" fill-opacity="0.15" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>`;
+    // Points
+    pts.forEach(p => {
+      polys += `<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${color}"/>`;
+    });
+  });
+  let legend = '<div class="chart-legend">';
+  careers.forEach(c => {
+    const color = COLORS[state.indexOf(c.slug)];
+    legend += `<div class="lg" style="--c:${color}"><div class="lg-dot"></div><b>${c.nombre}</b></div>`;
+  });
+  legend += '</div>';
+  return `
+    <div class="chart-section">
+      <h2 class="chart-title">Perfil comportamental ideal</h2>
+      <p class="chart-sub">Las 19 dimensiones del motor de PathFinder, superpuestas</p>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 ${size} ${size}" xmlns="http://www.w3.org/2000/svg">
+          ${rings}${axes}${polys}${labels}
+        </svg>
+      </div>
+      ${legend}
+    </div>`;
+}
+
+function renderCard(c, color){
+  const unisHtml = (c.universidades||[]).slice(0,8).map(u => `<a href="/guia/universidades/${slugify(u.sigla)}">${u.sigla}</a>`).join('');
+  const extra = (c.universidades||[]).length > 8 ? `<span style="font-size:12px;color:rgba(255,248,236,.4);padding:4px 6px;">+${c.universidades.length-8}</span>` : '';
+  return `
+    <div class="car-card" style="--c:${color}">
+      <div class="car-area">${c.area_nombre}</div>
+      <h3>${c.nombre}</h3>
+      <div class="car-field"><b>¿De qué se trata?</b><p>${c.descripcion||'—'}</p></div>
+      <div class="car-field"><b>Duración</b><p>${c.duracion||'—'}</p></div>
+      <div class="car-field"><b>Campo laboral</b><p>${c.campo_laboral||'—'}</p></div>
+      <div class="car-field"><b>Universidades (${(c.universidades||[]).length})</b><div class="car-unis">${unisHtml}${extra}</div></div>
+      <a href="/guia/carreras/${c.slug}" class="car-cta">Ver la carrera completa →</a>
+    </div>`;
+}
+
+function setSlot(i, slug){
+  state[i] = slug;
+  render();
+}
+function removeSlot(i){
+  state.splice(i,1);
+  state.push('');
+  render();
+}
+function addCareer(){
+  const empty = state.indexOf('');
+  if(empty === -1 || empty >= 3) return;
+  // Suggest a career not already selected
+  const taken = new Set(state.filter(Boolean));
+  const suggestion = DATA.carreras.find(c => !taken.has(c.slug));
+  if(suggestion) state[empty] = suggestion.slug;
+  render();
+}
+function updateAddBtn(slots){
+  const btn = document.getElementById('addBtn');
+  if(slots>=3){ btn.style.display='none'; } else { btn.style.display='inline-flex'; }
+}
+function updateURL(){
+  const active = state.filter(Boolean);
+  const url = new URL(window.location);
+  if(active.length) url.searchParams.set('c', active.join(','));
+  else url.searchParams.delete('c');
+  window.history.replaceState({}, '', url);
+}
+function shareLink(){
+  navigator.clipboard.writeText(window.location.href);
+  document.getElementById('shareText').textContent = '¡Copiado!';
+  setTimeout(()=>document.getElementById('shareText').textContent='Copiar link de esta comparación', 2000);
+}
+init();
+</script>
+</body>
+</html>

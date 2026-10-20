@@ -1,0 +1,162 @@
+{
+  "actualizado": "2026-10-20",
+  "nota": "Notas periodísticas curadas sobre carreras del futuro, impacto de la IA y mercado laboral argentino. Para sugerir una, escribile a PathFinder por WhatsApp.",
+  "notas": [
+    {
+      "id": "lanacion-educar-futuro-ia-universitaria",
+      "titulo": "Educar para el futuro: la Inteligencia Artificial le marca el ritmo a la formación universitaria",
+      "medio": "La Nación",
+      "autor": "Victoria Menghini",
+      "fecha": "2024-01-16",
+      "url": "https://www.lanacion.com.ar/sociedad/educar-para-el-futuro-la-inteligencia-artificial-le-marca-el-ritmo-a-la-formacion-universitaria-nid16012024/",
+      "descripcion": "Cómo universidades argentinas (Siglo 21, UTN, ITBA) están lanzando carreras nuevas: bioingeniería, fintech, IA y robótica, bioinformática. Dato IBM: 40% de los trabajadores deberá reentrenarse en 3 años. Empleo IT creció 38,3% en 5 años en Argentina.",
+      "tipo": "informe",
+      "destacado": true,
+      "tags": ["ia", "universidades", "argentina", "carreras-futuro"]
+    },
+    {
+      "id": "iprofesional-empleo-joven-ia-junior",
+      "titulo": "Empleo joven: las claves para conseguir el primer trabajo mientras la IA elimina los puestos junior",
+      "medio": "iProfesional",
+      "autor": "Paula Krizanovic",
+      "fecha": "2026-06-16",
+      "url": "https://www.iprofesional.com/management/457404-empleo-joven-como-conseguir-el-primer-trabajo-si-la-ia-elimina-los-puestos-junior",
+      "descripcion": "Nota clave para el target: cita estudio de Stanford Digital Economy Lab (caída del 16% en empleo juvenil 22-25 en ocupaciones expuestas a IA) y expertos de Adecco/Manpower sobre cómo construir empleabilidad hoy. Consejos directos para jóvenes.",
+      "tipo": "analisis",
+      "destacado": true,
+      "tags": ["ia", "argentina", "carreras-que-desaparecen", "habilidades"]
+    },
+    {
+      "id": "mercado-10-posiciones-alta-demanda-2025",
+      "titulo": "10 posiciones laborales que tendrán alta demanda en el primer semestre de 2025",
+      "medio": "Revista Mercado",
+      "autor": "Andrea Ávila · Randstad",
+      "fecha": "2025-02-07",
+      "url": "https://mercado.com.ar/talento-y-liderazgo/10-posiciones-laborales-que-tendran-una-alta-demanda-en-el-primer-semestre-de-2025",
+      "descripcion": "Ranking Randstad de los 10 puestos más demandados en Argentina 2025: expertos IA/automatización, ciberseguridad, data, UX/UI, software, marketing digital, enfermería/instrumentación quirúrgica, pickers, vendedores, técnicos. Mix tech + no-tech.",
+      "tipo": "ranking",
+      "destacado": true,
+      "tags": ["mercado-laboral", "argentina", "nuevas-profesiones", "ranking"]
+    },
+    {
+      "id": "lanacion-carreras-importantes-2025-ia",
+      "titulo": "Estas serán las carreras más importantes en 2025, según la Inteligencia Artificial",
+      "medio": "La Nación",
+      "autor": "Leidy Estefanía Rico Arboleda",
+      "fecha": "2024-10-26",
+      "url": "https://www.lanacion.com.ar/tecnologia/estas-son-las-carreras-que-seran-mas-importantes-para-el-2025-segun-la-inteligencia-artificial-nid26102024/",
+      "descripcion": "Ranking de 10 carreras clave según análisis con IA: ingeniería en IA/ML, ciberseguridad, data science, energías renovables, blockchain, salud mental, robótica, UX/UI, biotecnología y DEI.",
+      "tipo": "ranking",
+      "destacado": false,
+      "tags": ["ia", "nuevas-profesiones", "ranking"]
+    },
+    {
+      "id": "infobae-escasez-talento-argentina",
+      "titulo": "Escasez de talento en Argentina",
+      "medio": "Infobae",
+      "autor": "Luis Berdiñas",
+      "fecha": "2025-08-13",
+      "url": "https://www.infobae.com/opinion/2025/08/13/escasez-de-talento-en-argentina/",
+      "descripcion": "Encuesta a 40.000 empleadores: 68% de las empresas argentinas no cubre vacantes por falta de talento calificado. Lista las competencias técnicas más difíciles de encontrar y las 10 habilidades blandas top según CEOs locales.",
+      "tipo": "opinion",
+      "destacado": false,
+      "tags": ["mercado-laboral", "argentina", "habilidades"]
+    },
+    {
+      "id": "forbes-jovenes-empleo-ia",
+      "titulo": "Jóvenes, empleo e inteligencia artificial: las inquietudes de la nueva generación",
+      "medio": "Forbes Argentina",
+      "autor": "Forbes Digital",
+      "fecha": "2025-09-24",
+      "url": "https://www.forbesargentina.com/innovacion/jovenes-empleo-e-inteligencia-artificial-estudio-revela-inquietudes-e-incertidumbres-enfreta-nueva-generacion-n78787",
+      "descripcion": "Estudio de Moiguer sobre Gen Z argentina: 85% cree en el esfuerzo, 81% tiene proyecto a 5 años, 7 de cada 10 planea seguir formándose. 3 de cada 4 jóvenes considera clave aprender IA.",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["ia", "argentina", "nuevas-profesiones"]
+    },
+    {
+      "id": "forbes-universidad-no-pesa-trabajo",
+      "titulo": "La mitad de los argentinos cree que ser universitario ya no pesa tanto para encontrar trabajo",
+      "medio": "Forbes Argentina",
+      "autor": "Franco Della Vecchia",
+      "fecha": "2025-03-06",
+      "url": "https://www.forbesargentina.com/liderazgo/la-mitad-argentinos-cree-ser-universitario-ya-pesa-tanto-encontrar-trabajo-n68576",
+      "descripcion": "Estudio DatosClaros (AMBA): 51% dice que el título universitario no garantiza mejores oportunidades. 56% prioriza experiencia y habilidades por sobre formación académica. Debate ideal para familias que están decidiendo carrera.",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["universidades", "argentina", "mercado-laboral"]
+    },
+    {
+      "id": "iprofesional-masificacion-ia-nuevos-empleos",
+      "titulo": "La masificación de la Inteligencia Artificial está generando estos nuevos empleos en Argentina",
+      "medio": "iProfesional",
+      "autor": "Lucila Bianchi",
+      "fecha": "2026-07-19",
+      "url": "https://www.iprofesional.com/management/460009-masificacion-de-inteligencia-artificial-genera-estos-nuevos-empleos-en-argentina",
+      "descripcion": "Datos Page Executive y Adecco: 41% de empresas planea aumentar dotación en 2026, 85% de profesionales ya usa IA generativa. Lista perfiles emergentes (Heads of AI, Data & Analytics, AI Engineers) y qué puestos desaparecen primero.",
+      "tipo": "analisis",
+      "destacado": false,
+      "tags": ["ia", "nuevas-profesiones", "argentina", "carreras-que-desaparecen"]
+    },
+    {
+      "id": "iprofesional-ia-crea-nuevos-puestos",
+      "titulo": "Cómo la IA está creando nuevos puestos de trabajo y qué perfiles son los más buscados",
+      "medio": "iProfesional",
+      "autor": "Paula Krizanovic",
+      "fecha": "2026-09-12",
+      "url": "https://www.iprofesional.com/management/464107-como-la-ia-esta-creando-nuevos-puestos-de-trabajo-y-que-perfiles-son-los-mas-buscados",
+      "descripcion": "Estudio EPAM Systems + CAF/IIEP-UBA-CONICET sobre 64.088 ofertas laborales argentinas. 43% de empresas planea contratar roles de IA. Perfiles top en Argentina: Data Analyst, Full Stack, AI Engineer, Product Manager, DevOps.",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["ia", "nuevas-profesiones", "argentina", "habilidades"]
+    },
+    {
+      "id": "eleconomista-perfiles-ia-mas-buscados-2026",
+      "titulo": "Mercado laboral 2026: cuáles son los perfiles con IA más buscados en la Argentina",
+      "medio": "El Economista",
+      "autor": "Staff",
+      "fecha": "2026-09-09",
+      "url": "https://eleconomista.com.ar/economia/mercado-laboral-2026-cuales-son-perfiles-inteligencia-artificial-mas-buscados-argentina-n98048",
+      "descripcion": "Estudio CAF/IIEP-UBA-CONICET: búsquedas con habilidades IA pasaron del 0,6% al 2,6% en Argentina (líder regional vs Brasil, México, Colombia). 91,2% requiere habilidades técnicas, 76,9% blandas.",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["ia", "argentina", "mercado-laboral", "habilidades"]
+    },
+    {
+      "id": "eleconomista-boom-silencioso-ia-oficinas",
+      "titulo": "El boom silencioso de la IA en oficinas argentinas",
+      "medio": "El Economista",
+      "autor": "Staff · estudio IDEA",
+      "fecha": "2025-05-29",
+      "url": "https://eleconomista.com.ar/negocios/la-usan-diario-pero-sus-empresas-promueven-boom-silencioso-ia-oficinas-argentinas-n85197",
+      "descripcion": "Encuesta IDEA a 400 profesionales argentinos: 88% ya usa IA en el trabajo, 92% dice que aumenta su productividad, 71% la considera habilidad imprescindible. 100% cree que su rol cambiará por IA en 3 años.",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["ia", "argentina", "mercado-laboral"]
+    },
+    {
+      "id": "ambito-futuro-trabajo-sin-argentina",
+      "titulo": "El futuro del trabajo ya se construyó (sin Argentina)",
+      "medio": "Ámbito",
+      "autor": "Juan Pablo Chiesa",
+      "fecha": "2026-05-26",
+      "url": "https://www.ambito.com/opiniones/el-futuro-del-trabajo-ya-se-construyo-sin-argentina-n6281550",
+      "descripcion": "WEF proyecta desaparición de 92M de empleos y creación de 170M al 2030. Nombra nuevas profesiones concretas (ingeniero de prompts, entrenador de IA, especialista en ética algorítmica). CEPAL: AmLat aporta solo 1,56% del gasto global en IA.",
+      "tipo": "opinion",
+      "destacado": false,
+      "tags": ["ia", "nuevas-profesiones", "carreras-que-desaparecen"]
+    },
+    {
+      "id": "iproup-empleos-futuro-adecco-2025",
+      "titulo": "Los empleos del futuro: qué perfiles buscan las empresas y cómo prepararse",
+      "medio": "iProUP",
+      "autor": "Informe Adecco Argentina",
+      "fecha": "2025-10-16",
+      "url": "https://www.iproup.com/empleo/61031-ia-y-empleo-los-puestos-mas-demandados-en-argentina-para-los-proximos-anos",
+      "descripcion": "Informe Mercado Laboral Adecco Argentina 2025: 10,6% de empresas ya aplica IA. Top 5 años: especialistas IA/ML (71,9%), analistas big data (55,4%), ciberseguridad (35,6%).",
+      "tipo": "informe",
+      "destacado": false,
+      "tags": ["ia", "nuevas-profesiones", "argentina"]
+    }
+  ]
+}

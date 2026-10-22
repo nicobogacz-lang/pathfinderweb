@@ -548,24 +548,6 @@
           "nombre": "Universidad Nacional de La Plata",
           "sistema": "pública",
           "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
-          "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
         }
       ],
       "descripcion": "Evaluación de la función visual, prescripción de lentes y detección temprana de patologías oculares. Puente clínico entre el oftalmólogo y el paciente.",
@@ -830,12 +812,6 @@
           "nombre": "Universidad Nacional del Nordeste",
           "sistema": "pública",
           "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
         }
       ],
       "descripcion": "Formación técnica en el manejo del instrumental y la logística del quirófano. Rol clave en el equipo quirúrgico junto al cirujano.",
@@ -1054,33 +1030,16 @@
       },
       "universidades": [
         {
-          "sigla": "UNSAM",
-          "nombre": "Universidad Nacional de San Martín",
-          "sistema": "pública",
-          "web": "unsam.edu.ar"
-        },
-        {
-          "sigla": "UNLaM",
-          "nombre": "Universidad Nacional de La Matanza",
-          "sistema": "pública",
-          "web": "unlam.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
+          "sigla": "UDEMM",
+          "nombre": "Universidad de la Marina Mercante",
           "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
+          "web": "udemm.edu.ar"
         }
       ],
       "descripcion": "Operación e interpretación técnica de equipos de diagnóstico por imágenes: radiología, tomografía, resonancia, ecografía. Perfil técnico-sanitario de alta demanda.",
       "duracion": "4 años",
-      "campo_laboral": "Centros de diagnóstico por imágenes, hospitales, clínicas, servicios de emergencia, radiología intervencionista."
+      "campo_laboral": "Centros de diagnóstico por imágenes, hospitales, clínicas, servicios de emergencia, radiología intervencionista.",
+      "nombre_alternativo": "Licenciatura en Producción de Bioimágenes"
     },
     {
       "slug": "podologia",
@@ -1111,28 +1070,10 @@
       },
       "universidades": [
         {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
-        },
-        {
-          "sigla": "UAI",
-          "nombre": "Universidad Abierta Interamericana",
-          "sistema": "privada",
-          "web": "uai.edu.ar"
-        },
-        {
           "sigla": "UCES",
           "nombre": "Universidad de Ciencias Empresariales y Sociales",
           "sistema": "privada",
           "web": "uces.edu.ar"
-        },
-        {
-          "sigla": "USAL",
-          "nombre": "Universidad del Salvador",
-          "sistema": "privada",
-          "web": "usal.edu.ar"
         }
       ],
       "descripcion": "Prevención y tratamiento de patologías del pie. Rol central en pie diabético, geriatría y deporte. Formación técnica con fuerte componente clínico.",
@@ -1168,90 +1109,15 @@
       },
       "universidades": [
         {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
           "sigla": "UNLP",
           "nombre": "Universidad Nacional de La Plata",
           "sistema": "pública",
           "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
         }
       ],
       "descripcion": "Estudio de los efectos adversos de sustancias químicas sobre el organismo. En Argentina se accede principalmente como orientación o posgrado desde Bioquímica, Farmacia o Medicina.",
       "duracion": "5 años (base) + especialización",
       "campo_laboral": "Hospitales (toxicología clínica), peritaje forense, control bromatológico, salud ocupacional, industria química y farmacéutica."
-    },
-    {
-      "slug": "epidemiologia",
-      "nombre": "Epidemiología",
-      "area": 0,
-      "area_nombre": "Ciencias de la Salud",
-      "area_color": "#1D9E75",
-      "vector": {
-        "D": 60,
-        "I": 45,
-        "S": 60,
-        "C": 90,
-        "hR": 25,
-        "hI": 90,
-        "hA": 25,
-        "hS": 65,
-        "hE": 50,
-        "hC": 85,
-        "mTeo": 60,
-        "mEco": 70,
-        "mEst": 25,
-        "mSoc": 90,
-        "mAut": 55,
-        "mTra": 65,
-        "pdcP": 60,
-        "pdcD": 95,
-        "pdcC": 25
-      },
-      "universidades": [
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "FLACSO",
-          "nombre": "Facultad Latinoamericana de Ciencias Sociales",
-          "sistema": "pública",
-          "web": "flacso.org.ar"
-        }
-      ],
-      "descripcion": "Estudio de la distribución y los determinantes de enfermedades en poblaciones. En Argentina se cursa típicamente como posgrado tras una carrera de ciencias de la salud.",
-      "duracion": "Posgrado (2-3 años)",
-      "campo_laboral": "Ministerios de Salud, hospitales, OPS/OMS, investigación biomédica, docencia universitaria, consultoría sanitaria."
     },
     {
       "slug": "hemoterapia-e-inmunohematologia",
@@ -1288,22 +1154,10 @@
           "web": "uba.ar"
         },
         {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
-        },
-        {
           "sigla": "UNC",
           "nombre": "Universidad Nacional de Córdoba",
           "sistema": "pública",
           "web": "unc.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
         }
       ],
       "descripcion": "Técnicas de obtención, procesamiento y transfusión de sangre y hemocomponentes. Rol técnico-sanitario crítico en bancos de sangre y servicios transfusionales.",
@@ -1996,28 +1850,10 @@
           "web": "uba.ar"
         },
         {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
           "sigla": "UNLP",
           "nombre": "Universidad Nacional de La Plata",
           "sistema": "pública",
           "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNT",
-          "nombre": "Universidad Nacional de Tucumán",
-          "sistema": "pública",
-          "web": "unt.edu.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
         }
       ],
       "descripcion": "Estudio científico del lenguaje humano: fonología, sintaxis, semántica, sociolingüística. Puente entre humanidades y ciencias cognitivas.",
@@ -2116,28 +1952,10 @@
           "web": "uba.ar"
         },
         {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
           "sigla": "UNT",
           "nombre": "Universidad Nacional de Tucumán",
           "sistema": "pública",
           "web": "unt.edu.ar"
-        },
-        {
-          "sigla": "UNCO",
-          "nombre": "Universidad Nacional del Comahue",
-          "sistema": "pública",
-          "web": "uncoma.edu.ar"
         }
       ],
       "descripcion": "Estudio de culturas pasadas a través de sus restos materiales. Combina trabajo de campo (excavación), laboratorio y análisis histórico-cultural.",
@@ -2465,35 +2283,11 @@
         "pdcD": 75,
         "pdcC": 10
       },
-      "universidades": [
-        {
-          "sigla": "UCES",
-          "nombre": "Universidad de Ciencias Empresariales y Sociales",
-          "sistema": "privada",
-          "web": "uces.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
-        },
-        {
-          "sigla": "UP",
-          "nombre": "Universidad de Palermo",
-          "sistema": "privada",
-          "web": "palermo.edu"
-        },
-        {
-          "sigla": "UAI",
-          "nombre": "Universidad Abierta Interamericana",
-          "sistema": "privada",
-          "web": "uai.edu.ar"
-        }
-      ],
+      "universidades": [],
       "descripcion": "Mirada específica sobre los procesos psíquicos en lo colectivo: grupos, instituciones, vínculos. En Argentina es carrera independiente (Pichon-Rivière) o especialización.",
       "duracion": "3-4 años",
-      "campo_laboral": "Grupos de reflexión, trabajo comunitario, RRHH, intervención en instituciones, acompañamiento terapéutico, consultoría organizacional."
+      "campo_laboral": "Grupos de reflexión, trabajo comunitario, RRHH, intervención en instituciones, acompañamiento terapéutico, consultoría organizacional.",
+      "nombre_alternativo": "oferta variable — consultar instituciones locales según zona"
     },
     {
       "slug": "turismo",
@@ -2806,18 +2600,6 @@
           "web": "unc.edu.ar"
         },
         {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
           "sigla": "UNNE",
           "nombre": "Universidad Nacional del Nordeste",
           "sistema": "pública",
@@ -2936,12 +2718,6 @@
           "nombre": "Universidad Nacional de Lanús",
           "sistema": "pública",
           "web": "unla.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
         }
       ],
       "descripcion": "Licenciaturas en Seguridad orientadas a la gestión de la seguridad pública y privada, prevención del delito y análisis criminal.",
@@ -2981,24 +2757,6 @@
           "nombre": "Universidad de Palermo",
           "sistema": "privada",
           "web": "palermo.edu"
-        },
-        {
-          "sigla": "UADE",
-          "nombre": "Universidad Argentina de la Empresa",
-          "sistema": "privada",
-          "web": "uade.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
-        },
-        {
-          "sigla": "ORT",
-          "nombre": "Universidad ORT Argentina",
-          "sistema": "privada",
-          "web": "ort.edu.ar"
         }
       ],
       "descripcion": "Formación corta y aplicada en diseño gráfico, digital y comunicación visual. Base para insertarse rápido en estudios y agencias.",
@@ -3449,12 +3207,6 @@
           "nombre": "Universidad de Buenos Aires",
           "sistema": "pública",
           "web": "uba.ar"
-        },
-        {
-          "sigla": "UNMDP",
-          "nombre": "Universidad Nacional de Mar del Plata",
-          "sistema": "pública",
-          "web": "mdp.edu.ar"
         }
       ],
       "descripcion": "Estudio físico, químico y biológico de los océanos. Carrera con fuerte componente de campo (campañas oceanográficas) y laboratorio.",
@@ -3496,22 +3248,10 @@
           "web": "unlp.edu.ar"
         },
         {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
           "sigla": "UBA",
           "nombre": "Universidad de Buenos Aires",
           "sistema": "pública",
           "web": "uba.ar"
-        },
-        {
-          "sigla": "UNT",
-          "nombre": "Universidad Nacional de Tucumán",
-          "sistema": "pública",
-          "web": "unt.edu.ar"
         }
       ],
       "descripcion": "Estudio de los seres vivos del pasado a través del registro fósil. En Argentina se accede principalmente desde Biología o Geología con orientación o posgrado.",
@@ -3655,28 +3395,10 @@
           "web": "unc.edu.ar"
         },
         {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
-        },
-        {
           "sigla": "UNLP",
           "nombre": "Universidad Nacional de La Plata",
           "sistema": "pública",
           "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNCO",
-          "nombre": "Universidad Nacional del Comahue",
-          "sistema": "pública",
-          "web": "uncoma.edu.ar"
         }
       ],
       "descripcion": "Estudio de las relaciones entre organismos y su ambiente. Herramienta central para la conservación, el manejo de recursos y el estudio del cambio climático.",
@@ -3718,18 +3440,6 @@
           "web": "unne.edu.ar"
         },
         {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
           "sigla": "UNR",
           "nombre": "Universidad Nacional de Rosario",
           "sistema": "pública",
@@ -3769,12 +3479,6 @@
       },
       "universidades": [
         {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
           "sigla": "UNC",
           "nombre": "Universidad Nacional de Córdoba",
           "sistema": "pública",
@@ -3785,12 +3489,6 @@
           "nombre": "Universidad Nacional de La Plata",
           "sistema": "pública",
           "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
         },
         {
           "sigla": "UNT",
@@ -3867,63 +3565,6 @@
       "campo_laboral": "Investigación biomédica, startups biotech, farmacéutica, agro-biotecnología, data science aplicada a biología."
     },
     {
-      "slug": "ciencias-del-suelo-exactas",
-      "nombre": "Ciencias del Suelo",
-      "area": 2,
-      "area_nombre": "Ciencias Exactas y Naturales",
-      "area_color": "#378ADD",
-      "vector": {
-        "D": 50,
-        "I": 40,
-        "S": 55,
-        "C": 85,
-        "hR": 55,
-        "hI": 85,
-        "hA": 25,
-        "hS": 45,
-        "hE": 30,
-        "hC": 75,
-        "mTeo": 50,
-        "mEco": 45,
-        "mEst": 25,
-        "mSoc": 85,
-        "mAut": 70,
-        "mTra": 50,
-        "pdcP": 25,
-        "pdcD": 85,
-        "pdcC": 55
-      },
-      "universidades": [
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
-        }
-      ],
-      "descripcion": "Estudio físico-químico-biológico del suelo como recurso natural. Base para agricultura, ingeniería ambiental y planificación territorial.",
-      "duracion": "5 años (orientación)",
-      "campo_laboral": "INTA, consultoría agropecuaria, estudios ambientales, investigación, políticas públicas de suelos."
-    },
-    {
       "slug": "geofisica",
       "nombre": "Geofísica",
       "area": 2,
@@ -3973,126 +3614,6 @@
       "descripcion": "Estudio de los procesos físicos del interior terrestre: sismología, prospección, geomagnetismo. Herramienta clave para exploración de recursos y riesgo sísmico.",
       "duracion": "5 años",
       "campo_laboral": "Industria petrolera, minería, investigación (CONICET), INPRES, consultoría geofísica."
-    },
-    {
-      "slug": "mineralogia",
-      "nombre": "Mineralogía",
-      "area": 2,
-      "area_nombre": "Ciencias Exactas y Naturales",
-      "area_color": "#378ADD",
-      "vector": {
-        "D": 50,
-        "I": 35,
-        "S": 50,
-        "C": 85,
-        "hR": 60,
-        "hI": 90,
-        "hA": 25,
-        "hS": 40,
-        "hE": 30,
-        "hC": 75,
-        "mTeo": 50,
-        "mEco": 40,
-        "mEst": 25,
-        "mSoc": 90,
-        "mAut": 70,
-        "mTra": 45,
-        "pdcP": 20,
-        "pdcD": 85,
-        "pdcC": 60
-      },
-      "universidades": [
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNT",
-          "nombre": "Universidad Nacional de Tucumán",
-          "sistema": "pública",
-          "web": "unt.edu.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
-        }
-      ],
-      "descripcion": "Estudio de los minerales: identificación, génesis y aplicaciones. Se cursa como orientación o especialización de Geología.",
-      "duracion": "5 años (como orientación)",
-      "campo_laboral": "Minería, museos de ciencias, investigación, consultoría geológica, gemología."
-    },
-    {
-      "slug": "quimica-industrial",
-      "nombre": "Química Industrial",
-      "area": 2,
-      "area_nombre": "Ciencias Exactas y Naturales",
-      "area_color": "#378ADD",
-      "vector": {
-        "D": 60,
-        "I": 35,
-        "S": 50,
-        "C": 90,
-        "hR": 35,
-        "hI": 90,
-        "hA": 20,
-        "hS": 40,
-        "hE": 45,
-        "hC": 85,
-        "mTeo": 65,
-        "mEco": 40,
-        "mEst": 20,
-        "mSoc": 90,
-        "mAut": 70,
-        "mTra": 45,
-        "pdcP": 25,
-        "pdcD": 85,
-        "pdcC": 45
-      },
-      "universidades": [
-        {
-          "sigla": "UTN",
-          "nombre": "Universidad Tecnológica Nacional",
-          "sistema": "pública",
-          "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNL",
-          "nombre": "Universidad Nacional del Litoral",
-          "sistema": "pública",
-          "web": "unl.edu.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
-        }
-      ],
-      "descripcion": "Formación aplicada en procesos químicos industriales: diseño, operación, control de calidad y seguridad. Puente entre química pura e ingeniería química.",
-      "duracion": "5 años",
-      "campo_laboral": "Industria química, petroquímica, farmacéutica, alimentos, cosméticos, control de calidad, I+D industrial."
     },
     {
       "slug": "ingenieria-civil",
@@ -4967,18 +4488,6 @@
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
         }
       ],
       "descripcion": "Procesos de obtención y transformación de metales. Clave en siderurgia, industria del aluminio y manufactura metalmecánica.",
@@ -5018,12 +4527,6 @@
           "nombre": "Universidad Nacional de San Juan",
           "sistema": "pública",
           "web": "unsj.edu.ar"
-        },
-        {
-          "sigla": "UNT",
-          "nombre": "Universidad Nacional de Tucumán",
-          "sistema": "pública",
-          "web": "unt.edu.ar"
         }
       ],
       "descripcion": "Exploración, extracción y procesamiento de recursos minerales. Combina geología aplicada, operaciones mineras y gestión ambiental.",
@@ -5252,18 +4755,6 @@
           "nombre": "Universidad Nacional de San Martín",
           "sistema": "pública",
           "web": "unsam.edu.ar"
-        },
-        {
-          "sigla": "ITBA",
-          "nombre": "Instituto Tecnológico de Buenos Aires",
-          "sistema": "privada",
-          "web": "itba.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
         }
       ],
       "descripcion": "Diseño y caracterización de nuevos materiales: polímeros, cerámicos, metales, composites y nanomateriales. Clave en innovación industrial y aeroespacial.",
@@ -5305,22 +4796,10 @@
           "web": "unsam.edu.ar"
         },
         {
-          "sigla": "UNLa",
-          "nombre": "Universidad Nacional de Lanús",
-          "sistema": "pública",
-          "web": "unla.edu.ar"
-        },
-        {
           "sigla": "UTN",
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
         }
       ],
       "descripcion": "Diseño y gestión de sistemas de generación renovable: solar, eólica, biomasa, hidrógeno. Área con enorme proyección en la matriz energética.",
@@ -5425,18 +4904,6 @@
           "web": "uba.ar"
         },
         {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UP",
-          "nombre": "Universidad de Palermo",
-          "sistema": "privada",
-          "web": "palermo.edu"
-        },
-        {
           "sigla": "UAI",
           "nombre": "Universidad Abierta Interamericana",
           "sistema": "privada",
@@ -5492,12 +4959,6 @@
           "nombre": "Universidad Nacional de San Martín",
           "sistema": "pública",
           "web": "unsam.edu.ar"
-        },
-        {
-          "sigla": "UP",
-          "nombre": "Universidad de Palermo",
-          "sistema": "privada",
-          "web": "palermo.edu"
         }
       ],
       "descripcion": "Formación corta y aplicada en programación: desarrollo web, mobile y de sistemas. Puerta rápida al mercado IT, con posibilidad de continuar a licenciatura.",
@@ -5537,24 +4998,6 @@
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UNLaM",
-          "nombre": "Universidad Nacional de La Matanza",
-          "sistema": "pública",
-          "web": "unlam.edu.ar"
-        },
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "UAI",
-          "nombre": "Universidad Abierta Interamericana",
-          "sistema": "privada",
-          "web": "uai.edu.ar"
         }
       ],
       "descripcion": "Formación aplicada en diseño, implementación y administración de redes informáticas. Base técnica para roles en infraestructura IT.",
@@ -5594,18 +5037,6 @@
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "UNSAM",
-          "nombre": "Universidad Nacional de San Martín",
-          "sistema": "pública",
-          "web": "unsam.edu.ar"
         }
       ],
       "descripcion": "Formación técnica aplicada en electrónica analógica y digital, microcontroladores y sistemas embebidos. Base rápida para industria y automatización.",
@@ -5640,18 +5071,6 @@
         "pdcC": 85
       },
       "universidades": [
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "UNSAM",
-          "nombre": "Universidad Nacional de San Martín",
-          "sistema": "pública",
-          "web": "unsam.edu.ar"
-        },
         {
           "sigla": "UTN",
           "nombre": "Universidad Tecnológica Nacional",
@@ -5863,63 +5282,6 @@
       "descripcion": "Protección de sistemas, redes y datos frente a amenazas. Combina programación, redes, criptografía, análisis forense y gestión de riesgos.",
       "duracion": "4-5 años",
       "campo_laboral": "Bancos, telcos, consultoría de seguridad, SOCs, pentesting, respuesta a incidentes, gobierno."
-    },
-    {
-      "slug": "robotica",
-      "nombre": "Robótica",
-      "area": 3,
-      "area_nombre": "Ingeniería y Tecnología",
-      "area_color": "#BA7517",
-      "vector": {
-        "D": 70,
-        "I": 40,
-        "S": 50,
-        "C": 90,
-        "hR": 80,
-        "hI": 90,
-        "hA": 25,
-        "hS": 35,
-        "hE": 50,
-        "hC": 85,
-        "mTeo": 70,
-        "mEco": 35,
-        "mEst": 25,
-        "mSoc": 90,
-        "mAut": 75,
-        "mTra": 45,
-        "pdcP": 15,
-        "pdcD": 90,
-        "pdcC": 85
-      },
-      "universidades": [
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "UNSAM",
-          "nombre": "Universidad Nacional de San Martín",
-          "sistema": "pública",
-          "web": "unsam.edu.ar"
-        },
-        {
-          "sigla": "UTN",
-          "nombre": "Universidad Tecnológica Nacional",
-          "sistema": "pública",
-          "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "ITBA",
-          "nombre": "Instituto Tecnológico de Buenos Aires",
-          "sistema": "privada",
-          "web": "itba.edu.ar"
-        }
-      ],
-      "descripcion": "Diseño e implementación de robots y sistemas autónomos. Convergencia de mecánica, electrónica, control y software con IA aplicada.",
-      "duracion": "5 años",
-      "campo_laboral": "Automatización industrial, startups de robótica, I+D, logística automatizada, agro-robótica, educación."
     },
     {
       "slug": "ingenieria-en-videojuegos",
@@ -6302,18 +5664,6 @@
           "nombre": "Universidad de Buenos Aires",
           "sistema": "pública",
           "web": "uba.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UADE",
-          "nombre": "Universidad Argentina de la Empresa",
-          "sistema": "privada",
-          "web": "uade.edu.ar"
         },
         {
           "sigla": "UCEMA",
@@ -6712,18 +6062,6 @@
       },
       "universidades": [
         {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UCEMA",
-          "nombre": "Universidad del CEMA",
-          "sistema": "privada",
-          "web": "ucema.edu.ar"
-        },
-        {
           "sigla": "UB",
           "nombre": "Universidad de Belgrano",
           "sistema": "privada",
@@ -6775,18 +6113,6 @@
           "web": "palermo.edu"
         },
         {
-          "sigla": "UCEMA",
-          "nombre": "Universidad del CEMA",
-          "sistema": "privada",
-          "web": "ucema.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
           "sigla": "UB",
           "nombre": "Universidad de Belgrano",
           "sistema": "privada",
@@ -6825,18 +6151,6 @@
         "pdcC": 25
       },
       "universidades": [
-        {
-          "sigla": "UP",
-          "nombre": "Universidad de Palermo",
-          "sistema": "privada",
-          "web": "palermo.edu"
-        },
-        {
-          "sigla": "UTN",
-          "nombre": "Universidad Tecnológica Nacional",
-          "sistema": "pública",
-          "web": "utn.edu.ar"
-        },
         {
           "sigla": "UCES",
           "nombre": "Universidad de Ciencias Empresariales y Sociales",
@@ -6895,12 +6209,6 @@
           "web": "uade.edu.ar"
         },
         {
-          "sigla": "Siglo 21",
-          "nombre": "Universidad Siglo 21",
-          "sistema": "privada",
-          "web": "21.edu.ar"
-        },
-        {
           "sigla": "UCES",
           "nombre": "Universidad de Ciencias Empresariales y Sociales",
           "sistema": "privada",
@@ -6944,24 +6252,6 @@
           "nombre": "Universidad de Buenos Aires",
           "sistema": "pública",
           "web": "uba.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
-        },
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
         }
       ],
       "descripcion": "Aplicación de la economía al sector agropecuario: mercados de commodities, políticas rurales, análisis financiero agro. Carrera o especialización.",
@@ -7032,63 +6322,6 @@
       "campo_laboral": "Administración nacional, provincial y municipal, legislativo, organismos descentralizados, consultoría pública, ONGs."
     },
     {
-      "slug": "gestion-de-organizaciones-sin-fines-de-lucro",
-      "nombre": "Gestión de Organizaciones sin Fines de Lucro",
-      "area": 4,
-      "area_nombre": "Ciencias Económicas y Administración",
-      "area_color": "#D85A30",
-      "vector": {
-        "D": 60,
-        "I": 70,
-        "S": 75,
-        "C": 60,
-        "hR": 15,
-        "hI": 50,
-        "hA": 45,
-        "hS": 80,
-        "hE": 70,
-        "hC": 55,
-        "mTeo": 45,
-        "mEco": 75,
-        "mEst": 50,
-        "mSoc": 65,
-        "mAut": 60,
-        "mTra": 75,
-        "pdcP": 80,
-        "pdcD": 60,
-        "pdcC": 20
-      },
-      "universidades": [
-        {
-          "sigla": "FLACSO",
-          "nombre": "Facultad Latinoamericana de Ciencias Sociales",
-          "sistema": "pública",
-          "web": "flacso.org.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "Siglo 21",
-          "nombre": "Universidad Siglo 21",
-          "sistema": "privada",
-          "web": "21.edu.ar"
-        },
-        {
-          "sigla": "UCES",
-          "nombre": "Universidad de Ciencias Empresariales y Sociales",
-          "sistema": "privada",
-          "web": "uces.edu.ar"
-        }
-      ],
-      "descripcion": "Formación específica para gestionar ONGs, fundaciones y cooperativas: financiamiento, impacto, gobernanza y relaciones con donantes y Estado.",
-      "duracion": "3-4 años (muchas veces como posgrado)",
-      "campo_laboral": "ONGs, fundaciones, cooperación internacional, consultoría de impacto, RSE corporativa, filantropía."
-    },
-    {
       "slug": "tecnicatura-en-gestion-y-administracion",
       "nombre": "Tecnicatura en Gestión y Administración",
       "area": 4,
@@ -7121,24 +6354,6 @@
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UP",
-          "nombre": "Universidad de Palermo",
-          "sistema": "privada",
-          "web": "palermo.edu"
-        },
-        {
-          "sigla": "UCES",
-          "nombre": "Universidad de Ciencias Empresariales y Sociales",
-          "sistema": "privada",
-          "web": "uces.edu.ar"
-        },
-        {
-          "sigla": "UAI",
-          "nombre": "Universidad Abierta Interamericana",
-          "sistema": "privada",
-          "web": "uai.edu.ar"
         }
       ],
       "descripcion": "Formación técnica corta en gestión y administración de organizaciones. Rápida inserción laboral en empresas y organismos.",
@@ -8029,12 +7244,6 @@
       },
       "universidades": [
         {
-          "sigla": "UNA",
-          "nombre": "Universidad Nacional de las Artes",
-          "sistema": "pública",
-          "web": "una.edu.ar"
-        },
-        {
           "sigla": "UCA",
           "nombre": "Universidad Católica Argentina",
           "sistema": "privada",
@@ -8210,12 +7419,6 @@
           "nombre": "Universidad Nacional de las Artes",
           "sistema": "pública",
           "web": "una.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
         },
         {
           "sigla": "UNC",
@@ -8735,18 +7938,6 @@
           "nombre": "Universidad Nacional de las Artes",
           "sistema": "pública",
           "web": "una.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
         }
       ],
       "descripcion": "Mirada integral de las artes escénicas y audiovisuales: teatro, danza, performance, dirección. Suele incluir orientación en gestión y producción.",
@@ -8993,12 +8184,6 @@
           "nombre": "Universidad Nacional de la Patagonia San Juan Bosco",
           "sistema": "pública",
           "web": "unp.edu.ar"
-        },
-        {
-          "sigla": "UNLZ",
-          "nombre": "Universidad Nacional de Lomas de Zamora",
-          "sistema": "pública",
-          "web": "unlz.edu.ar"
         }
       ],
       "descripcion": "Manejo sustentable de bosques y plantaciones forestales. Combina silvicultura, ecología, industria forestal y planificación territorial.",
@@ -9034,22 +8219,10 @@
       },
       "universidades": [
         {
-          "sigla": "UNLZ",
-          "nombre": "Universidad Nacional de Lomas de Zamora",
-          "sistema": "pública",
-          "web": "unlz.edu.ar"
-        },
-        {
           "sigla": "UNNE",
           "nombre": "Universidad Nacional del Nordeste",
           "sistema": "pública",
           "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UNLPAM",
-          "nombre": "Universidad Nacional de La Pampa",
-          "sistema": "pública",
-          "web": "unlpam.edu.ar"
         },
         {
           "sigla": "UNCO",
@@ -9101,12 +8274,6 @@
           "nombre": "Universidad de Belgrano",
           "sistema": "privada",
           "web": "ub.edu.ar"
-        },
-        {
-          "sigla": "UCEMA",
-          "nombre": "Universidad del CEMA",
-          "sistema": "privada",
-          "web": "ucema.edu.ar"
         },
         {
           "sigla": "Austral",
@@ -9240,57 +8407,6 @@
       "campo_laboral": "Consultoría ambiental, industria (sustainability), gobiernos locales, ONGs, certificación ambiental, auditoría."
     },
     {
-      "slug": "ingenieria-en-irrigacion",
-      "nombre": "Ingeniería en Irrigación",
-      "area": 6,
-      "area_nombre": "Ciencias Agropecuarias y Ambiente",
-      "area_color": "#3B6D11",
-      "vector": {
-        "D": 60,
-        "I": 40,
-        "S": 55,
-        "C": 80,
-        "hR": 85,
-        "hI": 75,
-        "hA": 20,
-        "hS": 45,
-        "hE": 45,
-        "hC": 75,
-        "mTeo": 65,
-        "mEco": 45,
-        "mEst": 20,
-        "mSoc": 75,
-        "mAut": 70,
-        "mTra": 50,
-        "pdcP": 30,
-        "pdcD": 80,
-        "pdcC": 90
-      },
-      "universidades": [
-        {
-          "sigla": "UNLPAM",
-          "nombre": "Universidad Nacional de La Pampa",
-          "sistema": "pública",
-          "web": "unlpam.edu.ar"
-        },
-        {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
-          "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UNT",
-          "nombre": "Universidad Nacional de Tucumán",
-          "sistema": "pública",
-          "web": "unt.edu.ar"
-        }
-      ],
-      "descripcion": "Diseño de sistemas de riego y manejo del agua para la producción agrícola. Crítica en provincias de Cuyo y NOA.",
-      "duracion": "5 años",
-      "campo_laboral": "Empresas agropecuarias (fruticultura, vitivinicultura), consultoría hídrica, gobiernos provinciales (irrigación), INTA."
-    },
-    {
       "slug": "tecnologia-de-los-alimentos",
       "nombre": "Tecnología de los Alimentos",
       "area": 6,
@@ -9329,12 +8445,6 @@
           "nombre": "Universidad de Buenos Aires",
           "sistema": "pública",
           "web": "uba.ar"
-        },
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
         },
         {
           "sigla": "UNL",
@@ -9382,12 +8492,6 @@
           "web": "uca.edu.ar"
         },
         {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
-          "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
           "sigla": "UNCO",
           "nombre": "Universidad Nacional del Comahue",
           "sistema": "pública",
@@ -9427,28 +8531,10 @@
       },
       "universidades": [
         {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
+          "sigla": "UNMDP",
+          "nombre": "Universidad Nacional de Mar del Plata",
           "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UNLPAM",
-          "nombre": "Universidad Nacional de La Pampa",
-          "sistema": "pública",
-          "web": "unlpam.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
+          "web": "mdp.edu.ar"
         }
       ],
       "descripcion": "Formación específica en producción pecuaria: ganadería bovina, porcina, aviar, lechería. Combina zootecnia, nutrición animal y gestión.",
@@ -9484,28 +8570,10 @@
       },
       "universidades": [
         {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
-          "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
           "sigla": "UNLPAM",
           "nombre": "Universidad Nacional de La Pampa",
           "sistema": "pública",
           "web": "unlpam.edu.ar"
-        },
-        {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UB",
-          "nombre": "Universidad de Belgrano",
-          "sistema": "privada",
-          "web": "ub.edu.ar"
         }
       ],
       "descripcion": "Formación específica en producción vegetal intensiva y extensiva: cereales, oleaginosas, frutales, hortalizas y cultivos industriales.",
@@ -9639,63 +8707,6 @@
       "campo_laboral": "Estudios de paisajismo, gobiernos locales (espacio público), desarrollos inmobiliarios, viveros, consultoría ambiental."
     },
     {
-      "slug": "ciencias-del-suelo-agro",
-      "nombre": "Ciencias del Suelo",
-      "area": 6,
-      "area_nombre": "Ciencias Agropecuarias y Ambiente",
-      "area_color": "#3B6D11",
-      "vector": {
-        "D": 50,
-        "I": 40,
-        "S": 60,
-        "C": 80,
-        "hR": 60,
-        "hI": 85,
-        "hA": 25,
-        "hS": 50,
-        "hE": 30,
-        "hC": 75,
-        "mTeo": 50,
-        "mEco": 50,
-        "mEst": 25,
-        "mSoc": 85,
-        "mAut": 70,
-        "mTra": 55,
-        "pdcP": 30,
-        "pdcD": 85,
-        "pdcC": 60
-      },
-      "universidades": [
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNS",
-          "nombre": "Universidad Nacional del Sur",
-          "sistema": "pública",
-          "web": "uns.edu.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
-        }
-      ],
-      "descripcion": "Carrera o especialización dedicada al estudio del suelo como recurso productivo. Clave para agro, agroforestería y manejo sustentable.",
-      "duracion": "5 años (orientación/especialización)",
-      "campo_laboral": "INTA, consultoría agronómica, empresas agropecuarias, cooperativas, gobierno (agricultura), I+D agrícola."
-    },
-    {
       "slug": "acuicultura",
       "nombre": "Acuicultura",
       "area": 6,
@@ -9722,26 +8733,7 @@
         "pdcD": 75,
         "pdcC": 85
       },
-      "universidades": [
-        {
-          "sigla": "UNC",
-          "nombre": "Universidad Nacional de Córdoba",
-          "sistema": "pública",
-          "web": "unc.edu.ar"
-        },
-        {
-          "sigla": "UNMDP",
-          "nombre": "Universidad Nacional de Mar del Plata",
-          "sistema": "pública",
-          "web": "mdp.edu.ar"
-        },
-        {
-          "sigla": "UNPSJB",
-          "nombre": "Universidad Nacional de la Patagonia San Juan Bosco",
-          "sistema": "pública",
-          "web": "unp.edu.ar"
-        }
-      ],
+      "universidades": [],
       "descripcion": "Formación en producción controlada de organismos acuáticos: peces, moluscos, algas. Industria con proyección en Patagonia y litoral.",
       "duracion": "3-4 años",
       "campo_laboral": "Granjas acuícolas, pesquerías, I+D marina, consultoría de producción acuática, INIDEP, ONGs marinas."
@@ -9775,28 +8767,10 @@
       },
       "universidades": [
         {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
+          "sigla": "UNRN",
+          "nombre": "Universidad Nacional de Río Negro",
           "sistema": "pública",
-          "web": "unlp.edu.ar"
-        },
-        {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNR",
-          "nombre": "Universidad Nacional de Rosario",
-          "sistema": "pública",
-          "web": "unr.edu.ar"
-        },
-        {
-          "sigla": "UNL",
-          "nombre": "Universidad Nacional del Litoral",
-          "sistema": "pública",
-          "web": "unl.edu.ar"
+          "web": "unrn.edu.ar"
         }
       ],
       "descripcion": "Carrera moderna orientada a la producción agrícola sustentable, basada en principios ecológicos y agricultura regenerativa.",
@@ -9832,27 +8806,16 @@
       },
       "universidades": [
         {
-          "sigla": "UCA",
-          "nombre": "Universidad Católica Argentina",
-          "sistema": "privada",
-          "web": "uca.edu.ar"
-        },
-        {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
+          "sigla": "UNRN",
+          "nombre": "Universidad Nacional de Río Negro",
           "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
-        {
-          "sigla": "UNLPAM",
-          "nombre": "Universidad Nacional de La Pampa",
-          "sistema": "pública",
-          "web": "unlpam.edu.ar"
+          "web": "unrn.edu.ar"
         }
       ],
       "descripcion": "Formación específica en prevención y manejo sanitario del ganado y animales de producción. Alternativa a Veterinaria con foco productivo.",
       "duracion": "4 años",
-      "campo_laboral": "SENASA, empresas pecuarias, laboratorios veterinarios, cooperativas, frigoríficos, control sanitario."
+      "campo_laboral": "SENASA, empresas pecuarias, laboratorios veterinarios, cooperativas, frigoríficos, control sanitario.",
+      "nombre_alternativo": "Tecnicatura Universitaria en Salud Pública Animal"
     },
     {
       "slug": "tecnicatura-en-produccion-agricola",
@@ -9882,18 +8845,6 @@
         "pdcC": 90
       },
       "universidades": [
-        {
-          "sigla": "UNLZ",
-          "nombre": "Universidad Nacional de Lomas de Zamora",
-          "sistema": "pública",
-          "web": "unlz.edu.ar"
-        },
-        {
-          "sigla": "UNNE",
-          "nombre": "Universidad Nacional del Nordeste",
-          "sistema": "pública",
-          "web": "unne.edu.ar"
-        },
         {
           "sigla": "UNLPAM",
           "nombre": "Universidad Nacional de La Pampa",
@@ -10060,28 +9011,10 @@
       },
       "universidades": [
         {
-          "sigla": "UBA",
-          "nombre": "Universidad de Buenos Aires",
-          "sistema": "pública",
-          "web": "uba.ar"
-        },
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
           "sigla": "UNLa",
           "nombre": "Universidad Nacional de Lanús",
           "sistema": "pública",
           "web": "unla.edu.ar"
-        },
-        {
-          "sigla": "UNLP",
-          "nombre": "Universidad Nacional de La Plata",
-          "sistema": "pública",
-          "web": "unlp.edu.ar"
         }
       ],
       "descripcion": "Formación específica para la educación de niños de 45 días a 5 años. Combina didáctica específica, psicología del desarrollo y gestión de salas.",
@@ -10127,18 +9060,6 @@
           "nombre": "Universidad Nacional de Lanús",
           "sistema": "pública",
           "web": "unla.edu.ar"
-        },
-        {
-          "sigla": "UNLaM",
-          "nombre": "Universidad Nacional de La Matanza",
-          "sistema": "pública",
-          "web": "unlam.edu.ar"
-        },
-        {
-          "sigla": "UNDAV",
-          "nombre": "Universidad Nacional de Avellaneda",
-          "sistema": "pública",
-          "web": "undav.edu.ar"
         }
       ],
       "descripcion": "Formación específica para la educación primaria. Combina didácticas de las áreas curriculares con pedagogía y gestión de aula.",
@@ -10835,24 +9756,6 @@
           "nombre": "Universidad Tecnológica Nacional",
           "sistema": "pública",
           "web": "utn.edu.ar"
-        },
-        {
-          "sigla": "UNQ",
-          "nombre": "Universidad Nacional de Quilmes",
-          "sistema": "pública",
-          "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "UNSAM",
-          "nombre": "Universidad Nacional de San Martín",
-          "sistema": "pública",
-          "web": "unsam.edu.ar"
-        },
-        {
-          "sigla": "UNLa",
-          "nombre": "Universidad Nacional de Lanús",
-          "sistema": "pública",
-          "web": "unla.edu.ar"
         }
       ],
       "descripcion": "Formación en tecnología como asignatura escolar: lógica de proyecto, electrónica básica, programación, pensamiento computacional.",
@@ -10955,24 +9858,6 @@
           "nombre": "Universidad Nacional de Quilmes",
           "sistema": "pública",
           "web": "unq.edu.ar"
-        },
-        {
-          "sigla": "FLACSO",
-          "nombre": "Facultad Latinoamericana de Ciencias Sociales",
-          "sistema": "pública",
-          "web": "flacso.org.ar"
-        },
-        {
-          "sigla": "UNICEN",
-          "nombre": "Universidad Nacional del Centro de la Provincia de Buenos Aires",
-          "sistema": "pública",
-          "web": "unicen.edu.ar"
-        },
-        {
-          "sigla": "UNL",
-          "nombre": "Universidad Nacional del Litoral",
-          "sistema": "pública",
-          "web": "unl.edu.ar"
         }
       ],
       "descripcion": "Formación en la intersección entre educación y tecnologías digitales: diseño instruccional, EdTech, educación a distancia, data en educación.",
@@ -11882,6 +10767,16 @@
       "nombre": "Universidad Nacional de Río Cuarto",
       "sistema": "pública",
       "web": "unrc.edu.ar"
+    },
+    "UDEMM": {
+      "nombre": "Universidad de la Marina Mercante",
+      "sistema": "privada",
+      "web": "udemm.edu.ar"
+    },
+    "UNRN": {
+      "nombre": "Universidad Nacional de Río Negro",
+      "sistema": "pública",
+      "web": "unrn.edu.ar"
     }
   }
 }
